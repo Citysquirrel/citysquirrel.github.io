@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { FaGithub, FaMailBulk } from 'react-icons/fa';
+import { FaGithub, FaMailBulk, FaChalkboardTeacher } from 'react-icons/fa';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 8px;
   > .footer-links {
     display: flex;
     margin-top: 8px;
@@ -45,9 +46,11 @@ export const Footer = () => {
         >
           <FaGithub />
         </a>
+        <a href="https://velog.io/@tok1324" target="_blank" rel="noreferrer">
+          <FaChalkboardTeacher />
+        </a>
       </div>
-      <div className="footer-names">Name. 곽명우</div>
-      <div className="footer-names">Nick. 도시다람쥐</div>
+      <div className="footer-names">곽명우 a.k.a. 도시다람쥐</div>
     </Container>
   );
 };

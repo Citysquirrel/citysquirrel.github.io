@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
 import './../font.css';
+import { useEffect, useState } from 'react';
 
-const Container = styled.header`
+const Container = styled.header<{ isTop: boolean }>`
   position: fixed;
   left: 0;
   top: 0;
@@ -14,9 +15,10 @@ const Container = styled.header`
   align-items: center;
   height: 48px;
   /* background-color: var(--bg-menu); */
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.isTop ? 'transparent' : 'var(--bg-menu-tp)'};
   font-family: 'KOHIBaeumOTF';
-  /* backdrop-filter: blur(5px); */
+  backdrop-filter: blur(5px);
 `;
 
 const Wrapper = styled.div`
@@ -44,13 +46,24 @@ const Wrapper = styled.div`
 `;
 
 export const Header = () => {
+  const [isTop, setIsTop] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 10) setIsTop(true);
+      else setIsTop(false);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <Container>
+    <Container isTop={isTop}>
       <Wrapper>
         <Link to="/">Main</Link>
-        <Link to="/">HTML / CSS</Link>
-        <Link to="/">JS / TS</Link>
-        <Link to="/">Front-end</Link>
+        <Link to="/1">HTML / CSS</Link>
+        <Link to="/2">JS / TS</Link>
+        <Link to="/3">Front-end</Link>
       </Wrapper>
     </Container>
   );
