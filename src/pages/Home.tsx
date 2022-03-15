@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const Container = styled.div``;
 
 const Intro = styled.div`
-  height: 128px;
+  padding-top: 64px;
+  height: 256px;
   /* max-width: 968px; */
   background-color: var(--bg-menu);
   font-family: 'SUIT-Light';
