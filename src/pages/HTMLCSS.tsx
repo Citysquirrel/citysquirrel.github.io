@@ -1,4 +1,6 @@
+import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import { First } from './1';
 
 const Container = styled.div`
   display: flex;
@@ -50,22 +52,53 @@ const Contents = styled.div``;
 export const HTMLCSS = () => {
   return (
     <Container>
-      <Intro>Introduction</Intro>
+      <Intro>
+        <Routes>
+          <Route path="/" element={<>Introduction</>} />
+          <Route path="/1" element={<>1</>} />
+          <Route path="/2" element={<>2</>} />
+          <Route path="/3" element={<>3</>} />
+          <Route path="/4" element={<>4</>} />
+          <Route path="/5" element={<>5</>} />
+          <Route path="/6" element={<>6</>} />
+        </Routes>
+      </Intro>
       <Menu>
         <div className="menu-wrapper">
-          <div className="menu-tab">1</div>
-          <div className="menu-tab">2</div>
-          <div className="menu-tab">3</div>
-          <div className="menu-tab">4</div>
-          <div className="menu-tab">5</div>
-          <div className="menu-tab">6</div>
-          <div className="menu-tab">7</div>
-          <div className="menu-tab">8</div>
-          <div className="menu-tab">9</div>
-          <div className="menu-tab">10</div>
+          <Link to="" className="menu-tab">
+            Main
+          </Link>
+          <Link to="1" className="menu-tab">
+            1
+          </Link>
+          <Link to="2" className="menu-tab">
+            2
+          </Link>
+          <Link to="3" className="menu-tab">
+            3
+          </Link>
+          <Link to="4" className="menu-tab">
+            4
+          </Link>
+          <Link to="5" className="menu-tab">
+            5
+          </Link>
+          <Link to="6" className="menu-tab">
+            6
+          </Link>
         </div>
       </Menu>
-      <Contents></Contents>
+      <Contents>
+        <Routes>
+          <Route path="/" element={<First />} />
+          <Route path="/1" element={<First />} />
+          <Route path="/2" element={<First />} />
+          <Route path="/3" element={<First />} />
+          <Route path="/4" element={<First />} />
+          <Route path="/5" element={<First />} />
+          <Route path="/6" element={<First />} />
+        </Routes>
+      </Contents>
     </Container>
   );
 };

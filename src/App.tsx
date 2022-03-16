@@ -20,7 +20,7 @@ function App() {
         <Container id="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/1" element={<HTMLCSS />} />
+            <Route path="/1/*" element={<HTMLCSS />} />
             <Route path="/2" element={<HTMLCSS />} />
             <Route path="/3" element={<HTMLCSS />} />
             <Route path="/*" element={<Home />} />
