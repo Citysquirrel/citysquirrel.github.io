@@ -1,3 +1,4 @@
+import { url } from 'inspector';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -6,16 +7,34 @@ const Container = styled.div`
 `;
 
 const Intro = styled.div`
-  padding-top: 64px;
-  height: 256px;
+  position: relative;
+  padding-top: 128px;
+  height: 512px;
+  font-weight: 900;
   /* max-width: 968px; */
   background-color: var(--bg-menu);
   font-family: 'SUIT-Light';
+  z-index: 1;
+
+  :after {
+    position: absolute;
+    background-image: url(${`'${process.env.PUBLIC_URL}/images/picture_intro.jpg'`});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 `;
 
 const Menu = styled.div`
   /* display: flex; */
-  background-color: var(--bg-menu);
+  /* background-color: var(--bg-menu); */
   > .menu-wrapper {
     max-width: 968px;
     display: flex;
@@ -62,6 +81,9 @@ export const Pictures = () => {
         </Routes> */}
         우리집 냥이 보고가!
       </Intro>
+      <Menu>
+        <div className="menu-wrapper"></div>
+      </Menu>
       {/* <Menu>
         <div className="menu-wrapper">
           <Link to="" className="menu-tab">

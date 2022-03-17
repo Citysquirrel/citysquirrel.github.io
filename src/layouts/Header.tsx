@@ -18,7 +18,8 @@ const Container = styled.header<{ isTop: boolean }>`
   background-color: ${(props) =>
     props.isTop ? 'transparent' : 'var(--bg-menu-tp)'};
   font-family: 'KOHIBaeumOTF';
-  backdrop-filter: blur(4px);
+  ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
+  z-index: 1004;
 `;
 
 const Wrapper = styled.div`
