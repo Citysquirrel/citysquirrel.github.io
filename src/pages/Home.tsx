@@ -26,6 +26,9 @@ const Intro = styled.div`
     white-space: pre-wrap;
     word-break: keep-all;
     background-color: inherit;
+    > a {
+      background-color: #9dc3f3;
+    }
   }
 `;
 
@@ -35,22 +38,21 @@ export const Home = () => {
       <Intro>
         <h1>WHAT?</h1>
         <div>
-          개인 블로그에 작성되는 예제들을 모아놓은 페이지입니다.
+          <a href="https://velog.io/@tok1324" target="_blank" rel="noreferrer">
+            개인 블로그
+          </a>
+          에 작성되는 예제들을 모아놓은 페이지입니다.
           <p /> 웹 페이지를 구성하기 위해 필요한 요소들에 대한 개념과 그 예제를
           정리했습니다!
         </div>
         <h1>WHY?</h1>
         <div>
           개발자로서 뭔가 배울 때 어떤 코드에 대한 예제가 있으면 굉장히 큰
-          도움이 됩니다. <p />나 자신 뿐만 아니라, 주니어 및 시니어 개발자
+          도움이 됩니다. <p />
+          다른 사람들은 이 코드를 어떻게 짰지? 하는 의문이 생길 때가 다들
+          있을겁니다. <p />나 자신 뿐만 아니라, 주니어 및 시니어 개발자
           분들에게도 보고 참고가 될만한 예제들을 정리하는 것이 이 페이지의
           목적입니다 :)
-        </div>
-        <div>
-          테<p />스<p />트<p />용<p />텍<p />스<p />트<p />길<p />어<p />져<p />
-          라<p />얍<p />!<p />테<p />스<p />트<p />용<p />텍<p />스<p />트<p />
-          길<p />어<p />져<p />
-          라<p />얍<p />!
         </div>
       </Intro>
     </Container>

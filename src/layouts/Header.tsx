@@ -18,7 +18,7 @@ const Container = styled.header<{ isTop: boolean }>`
   background-color: ${(props) =>
     props.isTop ? 'transparent' : 'var(--bg-menu-tp)'};
   font-family: 'KOHIBaeumOTF';
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
 `;
 
 const Wrapper = styled.div`
@@ -61,9 +61,9 @@ export const Header = () => {
     <Container isTop={isTop}>
       <Wrapper>
         <Link to="/">Main</Link>
-        <Link to="/1">HTML / CSS</Link>
-        <Link to="/2">JS / TS</Link>
-        <Link to="/3">Front-end</Link>
+        <Link to="/1">Examples</Link>
+        <Link to="/2">Pictures</Link>
+        {/* <Link to="/3">Front-end</Link> */}
       </Wrapper>
     </Container>
   );

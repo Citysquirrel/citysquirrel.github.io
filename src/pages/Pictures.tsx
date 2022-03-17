@@ -1,6 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import { First } from './1';
 
 const Container = styled.div`
   display: flex;
@@ -49,11 +47,11 @@ const Menu = styled.div`
 
 const Contents = styled.div``;
 
-export const HTMLCSS = () => {
+export const Pictures = () => {
   return (
     <Container>
       <Intro>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<>Introduction</>} />
           <Route path="/1" element={<>1</>} />
           <Route path="/2" element={<>2</>} />
@@ -61,9 +59,10 @@ export const HTMLCSS = () => {
           <Route path="/4" element={<>4</>} />
           <Route path="/5" element={<>5</>} />
           <Route path="/6" element={<>6</>} />
-        </Routes>
+        </Routes> */}
+        우리집 냥이 보고가!
       </Intro>
-      <Menu>
+      {/* <Menu>
         <div className="menu-wrapper">
           <Link to="" className="menu-tab">
             Main
@@ -87,9 +86,9 @@ export const HTMLCSS = () => {
             6
           </Link>
         </div>
-      </Menu>
+      </Menu> */}
       <Contents>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<First />} />
           <Route path="/1" element={<First />} />
           <Route path="/2" element={<First />} />
@@ -97,7 +96,7 @@ export const HTMLCSS = () => {
           <Route path="/4" element={<First />} />
           <Route path="/5" element={<First />} />
           <Route path="/6" element={<First />} />
-        </Routes>
+        </Routes> */}
       </Contents>
     </Container>
   );

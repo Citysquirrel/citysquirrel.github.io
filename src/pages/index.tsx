@@ -1,4 +1,5 @@
 import { Home } from './Home';
-import { HTMLCSS } from './HTMLCSS';
+import { Examples } from './Examples';
+import { Pictures } from './Pictures';
 
-export { Home, HTMLCSS };
+export { Home, Examples, Pictures };
