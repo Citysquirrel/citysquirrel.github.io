@@ -54,7 +54,15 @@ export const Examples = () => {
     <Container>
       <Intro>
         <Routes>
-          <Route path="/" element={<>Introduction</>} />
+          <Route
+            path="/"
+            element={
+              <>
+                아직 공사중이예요 ㅠ.. 페이지 어떻게 구성할지 좀 더 고민후에
+                찾아뵐게요!
+              </>
+            }
+          />
           <Route path="/1" element={<>1</>} />
           <Route path="/2" element={<>2</>} />
           <Route path="/3" element={<>3</>} />
