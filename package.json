@@ -20,13 +20,21 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "dp": "gh-pages -d build"
+    "dp": "gh-pages -d build",
+    "lint": "eslint '**/*.{ts,tsx}' --ext .ts,.tsx --fix",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +56,9 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.24",
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7"
   },
   "homepage": "http://citysquirrel.github.io/posting"
 }
