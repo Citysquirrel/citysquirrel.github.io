@@ -14,7 +14,7 @@ const Pages = styled.div`
 
 function App() {
   return (
-    <Router>
+    <Router basename="/posting">
       <div className="App">
         <Header />
         <Container id="container">
