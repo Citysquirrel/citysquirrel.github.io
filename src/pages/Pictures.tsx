@@ -1,5 +1,15 @@
-import { url } from 'inspector';
 import styled from 'styled-components';
+import AWS from 'aws-sdk';
+AWS.config.update({ region: 'ap-northeast-2' });
+const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
+
+s3.listBuckets((err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Success', data.Buckets);
+  }
+});
 
 const Container = styled.div`
   display: flex;
