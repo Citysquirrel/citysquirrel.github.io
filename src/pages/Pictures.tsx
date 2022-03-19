@@ -1,15 +1,4 @@
 import styled from 'styled-components';
-import AWS from 'aws-sdk';
-AWS.config.update({ region: 'ap-northeast-2' });
-const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
-
-s3.listBuckets((err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Success', data.Buckets);
-  }
-});
 
 const Container = styled.div`
   display: flex;
@@ -74,8 +63,15 @@ const Menu = styled.div`
   }
 `;
 //https://myimages-citysquirrel.s3.ap-northeast-2.amazonaws.com/%ED%95%B4%ED%83%88%EC%9D%B4/20210708_110636.jpg
-
 const Contents = styled.div``;
+
+const imgPoint =
+  'https://myimages-citysquirrel.s3.ap-northeast-2.amazonaws.com/%ED%95%B4%ED%83%88%EC%9D%B4/';
+
+const images = Array.from({ length: 14 }, (v, i) => {
+  return `${imgPoint}${i + 1}.jpg`;
+});
+console.log(images);
 
 export const Pictures = () => {
   return (
