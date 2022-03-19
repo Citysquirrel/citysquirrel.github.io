@@ -20,6 +20,7 @@ const Container = styled.header<{ isTop: boolean }>`
   font-family: 'KOHIBaeumOTF';
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
   z-index: 1004;
+  transition: all 0.3s;
 `;
 
 const Wrapper = styled.div`
