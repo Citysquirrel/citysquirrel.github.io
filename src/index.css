@@ -46,3 +46,7 @@ code {
   background-color: #ddd;
   display: none;
 }
+
+.scroll-disabled {
+  overflow: hidden;
+}

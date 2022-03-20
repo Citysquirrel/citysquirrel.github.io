@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import AWS from 'aws-sdk';
+import { FullPicture } from './Pictures-Full';
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +18,6 @@ const Intro = styled.div`
   background-color: var(--bg-menu);
   font-family: 'SUIT-Light';
   z-index: 1;
-
   :after {
     position: absolute;
     background-image: url(${`'${process.env.PUBLIC_URL}/images/picture_intro.jpg'`});
@@ -76,6 +76,7 @@ const Contents = styled.div`
   }
 
   .pic-controller-wrapper {
+    user-select: none;
     display: flex;
   }
   .pic-controller {
@@ -97,10 +98,11 @@ const Contents = styled.div`
       color: #ddd;
     }
   }
-  img {
+  .mycat {
     display: block;
     width: 512px;
     margin: 8px;
+    cursor: pointer;
   }
 `;
 
@@ -113,6 +115,7 @@ const images = Array.from({ length: 14 }, (v, i) => {
 
 export const Pictures = () => {
   const [curPic, setCurPic] = useState(0);
+  const [fullImgOn, setFullImgOn] = useState(false);
 
   // const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
   // const SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
@@ -134,48 +137,29 @@ export const Pictures = () => {
   //   else console.log(data);
   // });
 
+  const handlePicNum =
+    (key: number) => (e: React.MouseEvent<HTMLDivElement>) => {
+      if (key === -1) {
+        setCurPic((prev) => (prev !== 0 ? prev - 1 : prev));
+      } else if (key === 1) {
+        setCurPic((prev) => (prev !== 13 ? prev + 1 : prev));
+      }
+    };
+
   return (
     <Container>
       <Intro>
-        {/* <Routes>
-          <Route path="/" element={<>Introduction</>} />
-          <Route path="/1" element={<>1</>} />
-          <Route path="/2" element={<>2</>} />
-          <Route path="/3" element={<>3</>} />
-          <Route path="/4" element={<>4</>} />
-          <Route path="/5" element={<>5</>} />
-          <Route path="/6" element={<>6</>} />
-        </Routes> */}
         우리집 냥이 보고가!
+        <p />
+        <br />
+        올해 19살을 맞은{' '}
+        <span style={{ backgroundColor: 'orange' }}>해탈이</span> 사진
+        보고가세요!
       </Intro>
       <Menu>
         <div className="menu-wrapper"></div>
       </Menu>
-      {/* <Menu>
-        <div className="menu-wrapper">
-          <Link to="" className="menu-tab">
-            Main
-          </Link>
-          <Link to="1" className="menu-tab">
-            1
-          </Link>
-          <Link to="2" className="menu-tab">
-            2
-          </Link>
-          <Link to="3" className="menu-tab">
-            3
-          </Link>
-          <Link to="4" className="menu-tab">
-            4
-          </Link>
-          <Link to="5" className="menu-tab">
-            5
-          </Link>
-          <Link to="6" className="menu-tab">
-            6
-          </Link>
-        </div>
-      </Menu> */}
+
       <Contents>
         <div>{images[curPic][1]}</div>
         <div className="cat-wrapper">
@@ -184,9 +168,7 @@ export const Pictures = () => {
               className={
                 curPic === 0 ? 'pic-controller disabled' : 'pic-controller'
               }
-              onClick={() => {
-                setCurPic((prev) => (prev !== 0 ? prev - 1 : prev));
-              }}
+              onClick={handlePicNum(-1)}
             >
               <FaAngleLeft />
             </div>
@@ -194,24 +176,27 @@ export const Pictures = () => {
               className={
                 curPic === 13 ? 'pic-controller disabled' : 'pic-controller'
               }
-              onClick={() => {
-                setCurPic((prev) => (prev !== 13 ? prev + 1 : prev));
-              }}
+              onClick={handlePicNum(1)}
             >
               <FaAngleRight />
             </div>
           </div>
-          <img src={images[curPic][0]} alt="mycat" />
+          {fullImgOn ? (
+            <FullPicture
+              source={images[curPic][0]}
+              setFullImgOn={setFullImgOn}
+              handlePicNum={handlePicNum}
+            />
+          ) : null}
+          <img
+            className="mycat"
+            src={images[curPic][0]}
+            onClick={() => {
+              setFullImgOn(true);
+            }}
+            alt="mycat"
+          />
         </div>
-        {/* <Routes>
-          <Route path="/" element={<First />} />
-          <Route path="/1" element={<First />} />
-          <Route path="/2" element={<First />} />
-          <Route path="/3" element={<First />} />
-          <Route path="/4" element={<First />} />
-          <Route path="/5" element={<First />} />
-          <Route path="/6" element={<First />} />
-        </Routes> */}
       </Contents>
     </Container>
   );

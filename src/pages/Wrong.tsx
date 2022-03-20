@@ -11,8 +11,10 @@ const Container = styled.div`
 export const Wrong = () => {
   return (
     <Container>
-      어떻게 들어왔어요?!
+      막다른 길!
+      <p />
       <a href="javascript:window.history.back()">뒤로가기</a>
+      <Link to="/">홈으로</Link>
     </Container>
   );
 };

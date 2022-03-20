@@ -29,7 +29,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cp": "copy \"build/index.html\" \"build\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "dp": "gh-pages -d build",
