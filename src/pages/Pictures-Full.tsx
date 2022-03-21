@@ -26,7 +26,7 @@ const Container = styled.div`
     display: flex;
     left: 80vw;
     padding: 4px;
-    background-color: inherit;
+    background-color: transparent;
   }
   .controll-buttons {
     width: 48px;
@@ -48,6 +48,7 @@ const Container = styled.div`
   }
   .fullimg-container {
     display: flex;
+
     background-color: inherit;
   }
   .fullimg-controller {
@@ -63,13 +64,18 @@ const Container = styled.div`
       margin-right: auto;
       background-color: inherit;
     }
+    :hover {
+      color: #aaa;
+      transition: all 0.3s;
+    }
   }
   .fullimg {
-    flex: 1 0 968px;
+    flex: 1 0 auto;
     background-color: inherit;
     img {
       margin-top: 5vh;
       max-height: 90vh;
+      max-width: 70vw;
     }
   }
 `;
