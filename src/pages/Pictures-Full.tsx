@@ -98,11 +98,12 @@ export const FullPicture = ({ source, setFullImgOn, handlePicNum }: Props) => {
       <div className="controll-buttons-panel">
         <a
           href={source}
-          download={source}
+          download
+          target={'_blank'}
           className="controll-buttons"
           onClick={() => {
             setFullImgOn(false);
-          }}
+          }} rel="noreferrer"
         >
           <FaDownload style={{ marginTop: '8px' }} />
         </a>
