@@ -3,7 +3,7 @@
 ## 🏁 Plans
 * [x] citysquirrel.github.io 레포로 이사하기
   * [x] 굳이 posting 페이지 따로 없어도 될것같아!
-  * [ ] 이사는 했는데 gh-pages ssh 키 인증문제 생김
+  * [x] 이사는 했는데 gh-pages ssh 키 인증문제 생김 => [아이디 인증으로 우회함](https://velog.io/@tok1324/TIL-gh-pages-%EC%82%AC%EC%9A%A9%EC%8B%9C-ssh-public-key-%EC%9D%B8%EC%A6%9D%EB%AC%B8%EC%A0%9C)
 * [ ] react build 이후 404.html 페이지 자동으로 만드는 작업이 잘 안됨 ㅠ 좀 더 연구 필요함
   * [ ] postbuild 이후 copy 명령어 사용해보기, 현재 윈도우 환경이기 때문에 cp 명령어가 다르게 작동함
   * [ ] 목적: github pages 기능이 react 라우팅을 지원하지 않기 때문에 404.html 파일을 통해 fake routing을 실행하기 위함
