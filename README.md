@@ -1,4 +1,4 @@
-# 블로깅에 사용되는, 각종 코딩 예제 페이지입니다!
+# 도시다람쥐 깃허브 페이지
 
 ## 🏁 Plans
 * [x] citysquirrel.github.io 레포로 이사하기
@@ -11,4 +11,4 @@
 * [ ] 페이지를 어떤 것들로 채울 것인지에 대해 생각해보기
   * [ ] 현재의 Home Intro 부분을 Examples 페이지로 옮기고, Home 화면에 자기소개로 채우는 구성 괜찮을 것같음
 
-[페이지 링크](https://citysquirrel.github.io/posting/)
+[페이지 링크](https://citysquirrel.github.io/)
