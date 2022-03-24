@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { First } from './1';
@@ -88,6 +89,7 @@ const Menu = styled.div`
 const Contents = styled.div``;
 
 export const Study = () => {
+  const [studyPage, setStudyPage] = useState(0);
   return (
     <Container>
       <Intro>
@@ -118,7 +120,7 @@ export const Study = () => {
       </Intro>
       <Menu>
         <div className="menu-wrapper">
-          <Link to="" className="menu-tab">
+          <Link to="" className={`menu-tab`}>
             Main
           </Link>
           <Link to="1" className="menu-tab">

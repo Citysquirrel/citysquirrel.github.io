@@ -45,10 +45,27 @@ const Wrapper = styled.div`
       background-color: #9dc3f3;
     }
   }
+  .paged {
+    color: orange;
+  }
 `;
 
 export const Header = () => {
   const [isTop, setIsTop] = useState(true);
+  const [page, setPage] = useState(window.location.pathname);
+
+  const handleCurrentPage =
+    (key: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      setPage(key);
+    };
+
+  const pageInfo = [
+    ['/', 'Main'],
+    ['/study', 'Study'],
+    ['/examples', 'Examples'],
+    ['/pictures', 'Pictures'],
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY < 10) setIsTop(true);
@@ -59,13 +76,21 @@ export const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   return (
     <Container isTop={isTop}>
       <Wrapper>
-        <Link to="/">Main</Link>
-        <Link to="/study">Study</Link>
-        <Link to="/examples">Examples</Link>
-        <Link to="/pictures">Pictures</Link>
+        {pageInfo.map((v) => {
+          return (
+            <Link
+              to={v[0]}
+              className={`${page === v[0] ? 'paged' : ''}`}
+              onClick={handleCurrentPage(v[0])}
+            >
+              {v[1]}
+            </Link>
+          );
+        })}
       </Wrapper>
     </Container>
   );
