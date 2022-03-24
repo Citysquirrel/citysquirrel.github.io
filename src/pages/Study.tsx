@@ -97,6 +97,14 @@ export const Study = () => {
               <>
                 {/* <h1>WHAT?</h1> */}
                 <div>같이 코딩 공부해요!</div>
+                <pre>
+                  <code
+                    className="
+              language-html"
+                  >
+                    {'<html></html>'}
+                  </code>
+                </pre>
               </>
             }
           />
