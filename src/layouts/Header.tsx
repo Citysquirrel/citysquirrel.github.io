@@ -46,12 +46,13 @@ const Wrapper = styled.div`
     }
   }
   .paged {
-    color: orange;
+    color: #5d9cec;
   }
 `;
 
 export const Header = () => {
   const [isTop, setIsTop] = useState(true);
+  const [scrollLocaY, setScrollLocaY] = useState(window.scrollY);
   const [page, setPage] = useState(window.location.pathname);
 
   const handleCurrentPage =
@@ -68,6 +69,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrollLocaY(window.scrollY);
       if (window.scrollY < 10) setIsTop(true);
       else setIsTop(false);
     };
@@ -77,12 +79,15 @@ export const Header = () => {
     };
   }, []);
 
+  // 스크롤Y 최대값: document.body.scrollHeight - window.innerHeight
   return (
     <Container isTop={isTop}>
+      {scrollLocaY}
       <Wrapper>
-        {pageInfo.map((v) => {
+        {pageInfo.map((v, i) => {
           return (
             <Link
+              key={i}
               to={v[0]}
               className={`${page === v[0] ? 'paged' : ''}`}
               onClick={handleCurrentPage(v[0])}
