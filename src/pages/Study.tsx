@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { First } from './1';
+import { Javascript } from './study/Javascript';
 
 const Container = styled.div`
   display: flex;
@@ -97,18 +98,17 @@ export const Study = () => {
               <>
                 {/* <h1>WHAT?</h1> */}
                 <div>같이 코딩 공부해요!</div>
-                <pre>
-                  <code
-                    className="
-              language-html"
-                  >
-                    {'<html></html>'}
-                  </code>
-                </pre>
               </>
             }
           />
-          <Route path="/1" element={<>1</>} />
+          <Route
+            path="/1"
+            element={
+              <>
+                <div>기술면접 준비를 위한 복습 페이지</div>
+              </>
+            }
+          />
           <Route path="/2" element={<>2</>} />
           <Route path="/3" element={<>3</>} />
           <Route path="/4" element={<>4</>} />
@@ -122,7 +122,7 @@ export const Study = () => {
             Main
           </Link>
           <Link to="1" className="menu-tab">
-            1
+            Javascript
           </Link>
           <Link to="2" className="menu-tab">
             2
@@ -144,7 +144,7 @@ export const Study = () => {
       <Contents>
         <Routes>
           <Route path="/" element={<First />} />
-          <Route path="/1" element={<First />} />
+          <Route path="/1" element={<Javascript />} />
           <Route path="/2" element={<First />} />
           <Route path="/3" element={<First />} />
           <Route path="/4" element={<First />} />
