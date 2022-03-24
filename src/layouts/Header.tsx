@@ -63,9 +63,9 @@ export const Header = () => {
     <Container isTop={isTop}>
       <Wrapper>
         <Link to="/">Main</Link>
-        <Link to="/1">Examples</Link>
-        <Link to="/2">Pictures</Link>
-        {/* <Link to="/3">Front-end</Link> */}
+        <Link to="/study">Study</Link>
+        <Link to="/examples">Examples</Link>
+        <Link to="/pictures">Pictures</Link>
       </Wrapper>
     </Container>
   );

@@ -1,7 +1,7 @@
 import './App.css';
 import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, Examples, Pictures, Wrong } from './pages';
+import { Home, Examples, Pictures, Wrong, Study } from './pages';
 import styled from 'styled-components';
 
 const Container = styled.div``;
@@ -20,9 +20,9 @@ function App() {
         <Container id="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/1/*" element={<Examples />} />
-            <Route path="/2/*" element={<Pictures />} />
-            <Route path="/3" element={<Examples />} />
+            <Route path="/examples/*" element={<Examples />} />
+            <Route path="/pictures/*" element={<Pictures />} />
+            <Route path="/study" element={<Study />} />
             <Route path="/*" element={<Wrong />} />
           </Routes>
           <Footer />
