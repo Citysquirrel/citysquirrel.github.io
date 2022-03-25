@@ -2,6 +2,9 @@
   --bg-menu: #e1ecfb;
   --bg-menu-tp: rgba(225, 236, 251, 0.61);
   --bg: #edf4fc;
+  --main: #5d9cec;
+  --main-tint: #9dc3f3;
+  --main-tint-more: #c7dcf8;
 }
 
 * {
