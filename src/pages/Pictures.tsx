@@ -106,8 +106,7 @@ const Contents = styled.div`
   }
 `;
 
-const imgPoint =
-  'https://myimages-citysquirrel.s3.ap-northeast-2.amazonaws.com/%ED%95%B4%ED%83%88%EC%9D%B4/';
+const imgPoint = 'https://myimages-csq.s3.ap-northeast-2.amazonaws.com/mycat/';
 
 const images = Array.from({ length: 14 }, (v, i) => {
   return [`${imgPoint}${i + 1}.jpg`, `${i + 1}번`];
