@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Routes, Route } from 'react-router-dom';
 import './../font.css';
 import { useEffect, useState } from 'react';
 
@@ -9,7 +8,6 @@ const Container = styled.header<{ isTop: boolean }>`
   left: 0;
   top: 0;
   width: 100%;
-
   user-select: none;
   display: flex;
   align-items: center;
@@ -21,6 +19,23 @@ const Container = styled.header<{ isTop: boolean }>`
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
   z-index: 1004;
   transition: all 0.3s;
+  > progress {
+    position: absolute;
+    top: 48px;
+    width: 100%;
+    height: 2px;
+    -webkit-appearance: none;
+    transition: all 0.3s;
+    opacity: ${(props) => (props.isTop ? '0' : '0.61')};
+
+    ::-webkit-progress-bar {
+      background-color: ${(props) =>
+        props.isTop ? 'transparent' : 'var(--bg-menu-tp)'};
+    }
+    ::-webkit-progress-value {
+      background: linear-gradient(to left, blue, #5d9cec);
+    }
+  }
 `;
 
 const Wrapper = styled.div`
@@ -55,6 +70,8 @@ export const Header = () => {
   const [scrollLocaY, setScrollLocaY] = useState(window.scrollY);
   const [page, setPage] = useState(window.location.pathname);
 
+  const pageHeight = document.body.scrollHeight - window.innerHeight;
+
   const handleCurrentPage =
     (key: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       setPage(key);
@@ -82,7 +99,7 @@ export const Header = () => {
   // 스크롤Y 최대값: document.body.scrollHeight - window.innerHeight
   return (
     <Container isTop={isTop}>
-      {scrollLocaY}
+      {/* {scrollLocaY} */}
       <Wrapper>
         {pageInfo.map((v, i) => {
           return (
@@ -97,6 +114,7 @@ export const Header = () => {
           );
         })}
       </Wrapper>
+      <progress value={scrollLocaY} max={pageHeight}></progress>
     </Container>
   );
 };
