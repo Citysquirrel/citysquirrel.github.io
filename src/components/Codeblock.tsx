@@ -14,6 +14,18 @@ const Container = styled.div`
       text-align: left;
       font-size: 14px;
       border-radius: 8px;
+      ::-webkit-scrollbar {
+        display: block;
+
+        height: 4px;
+      }
+      /* ::-webkit-scrollbar-track {
+        height: 4px;
+      } */
+      ::-webkit-scrollbar-thumb {
+        background-color: grey;
+        border-radius: 8px;
+      }
       > span {
         font-size: inherit;
       }

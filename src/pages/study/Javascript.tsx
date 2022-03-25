@@ -19,7 +19,9 @@ export const Javascript = () => {
     <Container>
       <Wrapper>
         <Codeblock
-          body={`const num = 0; \nconsole.log(num);`}
+          body={`const num = 0;
+console.log(num);
+const teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest = test;`}
           lang="javascript"
         />
       </Wrapper>
