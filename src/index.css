@@ -35,6 +35,10 @@ code {
     monospace;
 }
 
+button {
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
