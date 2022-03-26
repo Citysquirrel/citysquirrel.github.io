@@ -1,3 +1,3 @@
 import { Codeblock } from './Codeblock';
-
-export { Codeblock };
+import { Modal } from './Modal';
+export { Codeblock, Modal };

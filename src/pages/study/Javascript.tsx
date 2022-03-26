@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import hljs from 'highlight.js';
 import { Codeblock } from '../../components';
-import { Modal } from '../../components/Modal';
+import { Modal } from '../../components';
 
 const Container = styled.div``;
 
