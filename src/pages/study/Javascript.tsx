@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import hljs from 'highlight.js';
 import { Codeblock } from '../../components';
@@ -17,6 +17,8 @@ function Test() {
 }
 
 export const Javascript = () => {
+  const [modal, setModal] = useState(false);
+
   useEffect(() => {
     hljs.highlightAll();
   }, []);
@@ -30,7 +32,15 @@ const teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
           lang="javascript"
         />
       </Wrapper>
-      <Modal width="250" height="200" element={<Test />} />
+      {modal ? (
+        <Modal
+          modal={modal}
+          setModal={setModal}
+          width="250"
+          height="200"
+          element={<Test />}
+        />
+      ) : null}
     </Container>
   );
 };

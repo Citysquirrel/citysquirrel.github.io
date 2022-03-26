@@ -1,11 +1,12 @@
+import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div<{ width: string; height: string }>`
   position: fixed;
   display: flex;
   flex-direction: column;
-  left: 50%;
-  top: 50%;
+  left: calc(50vw - ${(props) => props.width}px / 2);
+  top: calc(50vh - ${(props) => props.height}px / 2);
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   background-color: white;
@@ -15,8 +16,10 @@ const Container = styled.div<{ width: string; height: string }>`
     position: absolute;
     top: 4px;
     right: 4px;
+    font-size: 32px;
     width: 32px;
     height: 32px;
+    line-height: 26px;
     background-color: transparent;
     cursor: pointer;
   }
@@ -40,14 +43,18 @@ interface Props {
   width: string;
   height: string;
   element: JSX.Element;
+  modal: boolean;
+  setModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Modal = ({ width, height, element }: Props) => {
   return (
-    <Container width={width} height={height}>
-      <div className="exit-wrapper">&times;</div>
-      <Wrapper>{element}</Wrapper>
+    <>
+      <Container width={width} height={height}>
+        <div className="exit-wrapper">&times;</div>
+        <Wrapper>{element}</Wrapper>
+      </Container>
       <Canvas />
-    </Container>
+    </>
   );
 };
