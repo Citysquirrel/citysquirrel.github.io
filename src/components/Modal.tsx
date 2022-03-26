@@ -2,6 +2,14 @@ import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div<{ width: string; height: string }>`
+  @keyframes switchModalOn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -9,8 +17,11 @@ const Container = styled.div<{ width: string; height: string }>`
   top: calc(50vh - ${(props) => props.height}px / 2);
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
+  padding: 8px;
   background-color: white;
   border-radius: 8px;
+  animation-name: switchModalOn;
+  animation-duration: 0.5s;
   z-index: 2000;
   .exit-wrapper {
     position: absolute;
@@ -33,6 +44,8 @@ const Canvas = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 53;
+  animation-name: switchModalOn;
+  animation-duration: 0.5s;
 `;
 
 const Wrapper = styled.div`
@@ -47,14 +60,19 @@ interface Props {
   setModal: Dispatch<SetStateAction<boolean>>;
 }
 
-export const Modal = ({ width, height, element }: Props) => {
+export const Modal = ({ width, height, element, modal, setModal }: Props) => {
+  const modalOff = () => {
+    setModal(false);
+  };
   return (
     <>
       <Container width={width} height={height}>
-        <div className="exit-wrapper">&times;</div>
+        <div className="exit-wrapper" onClick={modalOff}>
+          &times;
+        </div>
         <Wrapper>{element}</Wrapper>
       </Container>
-      <Canvas />
+      <Canvas onClick={modalOff} />
     </>
   );
 };

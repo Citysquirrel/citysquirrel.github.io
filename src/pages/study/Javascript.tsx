@@ -31,6 +31,13 @@ console.log(num);
 const teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest = test;`}
           lang="javascript"
         />
+        <button
+          onClick={() => {
+            setModal(true);
+          }}
+        >
+          모달
+        </button>
       </Wrapper>
       {modal ? (
         <Modal

@@ -56,12 +56,12 @@ const Wrapper = styled.div`
     background-color: transparent;
     transition: all 0.3s;
     :hover {
-      border-bottom: 4px solid #5d9cec;
-      background-color: #9dc3f3;
+      border-bottom: 4px solid var(--main);
+      background-color: var(--main-tint);
     }
   }
   .paged {
-    color: #5d9cec;
+    color: var(--main-dark);
   }
 `;
 
