@@ -33,7 +33,7 @@ const Container = styled.div`
   }
 `;
 
-const CopyWrapper = styled.div<{ visibility: boolean }>`
+const CopyWrapper = styled.div<{ vis: boolean }>`
   position: absolute;
   top: 0;
   right: 0;
@@ -43,8 +43,8 @@ const CopyWrapper = styled.div<{ visibility: boolean }>`
   border-radius: 4px;
   border: 1px solid var(--main);
   background-color: var(--main-tint);
-  visibility: ${(props) => (props.visibility ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.visibility ? '1' : '0')};
+  visibility: ${(props) => (props.vis ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.vis ? '1' : '0')};
   transition: 0.3s;
   cursor: pointer;
   :hover {
@@ -86,7 +86,7 @@ export const Codeblock = ({ body, lang }: Props) => {
       <pre>
         <code className={`language-${lang}`}>{body}</code>
       </pre>
-      <CopyWrapper visibility={copyBtn} onClick={handleCopy}>
+      <CopyWrapper vis={copyBtn} onClick={handleCopy}>
         <CopyButton>
           <FaRegCopy />
         </CopyButton>
