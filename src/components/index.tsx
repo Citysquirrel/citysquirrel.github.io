@@ -10,7 +10,7 @@ export { Codeblock, Modal };
 //   width="500"
 //   height="300"
 //   element={<div>Example!</div>}
-//   modal={modalState}
+//   modal={ModalState}
 //   setModal={SetModalState Function}
 // />
 //

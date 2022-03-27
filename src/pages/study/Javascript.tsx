@@ -39,7 +39,7 @@ const teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
           모달
         </button>
       </Wrapper>
-      {modal ? (
+      {modal && (
         <Modal
           modal={modal}
           setModal={setModal}
@@ -47,7 +47,7 @@ const teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
           height="200"
           element={<Test />}
         />
-      ) : null}
+      )}
     </Container>
   );
 };

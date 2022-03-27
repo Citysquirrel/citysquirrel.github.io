@@ -14,6 +14,7 @@ const Container = styled.div`
       text-align: left;
       font-size: 14px;
       border-radius: 8px;
+      background-color: #606b90;
       ::-webkit-scrollbar {
         display: block;
 
