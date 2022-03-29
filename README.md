@@ -16,5 +16,6 @@
   * [x] 공통 모달창
   * [ ] 토글 버튼
   * [ ] 메뉴 
+* 서버 사이드 렌더링 
 
 [페이지 링크](https://citysquirrel.github.io/)
