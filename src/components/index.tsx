@@ -1,7 +1,9 @@
 import { Codeblock } from './Codeblock';
+import { Menu } from './Menu';
 import { Modal } from './Modal';
+import { Toggle } from './Toggle';
 
-export { Codeblock, Modal };
+export { Codeblock, Modal, Menu, Toggle };
 
 // Modal props: { width, height, element, modal, setModal }
 // ? Usage example
