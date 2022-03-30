@@ -20,9 +20,9 @@ function App() {
         <Container id="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/examples/*" element={<Examples />} />
+            {/* <Route path="/examples/*" element={<Examples />} /> */}
             <Route path="/pictures/*" element={<Pictures />} />
-            <Route path="/study/*" element={<Study />} />
+            {/* <Route path="/study/*" element={<Study />} /> */}
             <Route path="/*" element={<Wrong />} />
           </Routes>
           <Footer />

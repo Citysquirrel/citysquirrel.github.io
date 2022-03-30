@@ -79,8 +79,8 @@ export const Header = () => {
 
   const pageInfo = [
     ['/', 'Main'],
-    ['/study', 'Study'],
-    ['/examples', 'Examples'],
+    // ['/study', 'Study'],
+    // ['/examples', 'Examples'],
     ['/pictures', 'Pictures'],
   ];
 
