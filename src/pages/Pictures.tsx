@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import AWS from 'aws-sdk';
 import { FullPicture } from './Pictures-Full';
+import { TestContext, TestDispatchContext } from './Home';
 
 const Container = styled.div`
   display: flex;
@@ -115,6 +116,8 @@ const images = Array.from({ length: 14 }, (v, i) => {
 export const Pictures = () => {
   const [curPic, setCurPic] = useState(0);
   const [fullImgOn, setFullImgOn] = useState(false);
+  const globalTest = useContext(TestContext);
+  const setGlobalTest = useContext(TestDispatchContext);
 
   // const ACCESS_KEY = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
   // const SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
@@ -154,6 +157,7 @@ export const Pictures = () => {
         올해 19살을 맞은{' '}
         <span style={{ backgroundColor: 'orange' }}>해탈이</span> 사진
         보고가세요!
+        {globalTest}
       </Intro>
       <Menu>
         <div className="menu-wrapper"></div>
