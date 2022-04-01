@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import AWS from 'aws-sdk';
 import { FullPicture } from './Pictures-Full';
-import { TestContext, TestDispatchContext } from './Home';
+import { TestContext, TestDispatchContext } from './../App';
 
 const Container = styled.div`
   display: flex;

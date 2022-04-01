@@ -1,4 +1,3 @@
-import { useEffect, createContext, useMemo, useState, Dispatch } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div``;
@@ -32,28 +31,13 @@ const Intro = styled.div`
   }
 `;
 
-type TestDispatch = Dispatch<React.SetStateAction<string>>;
-
-export const TestContext = createContext<string | null>('힝');
-
-export const TestDispatchContext = createContext<TestDispatch | null>(null);
-
 export const Home = () => {
-  const [globalTest, setGlobalTest] = useState('전역상태 만들어보기');
-  const testMemo = useMemo(() => globalTest, [globalTest]);
-  const dispatchMemo = useMemo(() => setGlobalTest, [setGlobalTest]);
-  console.log(testMemo);
-
   return (
-    <TestContext.Provider value={testMemo}>
-      <TestDispatchContext.Provider value={dispatchMemo}>
-        <Container>
-          <Intro>
-            <h1>WHO?</h1>
-            <div>도시다람쥐</div>
-          </Intro>
-        </Container>
-      </TestDispatchContext.Provider>
-    </TestContext.Provider>
+    <Container>
+      <Intro>
+        <h1>WHO?</h1>
+        <div>도시다람쥐</div>
+      </Intro>
+    </Container>
   );
 };
