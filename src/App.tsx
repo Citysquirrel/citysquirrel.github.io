@@ -44,7 +44,7 @@ function App() {
     <TestContext.Provider value={testMemo}>
       <TestDispatchContext.Provider value={dispatchMemo}>
         <ThemeProvider theme={light_theme}>
-          <Router>
+          <Router basename={process.env.PUBLIC_URL}>
             <div className="App">
               <Header />
               <Container id="container">
