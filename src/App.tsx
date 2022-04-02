@@ -44,7 +44,7 @@ function App() {
     <TestContext.Provider value={testMemo}>
       <TestDispatchContext.Provider value={dispatchMemo}>
         <ThemeProvider theme={light_theme}>
-          <Router basename={process.env.PUBLIC_URL}>
+          <Router basename="/citysquirrel.github.io">
             <div className="App">
               <Header />
               <Container id="container">
