@@ -107,6 +107,7 @@ const Contents = styled.div`
   }
 `;
 
+//! 이미지 처리방식: S3 와의 직접연결로 변경요함. 또는 다른 저장소 사이트를 이용.
 const imgPoint = 'https://myimages-csq.s3.ap-northeast-2.amazonaws.com/mycat/';
 
 const images = Array.from({ length: 14 }, (v, i) => {
