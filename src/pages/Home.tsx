@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Toggle } from '../components';
+import { Textblock } from '../components/Textblock';
 
 const Container = styled.div``;
 
@@ -32,6 +33,13 @@ const Intro = styled.div`
   }
 `;
 
+const Contents = styled.div`
+  padding: 4px;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 export const Home = () => {
   return (
     <Container>
@@ -39,7 +47,19 @@ export const Home = () => {
         <h1>WHO?</h1>
         <div>도시다람쥐</div>
       </Intro>
-      <Toggle toggleOn={false} />
+
+      <Contents>
+        <Toggle toggleOn={false} />
+        <Textblock
+          content={
+            'ㅎㅇ ㅎㅇㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
+          }
+          size={16}
+          color={'blue'}
+          bg={'inherit'}
+          align={'left'}
+        />
+      </Contents>
     </Container>
   );
 };
