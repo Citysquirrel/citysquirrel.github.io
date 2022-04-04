@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Toggle } from '../components';
 
 const Container = styled.div``;
 
@@ -38,6 +39,7 @@ export const Home = () => {
         <h1>WHO?</h1>
         <div>도시다람쥐</div>
       </Intro>
+      <Toggle toggleOn={false} />
     </Container>
   );
 };
