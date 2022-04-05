@@ -8,6 +8,7 @@ const Intro = styled.div`
   padding-top: 64px;
   padding-bottom: 16px;
   min-height: 256px;
+  font-size: x-large;
   /* max-width: 968px; */
   background-color: var(--bg-menu);
   font-family: 'SUIT-Light';
@@ -51,9 +52,9 @@ export const Home = () => {
       <Contents>
         <Toggle toggleOn={false} />
         <Textblock
-          content={
-            'ㅎㅇ ㅎㅇㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'
-          }
+          content={`**ㅎㅇ**\n
+ㅎㅇㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 
+\n# ㅎㅇ`}
           size={16}
           color={'blue'}
           bg={'inherit'}

@@ -15,6 +15,7 @@ const Intro = styled.div`
   padding-top: 128px;
   height: 512px;
   font-weight: 900;
+  font-size: x-large;
   /* max-width: 968px; */
   background-color: var(--bg-menu);
   font-family: 'SUIT-Light';
