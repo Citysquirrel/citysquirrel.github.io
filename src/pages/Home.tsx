@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Toggle } from '../components';
 import { Textblock } from '../components/Textblock';
@@ -42,6 +43,7 @@ const Contents = styled.div`
 `;
 
 export const Home = () => {
+  const [toggleOn, setToggleOn] = useState(false);
   return (
     <Container>
       <Intro>
@@ -50,7 +52,12 @@ export const Home = () => {
       </Intro>
 
       <Contents>
-        <Toggle toggleOn={false} />
+        <Toggle
+          toggleOn={toggleOn}
+          setToggleOn={setToggleOn}
+          color={{ circle: '#777', background: '#ccc', border: '#aaa' }}
+          image={null}
+        />
         <Textblock
           content={`**ㅎㅇ**\n
 ㅎㅇㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 
