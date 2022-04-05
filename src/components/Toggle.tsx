@@ -7,12 +7,14 @@ const Frame = styled.div<{
   toggleOn: boolean;
   image: string | null;
   bg: string | null;
+  bgac: string | null;
   border: string | null;
 }>`
   position: relative;
   width: 52px;
   height: 28px;
-  background-color: ${(props) => props.bg || 'white'};
+  background-color: ${(props) =>
+    (props.toggleOn && props.bgac) || props.bg || 'white'};
   border: 1px solid ${(props) => props.border || 'black'};
   border-radius: 100px;
   transition: all 0.5s;
@@ -38,6 +40,7 @@ const Circle = styled.div<{
 interface ColorObj {
   circle: string | null;
   background: string | null;
+  backgroundActive: string | null;
   border: string | null;
 }
 
@@ -59,6 +62,7 @@ export const Toggle = ({ toggleOn, setToggleOn, color, image }: Props) => {
       <Frame
         toggleOn={toggleOn}
         bg={color.background}
+        bgac={color.backgroundActive}
         border={color.border}
         image={image}
         onClick={handleClick}

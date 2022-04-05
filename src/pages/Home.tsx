@@ -55,7 +55,12 @@ export const Home = () => {
         <Toggle
           toggleOn={toggleOn}
           setToggleOn={setToggleOn}
-          color={{ circle: '#777', background: '#ccc', border: '#aaa' }}
+          color={{
+            circle: '#999',
+            background: '#ccc',
+            backgroundActive: '#b5dbff',
+            border: '#aaa',
+          }}
           image={null}
         />
         <Textblock
