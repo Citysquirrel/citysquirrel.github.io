@@ -52,7 +52,7 @@ export const Home = () => {
       </Intro>
 
       <Contents>
-        <Toggle
+        {/* <Toggle
           toggleOn={toggleOn}
           setToggleOn={setToggleOn}
           color={{
@@ -62,11 +62,9 @@ export const Home = () => {
             border: '#aaa',
           }}
           image={null}
-        />
+        /> */}
         <Textblock
-          content={`**ㅎㅇ**\n
-ㅎㅇㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 
-\n# ㅎㅇ`}
+          content={`## Introducion\n* Nick: 도시다람쥐\n* Name: 곽명우\n##Career\n* Codestates Software Engineer Bootcamp\n  * asd`}
           size={16}
           color={'blue'}
           bg={'inherit'}
