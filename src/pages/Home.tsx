@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { read, readFileSync } from 'fs';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Toggle } from '../components';
 import { Textblock } from '../components/Textblock';
+import portfolio from './portfolio.md';
 
+const test = fetch(portfolio).then((res) => res.text());
+
+console.log(test);
 const Container = styled.div``;
 
 const Intro = styled.div`
@@ -44,6 +49,13 @@ const Contents = styled.div`
 
 export const Home = () => {
   const [toggleOn, setToggleOn] = useState(false);
+  const [MD, setMD] = useState({ portfolio: '' });
+
+  useEffect(() => {
+    fetch(portfolio)
+      .then((res) => res.text())
+      .then((text) => setMD({ ...MD, portfolio: text }));
+  });
   return (
     <Container>
       <Intro>
@@ -64,12 +76,19 @@ export const Home = () => {
           image={null}
         /> */}
         <Textblock
-          content={`## Introducion\n* Nick: 도시다람쥐\n* Name: 곽명우\n##Career\n* Codestates Software Engineer Bootcamp\n  * asd`}
+          content={MD.portfolio}
           size={16}
           color={'blue'}
           bg={'inherit'}
           align={'left'}
         />
+        {/* <Textblock
+          content={`## Introducion\n* Nick: 도시다람쥐\n* Name: 곽명우\n##Career\n* Codestates Software Engineer Bootcamp\n  * asd`}
+          size={16}
+          color={'blue'}
+          bg={'inherit'}
+          align={'left'}
+        /> */}
       </Contents>
     </Container>
   );
