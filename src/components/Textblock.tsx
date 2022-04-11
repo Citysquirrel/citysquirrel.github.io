@@ -9,17 +9,25 @@ interface Props {
   align: string;
 }
 
-const Container = styled.div<{ props: Props }>`
+const Container = styled.div`
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px black inset;
+`;
+
+const MdWrap = styled.div<{ props: Props }>`
   /* font-size: ${(props) => props.props.size}px; */
   color: ${(props) => props.props.color};
   background-color: ${(props) => props.props.bg};
-  text-align: ${(props) => props.props.align}; ;
+  text-align: ${(props) => props.props.align};
+  white-space: pre;
 `;
 
 export const Textblock = (props: Props) => {
   return (
-    <Container props={props}>
-      <Markdown>{props.content}</Markdown>
+    <Container>
+      <MdWrap props={props}>
+        <Markdown>{props.content}</Markdown>
+      </MdWrap>
     </Container>
   );
 };

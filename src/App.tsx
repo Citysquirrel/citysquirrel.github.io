@@ -40,6 +40,11 @@ function App() {
   const [globalTest, setGlobalTest] = useState('전역상태 만들어보기');
   const testMemo = useMemo(() => globalTest, [globalTest]);
   const dispatchMemo = useMemo(() => setGlobalTest, [setGlobalTest]);
+  const [test, setTest] = useState([
+    { name: 'asd' },
+    { name: 'asdf' },
+    { name: 'asdfg' },
+  ]);
   return (
     <TestContext.Provider value={testMemo}>
       <TestDispatchContext.Provider value={dispatchMemo}>
@@ -49,7 +54,7 @@ function App() {
               <Header />
               <Container id="container">
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  <Route path="/" element={<Home test={test} />} />
                   {/* <Route path="/examples/*" element={<Examples />} /> */}
                   <Route path="/pictures/*" element={<Pictures />} />
                   {/* <Route path="/study/*" element={<Study />} /> */}

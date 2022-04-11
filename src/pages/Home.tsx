@@ -5,9 +5,6 @@ import { Toggle } from '../components';
 import { Textblock } from '../components/Textblock';
 import portfolio from './portfolio.md';
 
-const test = fetch(portfolio).then((res) => res.text());
-
-console.log(test);
 const Container = styled.div``;
 
 const Intro = styled.div`
@@ -47,15 +44,27 @@ const Contents = styled.div`
   margin-right: auto;
 `;
 
-export const Home = () => {
+export const Home = ({ test }: { test: any }) => {
   const [toggleOn, setToggleOn] = useState(false);
   const [MD, setMD] = useState({ portfolio: '' });
+  const [data, setData] = useState(123);
+
+  console.log(data);
+  console.log(test);
 
   useEffect(() => {
     fetch(portfolio)
       .then((res) => res.text())
       .then((text) => setMD({ ...MD, portfolio: text }));
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    test.filter((el: { name: any }) => {
+      console.log(el.name);
+      return el;
+    });
+  }, [toggleOn]);
   return (
     <Container>
       <Intro>
@@ -64,7 +73,7 @@ export const Home = () => {
       </Intro>
 
       <Contents>
-        {/* <Toggle
+        <Toggle
           toggleOn={toggleOn}
           setToggleOn={setToggleOn}
           color={{
@@ -74,7 +83,7 @@ export const Home = () => {
             border: '#aaa',
           }}
           image={null}
-        /> */}
+        />
         <Textblock
           content={MD.portfolio}
           size={16}
