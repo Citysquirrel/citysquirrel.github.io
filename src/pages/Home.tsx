@@ -44,13 +44,9 @@ const Contents = styled.div`
   margin-right: auto;
 `;
 
-export const Home = ({ test }: { test: any }) => {
+export const Home = () => {
   const [toggleOn, setToggleOn] = useState(false);
   const [MD, setMD] = useState({ portfolio: '' });
-  const [data, setData] = useState(123);
-
-  console.log(data);
-  console.log(test);
 
   useEffect(() => {
     fetch(portfolio)
@@ -59,12 +55,6 @@ export const Home = ({ test }: { test: any }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    test.filter((el: { name: any }) => {
-      console.log(el.name);
-      return el;
-    });
-  }, [toggleOn]);
   return (
     <Container>
       <Intro>
