@@ -1,7 +1,9 @@
-* State
-  * 상태관리
+# State 와 Props
 
-* Props
+- State
 
-  * Props Drilling
-  
+  - 상태관리
+
+- Props
+
+  - Props Drilling
