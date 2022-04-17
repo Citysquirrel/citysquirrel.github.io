@@ -120,7 +120,7 @@ export const Study = () => {
       </Intro>
       <Menu>
         <div className="menu-wrapper">
-          <Link to="" className={`menu-tab`}>
+          <Link to="/" className="menu-tab">
             Main
           </Link>
           <Link to="1" className="menu-tab">
