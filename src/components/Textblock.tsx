@@ -16,10 +16,22 @@ const Container = styled.div`
 
 const MdWrap = styled.div<{ props: Props }>`
   /* font-size: ${(props) => props.props.size}px; */
-  color: ${(props) => props.props.color};
+  /* color: ${(props) => props.props.color}; */
   background-color: ${(props) => props.props.bg};
   text-align: ${(props) => props.props.align};
-  white-space: pre;
+  /* white-space: pre; */
+  /* Below the style of markdown block */
+  ul {
+    padding: 0 0 0 40px;
+  }
+  h1,
+  h2 {
+    border-bottom: 2px solid #ccc;
+  }
+  a {
+    color: #1c7ed6;
+    /* #58a6ff at Dark mode */
+  }
 `;
 
 export const Textblock = (props: Props) => {

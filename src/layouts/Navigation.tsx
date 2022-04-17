@@ -2,7 +2,9 @@
 
 import styled from 'styled-components';
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: absolute;
+`;
 
 const Button = styled.div`
   :hover {
@@ -22,6 +24,7 @@ export const Navigation = () => {
   return (
     <Container>
       <ul>
+        읭읭
         <li>읭</li>
         <li>읭2</li>
       </ul>
