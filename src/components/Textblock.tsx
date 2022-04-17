@@ -10,11 +10,14 @@ interface Props {
 }
 
 const Container = styled.div`
+  margin: 4px;
   padding: 8px;
-  box-shadow: 2px 2px 2px 2px black inset;
+  box-shadow: 0 0 2px 1px black inset;
+  border-radius: 8px;
 `;
 
 const MdWrap = styled.div<{ props: Props }>`
+  padding: 8px;
   /* font-size: ${(props) => props.props.size}px; */
   /* color: ${(props) => props.props.color}; */
   background-color: ${(props) => props.props.bg};
