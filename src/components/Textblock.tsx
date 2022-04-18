@@ -27,8 +27,7 @@ const MdWrap = styled.div<{ props: Props }>`
   ul {
     padding: 0 0 0 40px;
   }
-  h1,
-  h2 {
+  h1 {
     border-bottom: 2px solid #ccc;
   }
   a {
