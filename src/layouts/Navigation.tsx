@@ -30,6 +30,7 @@ export const Navigation = () => {
         <li>읭</li>
         <li>읭2</li>
       </ul>
+      <Divider />
       <Textblock
         content={reactreadme}
         size={16}
@@ -37,6 +38,7 @@ export const Navigation = () => {
         bg={'inherit'}
         align={'left'}
       />
+      <Divider />
     </Container>
   );
 };

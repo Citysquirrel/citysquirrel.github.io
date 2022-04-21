@@ -59,7 +59,9 @@ export const Home = () => {
     <Container>
       <Intro>
         <h1>WHO?</h1>
-        <div>도시다람쥐</div>
+        <div>
+          안녕하세요, 도시다람쥐입니다. 2022년부터 개발자로 활동하고 있습니다 :)
+        </div>
       </Intro>
 
       <Contents>
