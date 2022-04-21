@@ -1,6 +1,8 @@
 //? 스크롤이 내려가도 유지되는 내비게이션 바 컴포넌트
 
 import styled from 'styled-components';
+import reactreadme from '../markdown/react/readme.md';
+import { Textblock } from '../components/Textblock';
 
 const Container = styled.div`
   position: absolute;
@@ -28,6 +30,13 @@ export const Navigation = () => {
         <li>읭</li>
         <li>읭2</li>
       </ul>
+      <Textblock
+        content={reactreadme}
+        size={16}
+        color={'blue'}
+        bg={'inherit'}
+        align={'left'}
+      />
     </Container>
   );
 };
