@@ -8,6 +8,12 @@
   --main-tint-more: #c7dcf8;
 }
 
+:root[color-theme='light'] {
+}
+
+:root[color-theme='dark'] {
+}
+
 * {
   margin: 0;
   padding: 0;

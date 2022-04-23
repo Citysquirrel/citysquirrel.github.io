@@ -1,5 +1,5 @@
 import './App.css';
-import { createContext, useMemo, useState, Dispatch } from 'react';
+import { createContext, useMemo, useState, Dispatch, useEffect } from 'react';
 import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home, Examples, Pictures, Wrong, Study } from './pages';
@@ -40,6 +40,13 @@ function App() {
   const [globalTest, setGlobalTest] = useState('전역상태 만들어보기');
   const testMemo = useMemo(() => globalTest, [globalTest]);
   const dispatchMemo = useMemo(() => setGlobalTest, [setGlobalTest]);
+
+  const colorTheme = localStorage.getItem('colorTheme');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('color-theme', colorTheme || 'light');
+  }, []);
+
   return (
     <TestContext.Provider value={testMemo}>
       <TestDispatchContext.Provider value={dispatchMemo}>
