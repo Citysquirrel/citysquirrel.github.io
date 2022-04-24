@@ -45,6 +45,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', colorTheme || 'light');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
