@@ -159,7 +159,7 @@ export const Pictures = () => {
         올해 19살을 맞은{' '}
         <span style={{ backgroundColor: 'orange' }}>해탈이</span> 사진
         보고가세요!
-        {globalTest}
+        {/* {globalTest} */}
       </Intro>
       <Menu>
         <div className="menu-wrapper"></div>

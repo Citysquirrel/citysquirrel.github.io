@@ -39,6 +39,7 @@ const Intro = styled.div`
 
 const Contents = styled.div`
   padding: 4px;
+  font-family: 'SUIT-Light';
   max-width: 768px;
   margin-left: auto;
   margin-right: auto;
@@ -65,7 +66,7 @@ export const Home = () => {
       </Intro>
 
       <Contents>
-        <Toggle
+        {/* <Toggle
           toggleOn={toggleOn}
           setToggleOn={setToggleOn}
           color={{
@@ -75,7 +76,7 @@ export const Home = () => {
             border: '#aaa',
           }}
           image={null}
-        />
+        /> */}
         <Textblock
           content={MD.portfolio}
           size={16}

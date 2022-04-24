@@ -24,11 +24,20 @@ const MdWrap = styled.div<{ props: Props }>`
   text-align: ${(props) => props.props.align};
   /* white-space: pre; */
   /* Below the style of markdown block */
+  * {
+    margin: 8px;
+  }
   ul {
     padding: 0 0 0 40px;
   }
   h1 {
     border-bottom: 2px solid #ccc;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 16px;
   }
   a {
     color: #1c7ed6;

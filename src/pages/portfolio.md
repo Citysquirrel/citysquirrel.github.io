@@ -13,4 +13,4 @@
 
 - Final Project - Vote-it! (2022. 02 - 2022. 03)
   - [Github](https://github.com/codestates/vote-it)
-  - [Deploy](https://mymy-project-adfs.com/)
+  - [Deploy Page](https://mymy-project-adfs.com/)
