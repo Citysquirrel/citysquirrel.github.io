@@ -7,6 +7,10 @@
 - DB & Server: MySQL
 - Others: Git, AWS, Postman, Notion
 
+## Career
+
+- First Job - Codestates SEB CSE Intern (2022. 04. 25 - 2022. 08. 19)
+
 ## Projects
 
 ### Codestates Software Engineering Bootcamp Course
