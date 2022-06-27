@@ -37,7 +37,7 @@
     "dp": "gh-pages -d build",
     "lint": "eslint '**/*.{ts,tsx}' --ext .ts,.tsx --fix",
     "lint-staged": "lint-staged",
-    "bs": "release-please bootstrap --repo-url=citysquirrel/citysquirrel.github.io --token=$(cat ./.env) --target-branch=master --config-file=release-please-config.json" ,
+    "bs": "release-please bootstrap --repo-url=citysquirrel/citysquirrel.github.io --token=$(cat ./.env) --target-branch=master --config-file=./release-please-config.json" ,
     "rl": "release-please release-pr --repo-url=citysquirrel/citysquirrel.github.io --token=$(cat ./.env)",
     "ec": "cat ./.env"
   },
