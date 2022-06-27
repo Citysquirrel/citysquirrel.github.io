@@ -32,4 +32,6 @@
   - js, 뭘 배우는가?
   - ts, 는 또 왜 배우는가?
 
+- 릴리즈 테스트를 위한 한 줄
+
 [페이지 링크](https://citysquirrel.github.io/)
