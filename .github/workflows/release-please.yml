@@ -1,11 +1,7 @@
-# main 브랜치에 push 발생시 실행함
 on:
   push:
     branches:
       - master
-# 환경변수 (unused)
-env:
-  PR_NUMBER: ${{ github.event.pull_request.number }}
 name: release-please-action
 jobs:
   release-please:
