@@ -1,4 +1,8 @@
+@import url('https://raw.githubusercontent.com/Citysquirrel/figma-tokens/main/data/output.css');
+/* @import url('./test.css'); */
+
 :root {
+  font-family: var(--spoqa-neo), 'arial';
   --bg-menu: #e1ecfb;
   --bg-menu-tp: rgba(225, 236, 251, 0.61);
   --bg: #edf4fc;
@@ -25,7 +29,6 @@
   /* font-size: x-large; */
   box-sizing: border-box;
   color: var(--font);
-  background-color: var(--bg);
   text-decoration: none;
 }
 
@@ -34,16 +37,13 @@ span {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Spoqa Han Sans Neo',
+    'Courier New', monospace;
 }
 
 button {

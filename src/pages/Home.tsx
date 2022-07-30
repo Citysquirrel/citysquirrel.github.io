@@ -14,7 +14,7 @@ const Intro = styled.div`
   font-size: x-large;
   /* max-width: 968px; */
   background-color: var(--bg-menu);
-  font-family: 'SUIT-Light';
+  font-family: 'Spoqa Han Sans Neo';
   > h1 {
     margin: 8px auto;
     font-size: 48px;
