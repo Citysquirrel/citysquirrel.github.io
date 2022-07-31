@@ -3,9 +3,13 @@ import { createContext, useMemo, useState, Dispatch, useEffect } from 'react';
 import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
+import { Home } from './pages';
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   border: 2px solid ${(props) => props.theme.bg};
+  min-height: 110vh;
 `;
 
 const Pages = styled.div`
@@ -49,7 +53,7 @@ function App() {
               <Header />
               <Container id="container">
                 <Routes>
-                  {/* <Route path="/" element={<Home />} /> */}
+                  <Route path="/*" element={<Home />} />
                   {/* <Route path="/examples/*" element={<Examples />} /> */}
                   {/* <Route path="/pictures/*" element={<Pictures />} /> */}
                   {/* <Route path="/study/*" element={<Study />} /> */}

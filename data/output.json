@@ -28,6 +28,35 @@
     "tint06": {
       "value": "#e7f0fc",
       "type": "color"
+    },
+    "tp00": {
+      "value": "#5d9cec99",
+      "type": "color",
+      "description": "Light Blue, My Favorite"
+    },
+    "tp01": {
+      "value": "#74aaee99",
+      "type": "color"
+    },
+    "tp02": {
+      "value": "#8bb8f199",
+      "type": "color"
+    },
+    "tp03": {
+      "value": "#a2c6f499",
+      "type": "color"
+    },
+    "tp04": {
+      "value": "#b9d4f699",
+      "type": "color"
+    },
+    "tp05": {
+      "value": "#d0e2f999",
+      "type": "color"
+    },
+    "tp06": {
+      "value": "#e7f0fc99",
+      "type": "color"
     }
   },
   "Gray": {

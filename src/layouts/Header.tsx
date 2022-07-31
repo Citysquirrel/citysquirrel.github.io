@@ -13,7 +13,7 @@ const Container = styled.header<{ isTop: boolean }>`
   height: 48px;
   /* background-color: var(--bg-menu); */
   background-color: ${(props) =>
-    props.isTop ? 'transparent' : 'var(--base-tint01)'};
+    props.isTop ? 'transparent' : 'var(--base-tint01)99'};
   font-family: 'KOHIBaeumOTF';
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
   z-index: 1004;
@@ -29,7 +29,7 @@ const Container = styled.header<{ isTop: boolean }>`
 
     ::-webkit-progress-bar {
       background-color: ${(props) =>
-        props.isTop ? 'transparent' : 'var(--base-tint01)'};
+        props.isTop ? 'transparent' : 'var(--base-tint01)99'};
     }
     ::-webkit-progress-value {
       background: linear-gradient(to left, blue, #5d9cec);

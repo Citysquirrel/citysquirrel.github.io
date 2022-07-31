@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FaGithub, FaMailBulk, FaChalkboardTeacher } from 'react-icons/fa';
 
-const Container = styled.div`
+const Container = styled.footer`
   display: flex;
   flex-direction: column;
   font-size: x-large;
