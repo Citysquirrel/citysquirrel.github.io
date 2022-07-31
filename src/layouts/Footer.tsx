@@ -6,7 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   font-size: x-large;
   padding-bottom: 8px;
-  box-shadow: 0 2px 2px 0 #9dc3f3 inset;
+  box-shadow: var(--shadow-header);
   > .footer-links {
     display: flex;
     margin-top: 8px;

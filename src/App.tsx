@@ -2,7 +2,6 @@ import './App.css';
 import { createContext, useMemo, useState, Dispatch, useEffect } from 'react';
 import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, Examples, Pictures, Wrong, Study } from './pages';
 import styled, { ThemeProvider } from 'styled-components';
 
 const Container = styled.div`
@@ -15,13 +14,6 @@ const Pages = styled.div`
   margin-right: auto;
 `;
 
-// --bg-menu: #e1ecfb;
-// --bg-menu-tp: rgba(225, 236, 251, 0.61);
-// --bg: #edf4fc;
-// --main-dark: #355986;
-// --main: #5d9cec;
-// --main-tint: #9dc3f3;
-// --main-tint-more: #c7dcf8;
 const light_theme = {
   bg: '#edf4fc',
   bg_menu: '#e1ecfb',
@@ -57,11 +49,11 @@ function App() {
               <Header />
               <Container id="container">
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  {/* <Route path="/" element={<Home />} /> */}
                   {/* <Route path="/examples/*" element={<Examples />} /> */}
-                  <Route path="/pictures/*" element={<Pictures />} />
+                  {/* <Route path="/pictures/*" element={<Pictures />} /> */}
                   {/* <Route path="/study/*" element={<Study />} /> */}
-                  <Route path="/*" element={<Wrong />} />
+                  {/* <Route path="/*" element={<Wrong />} /> */}
                 </Routes>
                 <Footer />
               </Container>

@@ -1,8 +1,8 @@
 import { read, readFileSync } from 'fs';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Toggle } from '../components';
-import { Textblock } from '../components/Textblock';
+import { Toggle } from '../../src/components';
+import { Textblock } from '../../src/components/Textblock';
 import portfolio from './portfolio.md';
 
 const Container = styled.div``;

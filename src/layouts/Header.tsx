@@ -13,7 +13,7 @@ const Container = styled.header<{ isTop: boolean }>`
   height: 48px;
   /* background-color: var(--bg-menu); */
   background-color: ${(props) =>
-    props.isTop ? 'transparent' : 'var(--bg-menu-tp)'};
+    props.isTop ? 'transparent' : 'var(--base-tint01)'};
   font-family: 'KOHIBaeumOTF';
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
   z-index: 1004;
@@ -29,7 +29,7 @@ const Container = styled.header<{ isTop: boolean }>`
 
     ::-webkit-progress-bar {
       background-color: ${(props) =>
-        props.isTop ? 'transparent' : 'var(--bg-menu-tp)'};
+        props.isTop ? 'transparent' : 'var(--base-tint01)'};
     }
     ::-webkit-progress-value {
       background: linear-gradient(to left, blue, #5d9cec);
@@ -55,12 +55,12 @@ const Wrapper = styled.div`
     background-color: transparent;
     transition: all 0.3s;
     :hover {
-      border-bottom: 4px solid var(--main);
-      background-color: var(--main-tint);
+      border-bottom: 4px solid var(--base-default);
+      background-color: var(--base-tint02);
     }
   }
   .paged {
-    color: var(--main-dark);
+    color: var(--accent-default);
   }
 `;
 
