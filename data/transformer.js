@@ -24,6 +24,7 @@ let result = `:root {\n  `;
   //       console.log('exec error!: ' + err);
   //     }
   //   });
+  console.log('Done!');
 })();
 
 //! 재귀함수 시작

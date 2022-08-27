@@ -214,5 +214,34 @@
       "value": "#fafafa",
       "type": "color"
     }
+  },
+  "Beautiful Box Shadow": {
+    "value": [
+      {
+        "color": "#0000001f",
+        "type": "dropShadow",
+        "x": 0,
+        "y": 3,
+        "blur": 6,
+        "spread": -4
+      },
+      {
+        "color": "#00000014",
+        "type": "dropShadow",
+        "x": 0,
+        "y": 6,
+        "blur": 16,
+        "spread": 0
+      },
+      {
+        "color": "#0000000d",
+        "type": "dropShadow",
+        "x": 0,
+        "y": 9,
+        "blur": 28,
+        "spread": 8
+      }
+    ],
+    "type": "boxShadow"
   }
 }
