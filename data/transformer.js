@@ -9,7 +9,7 @@ let result = `:root {\n  `;
   const tokens = await readFile('./data/output.json');
   const tokenObject = JSON.parse(tokens.toString());
 
-  addTokenLine(tokenObject, '-');
+  addTokenLine(tokenObject, '-', 0);
 
   const attrKey = Object.keys(attrs);
   attrKey.forEach((v) => {
@@ -27,7 +27,7 @@ let result = `:root {\n  `;
 })();
 
 //! 재귀함수 시작
-function addTokenLine(obj, str) {
+function addTokenLine(obj, str, depth) {
   if (typeof obj === 'string') return;
 
   const objectKeys = Object.keys(obj);
@@ -50,7 +50,11 @@ function addTokenLine(obj, str) {
       attrs[obj.type] += `${modifiedName}: ${modifiedValue};\r  `;
       return;
     }
-    addTokenLine(obj[key], `${str}-${key}`);
+    if (depth >= 1) {
+      addTokenLine(obj[key], `--${key}`, depth + 1);
+    } else {
+      addTokenLine(obj[key], `${str}-${key}`, depth + 1);
+    }
   }
 }
 
