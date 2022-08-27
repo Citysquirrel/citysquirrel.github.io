@@ -4,6 +4,7 @@ import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { Blog, Home } from './pages';
+import { Issue } from './components/blog';
 
 const Container = styled.div`
   display: flex;

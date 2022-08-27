@@ -2,8 +2,6 @@ import { lazy, useEffect, useState } from 'react';
 import { getIssues, modifyDatetime, useConsole } from '../functions';
 import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
-import { Textblock } from '../components/Textblock';
-import Markdown from '../components/blog/Markdown';
 import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 
@@ -16,9 +14,9 @@ const Issue = styled.article`
   margin: 8px;
   padding: 8px;
   gap: 4px;
-  border-bottom: 2px solid var(--gray-tint06);
+  border-bottom: 2px solid var(--gray-300);
   :hover {
-    background-color: #eee;
+    background-color: var(--gray-100);
     transition: all 0.3s;
   }
   .blog-info-wrapper {
@@ -29,36 +27,37 @@ const Issue = styled.article`
   }
   .blog-subject {
     display: flex;
-    font-size: 28px;
+    font-size: 1.75rem;
     > a {
       flex: auto;
       text-align: left;
-      color: var(--base-default);
+      color: var(--soft-blue-600);
       :hover {
-        color: #367fdf;
-        background-color: var(--base-tint06);
+        color: var(--soft-blue-700);
+        background-color: var(--soft-blue-50);
         transition: all 0.3s;
       }
     }
   }
   .blog-alias {
     display: inline-block;
-    font-size: 14px;
+    font-size: 0.875rem;
     margin: 0 4px;
-    color: var(--gray-tint04);
+    color: var(--gray-400);
   }
   .blog-category {
-    font-size: 14px;
+    font-size: 0.875rem;
     margin: 0 4px;
-    color: var(--accent-default);
+    color: var(--soft-orange-600);
+    font-weight: 600;
     padding: 2px 8px;
-    border: 1px solid var(--accent-tint05);
+    border: 1px solid var(--soft-orange-200);
     border-radius: 4px;
     cursor: pointer;
     user-select: none;
     :hover {
       color: white;
-      background-color: var(--accent-default);
+      background-color: var(--soft-orange-600);
       transition: all 0.3s;
     }
   }
@@ -66,17 +65,17 @@ const Issue = styled.article`
     display: flex;
     vertical-align: middle;
     align-items: center;
-    font-size: 12px;
+    font-size: 0.75rem;
     margin: 0 4px;
     padding: 2px 4px;
-    border: 1px solid var(--gray-tint05);
+    border: 1px solid var(--gray-400);
     border-radius: 4px;
     user-select: none;
     .blog-issue-link-icon {
       margin-right: 4px;
     }
     :hover {
-      background-color: var(--gray-tint05);
+      background-color: var(--gray-300);
       transition: all 0.3s;
     }
   }
@@ -85,6 +84,8 @@ const Issue = styled.article`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-align: start;
+    font-size: 1rem;
+    line-height: 1.5rem;
     height: 3rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -120,44 +121,48 @@ const Blog = () => {
 
   return (
     <section>
-      {data?.map((issue) => {
-        const title = issue.title.split('[BLOG] ')[1];
-        const { labels, body } = issue;
+      {isLoading ? (
+        <>Loading.................................</>
+      ) : (
+        data?.map((issue) => {
+          const title = issue.title.split('[BLOG] ')[1];
+          const { labels, body } = issue;
 
-        const category = labels.map((label) =>
-          typeof label === 'string' ? label : label.name
-        );
-        const description = body?.split('---')[0].trim();
-        const { alias } = modifyDatetime(issue.created_at);
-        return (
-          //! Issue Component: 파일 분할 하지 않음
-          <Issue key={issue.id}>
-            <h1 className="blog-subject">
-              <Link to={`/blog/${issue.number}`}>{title}</Link>
-            </h1>
-            <div className="blog-info-wrapper">
-              <span className="blog-alias">{alias}</span>
-              &middot;
-              {category.map((ele, idx) => (
-                <span key={idx} className="blog-category">
-                  {ele}
-                </span>
-              ))}
-              &middot;
-              <a
-                className="blog-issue-link"
-                href={issue.html_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub className="blog-issue-link-icon" />
-                Github Issues
-              </a>
-            </div>
-            <div className="blog-description">{description}</div>
-          </Issue>
-        );
-      })}
+          const tag = labels.map((label) =>
+            typeof label === 'string' ? label : label.name
+          );
+          const description = body?.split('---')[0].trim();
+          const { alias } = modifyDatetime(issue.created_at);
+          return (
+            //! Issue Component: 파일 분할 하지 않음
+            <Issue key={issue.id}>
+              <h1 className="blog-subject">
+                <Link to={`/blog/${issue.number}`}>{title}</Link>
+              </h1>
+              <div className="blog-info-wrapper">
+                <span className="blog-alias">{alias}</span>
+                &middot;
+                {tag.map((ele, idx) => (
+                  <span key={idx} className="blog-category">
+                    {ele}
+                  </span>
+                ))}
+                &middot;
+                <a
+                  className="blog-issue-link"
+                  href={issue.html_url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGithub className="blog-issue-link-icon" />
+                  Github Issues
+                </a>
+              </div>
+              <div className="blog-description">{description}</div>
+            </Issue>
+          );
+        })
+      )}
     </section>
   );
 };

@@ -1,3 +1,4 @@
 import Issue from './Issue';
+import Markdown from './Markdown';
 
-export { Issue };
+export { Issue, Markdown };

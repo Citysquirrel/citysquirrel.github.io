@@ -76,8 +76,7 @@ export const modifyDatetime = (datetime: string) => {
   const nowHour = now.getHours();
   const nowMin = now.getMinutes();
 
-  // origin.setHours(origin.getHours() + 9);
-  console.log(received.toLocaleString('KR'));
+  // console.log(received.toLocaleString('KR'));
   // 몇분전, 몇시간전, 몇일전, 몇달전, 몇년전
   // 1분 한시간 하루 한달 일년
   const aMinuteAgo = new Date(nowYear, nowMonth, nowDay, nowHour, nowMin - 1);

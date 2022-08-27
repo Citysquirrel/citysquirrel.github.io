@@ -11,7 +11,7 @@ const Container = styled.article`
   display: inline-block;
 `;
 
-const Markdown = ({ body = '123' }: { body: string }) => {
+const Markdown = ({ body = '' }: { body: string }) => {
   const [data, setData] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const response = renderMarkdown(body);
