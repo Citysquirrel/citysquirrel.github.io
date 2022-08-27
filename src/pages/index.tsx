@@ -1,3 +1,4 @@
+import Blog from './Blog';
 import Home from './Home';
 
-export { Home };
+export { Home, Blog };

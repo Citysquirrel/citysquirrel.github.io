@@ -3,7 +3,7 @@ import { createContext, useMemo, useState, Dispatch, useEffect } from 'react';
 import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import { Home } from './pages';
+import { Blog, Home } from './pages';
 
 const Container = styled.div`
   display: flex;
@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', colorTheme || 'light');
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -50,10 +51,11 @@ function App() {
         <ThemeProvider theme={light_theme}>
           <Router basename="/">
             <div className="App">
-              <Header />
+              {/* <Header /> */}
               <Container id="container">
                 <Routes>
                   <Route path="/*" element={<Home />} />
+                  <Route path="/blog/*" element={<Blog />} />
                   {/* <Route path="/examples/*" element={<Examples />} /> */}
                   {/* <Route path="/pictures/*" element={<Pictures />} /> */}
                   {/* <Route path="/study/*" element={<Study />} /> */}

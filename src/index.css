@@ -66,3 +66,8 @@ button {
 .scroll-disabled {
   overflow: hidden;
 }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
