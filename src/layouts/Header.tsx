@@ -12,9 +12,7 @@ const Container = styled.header<{ isTop: boolean }>`
   align-items: center;
   height: 48px;
   /* background-color: var(--bg-menu); */
-  background-color: ${(props) =>
-    props.isTop ? 'transparent' : 'var(--base-tint01)99'};
-  font-family: 'KOHIBaeumOTF';
+  background-color: ${(props) => (props.isTop ? 'transparent' : '#a1cdf799')};
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
   z-index: 1004;
   transition: all 0.3s;
@@ -37,30 +35,45 @@ const Container = styled.header<{ isTop: boolean }>`
   }
 `;
 
-const Wrapper = styled.div`
-  flex: 1 0 auto;
+const Logo = styled.div`
+  flex: auto;
+`;
+
+const Wrapper = styled.nav`
   display: flex;
-  height: 48px;
-  max-width: 968px;
-  margin-left: auto;
-  margin-right: auto;
+  width: fit-content;
+  margin: 0 12px;
   background-color: transparent;
   > a {
     flex: 1 0 auto;
+    width: fit-content;
     font-size: 18px;
     font-weight: bold;
     line-height: 48px;
-    border-bottom: 4px solid transparent;
+    margin: 0 16px;
     /* background-color: var(--bg-menu); */
     background-color: transparent;
     transition: all 0.3s;
+    transform: rotateY('90deg');
+    &.paged:after {
+      border-bottom-color: var(--soft-blue-600);
+      transform: scaleX(1) translateY(-8px);
+    }
+    :after {
+      display: block;
+      content: '';
+      border-bottom: solid 2px var(--gray-900);
+      transform: scaleX(0) translateY(-8px);
+      transition: transform 0.25s ease-in-out;
+    }
     :hover {
-      border-bottom: 4px solid var(--base-default);
-      background-color: var(--base-tint02);
+      :after {
+        transform: scaleX(1) translateY(-8px);
+      }
     }
   }
   .paged {
-    color: var(--accent-default);
+    color: var(--soft-blue-600);
   }
 `;
 
@@ -77,10 +90,8 @@ export const Header = () => {
     };
 
   const pageInfo = [
-    ['/', 'Main'],
-    // ['/study', 'Study'],
-    // ['/examples', 'Examples'],
-    ['/pictures', 'Pictures'],
+    ['/', 'About'],
+    ['/blog', 'Blog'],
   ];
 
   useEffect(() => {
@@ -99,6 +110,7 @@ export const Header = () => {
   return (
     <Container isTop={isTop}>
       {/* {scrollLocaY} */}
+      <Logo>로고자리</Logo>
       <Wrapper>
         {pageInfo.map((v, i) => {
           return (

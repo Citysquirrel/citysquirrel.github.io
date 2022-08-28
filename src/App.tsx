@@ -52,7 +52,7 @@ function App() {
         <ThemeProvider theme={light_theme}>
           <Router basename="/">
             <div className="App">
-              {/* <Header /> */}
+              <Header />
               <Container id="container">
                 <Routes>
                   <Route path="/*" element={<Home />} />

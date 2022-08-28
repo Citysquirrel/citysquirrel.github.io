@@ -19,6 +19,7 @@
   /* font-size: x-large; */
   box-sizing: border-box;
   color: var(--gray-default);
+  font-family: 'Spoqa Han Sans Neo';
   text-decoration: none;
 }
 
