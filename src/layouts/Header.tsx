@@ -10,7 +10,7 @@ const Container = styled.header<{ isTop: boolean }>`
   user-select: none;
   display: flex;
   align-items: center;
-  height: 48px;
+  height: 60px;
   /* background-color: var(--bg-menu); */
   background-color: ${(props) => (props.isTop ? 'transparent' : '#a1cdf799')};
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
@@ -18,7 +18,7 @@ const Container = styled.header<{ isTop: boolean }>`
   transition: all 0.3s;
   > progress {
     position: absolute;
-    top: 48px;
+    top: 60px;
     width: 100%;
     height: 2px;
     -webkit-appearance: none;

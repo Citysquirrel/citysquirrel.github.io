@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import { FaGithub, FaMailBulk, FaChalkboardTeacher } from 'react-icons/fa';
 
+const Background = styled.span`
+  position: fixed;
+  width: 100%;
+  height: 64px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--soft-blue-100);
+  z-index: 3;
+`;
+
 const Container = styled.footer`
   position: fixed;
   display: flex;
@@ -11,7 +21,8 @@ const Container = styled.footer`
   bottom: 0;
   font-size: 1rem;
   padding: 8px 0;
-  background-color: var(--soft-blue-100);
+  background-color: transparent;
+  user-select: none;
   > .footer-links {
     display: flex;
     margin-left: auto;
@@ -58,24 +69,26 @@ const Container = styled.footer`
 
 export const Footer = () => {
   return (
-    <Container>
-      <div className="footer-links">
-        <img src={`${process.env.PUBLIC_URL}/ramglogo.png`} alt="ramg_logo" />
+    <Background>
+      <Container>
+        <div className="footer-links">
+          <img src={`${process.env.PUBLIC_URL}/ramglogo.png`} alt="ramg_logo" />
 
-        <a href="mailto:tok1324@naver.com">
-          <FaMailBulk />
-          E-mail
-        </a>
-        <a
-          href="https://github.com/citysquirrel"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FaGithub />
-          Github
-        </a>
-      </div>
-      <div className="footer-names">created by 도시다람쥐</div>
-    </Container>
+          <a href="mailto:tok1324@naver.com">
+            <FaMailBulk />
+            E-mail
+          </a>
+          <a
+            href="https://github.com/citysquirrel"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGithub />
+            Github
+          </a>
+        </div>
+        <div className="footer-names">created by 도시다람쥐</div>
+      </Container>
+    </Background>
   );
 };

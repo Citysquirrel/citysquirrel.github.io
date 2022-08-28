@@ -52,8 +52,13 @@ function App() {
       <TestDispatchContext.Provider value={dispatchMemo}>
         <ThemeProvider theme={light_theme}>
           <Router basename="/">
+            <div id="top" className="entire-border"></div>
+            <div id="right" className="entire-border"></div>
+            <div id="bottom" className="entire-border"></div>
+            <div id="left" className="entire-border"></div>
             <div className="App">
               <Header />
+
               <Container id="container">
                 <Routes>
                   <Route path="/*" element={<Home />} />

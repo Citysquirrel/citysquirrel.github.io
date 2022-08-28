@@ -21,7 +21,7 @@ export interface IBlogProps {
 // 840px 기준으로 sidebar가 이동해야함
 const Container = styled.main`
   clear: both;
-  margin-top: 48px;
+  margin-top: 60px;
 `;
 
 const Blog = () => {
