@@ -27,16 +27,28 @@ const Container = styled.header<{ isTop: boolean }>`
 
     ::-webkit-progress-bar {
       background-color: ${(props) =>
-        props.isTop ? 'transparent' : 'var(--base-tint01)99'};
+        props.isTop ? 'transparent' : 'var(--gray-300)'};
     }
     ::-webkit-progress-value {
-      background: linear-gradient(to left, blue, #5d9cec);
+      background: linear-gradient(to left, blue, var(--soft-blue-500));
     }
   }
 `;
 
 const Logo = styled.div`
   flex: auto;
+  text-align: start;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding-left: 48px;
+  > a {
+    padding: 8px 16px;
+    text-decoration: var(--gray-500) dotted underline;
+  }
+  :hover > a {
+    color: var(--gray-700);
+    text-decoration-color: var(--soft-orange-800);
+  }
 `;
 
 const Wrapper = styled.nav`
@@ -47,9 +59,9 @@ const Wrapper = styled.nav`
   > a {
     flex: 1 0 auto;
     width: fit-content;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 48px;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 3rem;
     margin: 0 16px;
     /* background-color: var(--bg-menu); */
     background-color: transparent;
@@ -110,7 +122,9 @@ export const Header = () => {
   return (
     <Container isTop={isTop}>
       {/* {scrollLocaY} */}
-      <Logo>로고자리</Logo>
+      <Logo>
+        <a href="/">도시다람쥐.github.io</a>
+      </Logo>
       <Wrapper>
         {pageInfo.map((v, i) => {
           return (

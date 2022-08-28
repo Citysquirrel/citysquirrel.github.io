@@ -9,8 +9,8 @@ import { Issue } from './components/blog';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid ${(props) => props.theme.bg};
-  min-height: 110vh;
+  border: 2px solid var(--soft-blue-100);
+  min-height: calc(100vh);
 `;
 
 const Pages = styled.div`
@@ -57,6 +57,7 @@ function App() {
                 <Routes>
                   <Route path="/*" element={<Home />} />
                   <Route path="/blog/*" element={<Blog />} />
+
                   {/* <Route path="/examples/*" element={<Examples />} /> */}
                   {/* <Route path="/pictures/*" element={<Pictures />} /> */}
                   {/* <Route path="/study/*" element={<Study />} /> */}

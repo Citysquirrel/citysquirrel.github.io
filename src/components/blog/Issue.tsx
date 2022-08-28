@@ -49,7 +49,7 @@ const Issue = styled.article`
     font-size: 0.875rem;
     margin: 0 4px;
     color: var(--soft-orange-600);
-    font-weight: 600;
+    font-weight: 500;
     padding: 2px 8px;
     border: 1px solid var(--soft-orange-200);
     border-radius: 4px;
