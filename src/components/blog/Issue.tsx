@@ -4,6 +4,7 @@ import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
+import { IBlogProps } from '../../pages/Blog';
 
 type listUserReposIssuesResponse =
   Endpoints['GET /repos/{owner}/{repo}/issues']['response']['data'];
@@ -13,7 +14,7 @@ const Container = styled.section`
   width: calc(100% - 200px);
 `;
 
-const Issue = styled.article`
+const Single = styled.article`
   display: flex;
   flex-direction: column;
   margin: 8px;
@@ -97,9 +98,8 @@ const Issue = styled.article`
   }
 `;
 
-const Blog = () => {
-  const [data, setData] = useState<listUserReposIssuesResponse | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+const Issue = ({ data, isLoading }: IBlogProps) => {
+  // const [data, setData] = useState<listUserReposIssuesResponse | null>(null);
 
   /**
    * @constant 글 작성자를 특정합니다. string[]
@@ -108,19 +108,19 @@ const Blog = () => {
   useConsole(data);
 
   useEffect(() => {
-    setIsLoading(true);
-    getIssues()
-      .then((res) => {
-        setData(
-          res.data.filter(
-            (issue) =>
-              issue.title.includes('[BLOG]') &&
-              AUTHOR.includes(issue.user?.login!)
-          )
-        );
-        setIsLoading(false);
-      })
-      .catch((err) => console.log('Network Error: ', err));
+    // setIsLoading(true);
+    // getIssues()
+    //   .then((res) => {
+    //     setData(
+    //       res.data.filter(
+    //         (issue) =>
+    //           issue.title.includes('[BLOG]') &&
+    //           AUTHOR.includes(issue.user?.login!)
+    //       )
+    //     );
+    //     setIsLoading(false);
+    //   })
+    //   .catch((err) => console.log('Network Error: ', err));
     // eslint-disable-next-line
   }, []);
 
@@ -139,19 +139,26 @@ const Blog = () => {
           const description = body?.split('---')[0].trim();
           const { alias } = modifyDatetime(issue.created_at);
           return (
-            //! Issue Component: 파일 분할 하지 않음
-            <Issue key={issue.id}>
+            <Single key={issue.id}>
               <h1 className="blog-subject">
                 <Link to={`/blog/${issue.number}`}>{title}</Link>
               </h1>
               <div className="blog-info-wrapper">
                 <span className="blog-alias">{alias}</span>
                 &middot;
-                {tag.map((ele, idx) => (
-                  <span key={idx} className="blog-category">
-                    {ele}
-                  </span>
-                ))}
+                {tag.map((ele, idx) => {
+                  if (
+                    ele !== undefined &&
+                    ele !== 'Blog' &&
+                    ele[0].toUpperCase() === ele[0]
+                  )
+                    return (
+                      <span key={idx} className="blog-category">
+                        {ele}
+                      </span>
+                    );
+                  else return null;
+                })}
                 &middot;
                 <a
                   className="blog-issue-link"
@@ -164,7 +171,7 @@ const Blog = () => {
                 </a>
               </div>
               <div className="blog-description">{description}</div>
-            </Issue>
+            </Single>
           );
         })
       )}
@@ -172,4 +179,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Issue;
