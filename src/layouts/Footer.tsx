@@ -41,7 +41,6 @@ const Container = styled.footer`
     > a {
       height: auto;
       font-size: 0.875rem;
-      font-weight: 300;
       align-items: center;
       vertical-align: middle;
       > svg {
