@@ -9,9 +9,9 @@ import { Issue } from './components/blog';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--soft-blue-100);
+  border: 2px solid transparent;
   min-height: calc(100vh);
-  transition: all 0.3s;
+  transition: all 1s;
 `;
 
 const Pages = styled.div`

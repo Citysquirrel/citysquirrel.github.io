@@ -7,7 +7,7 @@
   display: block;
   content: '';
   background-color: var(--soft-blue-100);
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
   z-index: 2;
 }
 #top {

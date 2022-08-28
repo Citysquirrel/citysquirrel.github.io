@@ -20,8 +20,18 @@ export interface IBlogProps {
 
 // 840px 기준으로 sidebar가 이동해야함
 const Container = styled.main`
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   clear: both;
   margin-top: 60px;
+  animation: 1s 0.5s fadeIn;
+  animation-fill-mode: both;
 `;
 
 const Blog = () => {

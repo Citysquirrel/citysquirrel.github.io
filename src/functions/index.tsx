@@ -7,6 +7,72 @@ export function useFadeIn() {
   }, []);
 }
 
+export function useScreenBorder(
+  options: {
+    top: string;
+    right: string;
+    bottom: string;
+    left: string;
+    container: string;
+  },
+  color: string = '#c4e0fa'
+) {
+  useEffect(() => {
+    const top = document.getElementById('top');
+    const right = document.getElementById('right');
+    const bottom = document.getElementById('bottom');
+    const left = document.getElementById('left');
+    const container = document.getElementById('container');
+    const footer = document.getElementById('footer');
+    if (top !== null) {
+      top.style.height = options.top;
+      top.style.backgroundColor = color;
+    }
+    if (right !== null) {
+      right.style.width = options.right;
+      right.style.backgroundColor = color;
+    }
+    if (bottom !== null) {
+      bottom.style.height = options.bottom;
+      bottom.style.backgroundColor = color;
+    }
+    if (left !== null) {
+      left.style.width = options.left;
+      left.style.backgroundColor = color;
+    }
+    if (container !== null) {
+      container.style.borderWidth = options.container;
+    }
+    if (footer !== null) {
+      footer.style.backgroundColor = color;
+    }
+    return () => {
+      if (top !== null) {
+        top.style.height = '2px';
+        top.style.backgroundColor = '#c4e0fa';
+      }
+      if (right !== null) {
+        right.style.width = '2px';
+        right.style.backgroundColor = '#c4e0fa';
+      }
+      if (bottom !== null) {
+        bottom.style.height = '2px';
+        bottom.style.backgroundColor = '#c4e0fa';
+      }
+      if (left !== null) {
+        left.style.width = '2px';
+        left.style.backgroundColor = '#c4e0fa';
+      }
+      if (container !== null) {
+        container.style.borderWidth = '2px';
+      }
+      if (footer !== null) {
+        footer.style.backgroundColor = '#c4e0fa';
+      }
+    };
+  }, []);
+}
+
 /**
  * body 태그에 stop-scrolling 클래스를 부여합니다.
  */

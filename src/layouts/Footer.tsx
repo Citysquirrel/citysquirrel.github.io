@@ -22,7 +22,9 @@ const Container = styled.footer`
   font-size: 1rem;
   padding: 8px 0;
   background-color: transparent;
+  transition: 1s ease-in-out;
   user-select: none;
+  z-index: 5;
   > .footer-links {
     display: flex;
     margin-left: auto;
@@ -70,7 +72,7 @@ const Container = styled.footer`
 export const Footer = () => {
   return (
     <Background>
-      <Container>
+      <Container id="footer">
         <div className="footer-links">
           <img src={`${process.env.PUBLIC_URL}/ramglogo.png`} alt="ramg_logo" />
 
