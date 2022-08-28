@@ -9,18 +9,19 @@ import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
-import { Issue } from '../components/blog';
+import { Issue, SideNav } from '../components/blog';
 
-const Container = styled.main``;
-
-const Menu = styled.aside``;
+const Container = styled.main`
+  clear: both;
+  margin-top: 48px;
+`;
 
 const Blog = () => {
   useBodyColor('#f5f5f5');
 
   return (
     <Container>
-      <Menu></Menu>
+      <SideNav />
       <Issue />
     </Container>
   );

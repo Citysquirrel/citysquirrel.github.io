@@ -11,6 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   border: 2px solid var(--soft-blue-100);
   min-height: calc(100vh);
+  transition: all 0.3s;
 `;
 
 const Pages = styled.div`

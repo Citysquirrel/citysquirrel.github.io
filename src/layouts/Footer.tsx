@@ -28,10 +28,11 @@ const Container = styled.footer`
     > a {
       height: auto;
       font-size: 0.875rem;
+      font-weight: 300;
       align-items: center;
       vertical-align: middle;
       > svg {
-        margin-right: 2px;
+        margin-right: 4px;
         transform: translateY(2px);
       }
 
@@ -63,7 +64,7 @@ export const Footer = () => {
 
         <a href="mailto:tok1324@naver.com">
           <FaMailBulk />
-          Mail
+          E-mail
         </a>
         <a
           href="https://github.com/citysquirrel"

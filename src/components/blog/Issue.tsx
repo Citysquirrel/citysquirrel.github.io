@@ -8,6 +8,11 @@ import { FaGithub } from 'react-icons/fa';
 type listUserReposIssuesResponse =
   Endpoints['GET /repos/{owner}/{repo}/issues']['response']['data'];
 
+const Container = styled.section`
+  float: right;
+  width: calc(100% - 200px);
+`;
+
 const Issue = styled.article`
   display: flex;
   flex-direction: column;
@@ -120,7 +125,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <section>
+    <Container>
       {isLoading ? (
         <>Loading.................................</>
       ) : (
@@ -163,7 +168,7 @@ const Blog = () => {
           );
         })
       )}
-    </section>
+    </Container>
   );
 };
 
