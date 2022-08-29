@@ -7,7 +7,7 @@ import {
 } from '../../functions';
 import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { IBlogProps } from '../../pages/Blog';
 
@@ -108,28 +108,16 @@ const Single = styled.article`
 const Issue = ({ data, isLoading }: IBlogProps) => {
   // const [data, setData] = useState<listUserReposIssuesResponse | null>(null);
   const { search } = useLocation();
+  const navigate = useNavigate();
   /**
    * @constant 글 작성자를 특정합니다. string[]
    */
   const AUTHOR = ['Citysquirrel'];
   useConsole(data);
 
-  useEffect(() => {
-    // setIsLoading(true);
-    // getIssues()
-    //   .then((res) => {
-    //     setData(
-    //       res.data.filter(
-    //         (issue) =>
-    //           issue.title.includes('[BLOG]') &&
-    //           AUTHOR.includes(issue.user?.login!)
-    //       )
-    //     );
-    //     setIsLoading(false);
-    //   })
-    //   .catch((err) => console.log('Network Error: ', err));
-    // eslint-disable-next-line
-  }, []);
+  const handleTagClick = (key: string) => (e: any) => {
+    navigate(`/blog?tags=${key}`);
+  };
 
   return (
     <Container>
@@ -169,7 +157,11 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
                       ele[0].toUpperCase() === ele[0]
                     )
                       return (
-                        <span key={idx} className="blog-category">
+                        <span
+                          key={idx}
+                          className="blog-category"
+                          onClick={handleTagClick(ele)}
+                        >
                           {ele}
                         </span>
                       );

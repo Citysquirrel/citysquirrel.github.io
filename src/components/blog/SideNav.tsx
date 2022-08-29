@@ -95,6 +95,7 @@ const SideNav = ({ data, isLoading }: IBlogProps) => {
       });
   });
   const toArr = Object.entries(LABELS);
+  // 왜만든거임?
   const total = toArr.reduce(
     ([_A, count], [_B, cur]) => ['', count + cur],
     ['', 0]
@@ -105,7 +106,7 @@ const SideNav = ({ data, isLoading }: IBlogProps) => {
       <List>
         <a className="label-link total" href="/blog">
           <div className="label-name">Total</div>
-          <div className="label-count">({total})</div>
+          <div className="label-count">({data?.length})</div>
         </a>
         {toArr.map(([label, count], index) => {
           return (
