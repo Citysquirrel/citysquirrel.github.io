@@ -21,17 +21,21 @@ const Container = styled.header<{ isTop: boolean }>`
     position: absolute;
     top: 60px;
     width: 100%;
-    height: 2px;
+    height: 3px;
     -webkit-appearance: none;
     transition: all 0.3s;
-    opacity: ${(props) => (props.isTop ? '0' : '0.61')};
+    opacity: ${(props) => (props.isTop ? '0' : '1')};
 
     ::-webkit-progress-bar {
       background-color: ${(props) =>
         props.isTop ? 'transparent' : 'var(--gray-300)'};
     }
     ::-webkit-progress-value {
-      background: linear-gradient(to left, blue, var(--soft-blue-500));
+      background: linear-gradient(
+        to left,
+        var(--soft-blue-800),
+        var(--soft-blue-500)
+      );
     }
   }
 `;
