@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { IBlogProps } from '../../pages/Blog';
 import { Endpoints } from '@octokit/types';
 import { useConsole } from '../../functions';
 import { useEffect } from 'react';
@@ -13,8 +12,6 @@ export interface IArticleProps {
   data: listUserReposIssuesResponse | null | undefined;
   isLoading: boolean;
 }
-
-interface ISingleUserReposIssuesResponse {}
 
 const Container = styled.section`
   display: flex;
@@ -35,27 +32,6 @@ const Body = styled.article`
   padding: 8px;
   text-align: justify;
   font-size: 15px;
-
-  h1,
-  h2 {
-    border-bottom: 1px solid var(--gray-400);
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-  }
-
-  h3 {
-    font-size: 1.25em;
-  }
-
-  h4 {
-    font-size: 1em;
-  }
 
   a {
     color: var(--soft-blue-600);
@@ -82,8 +58,29 @@ const Body = styled.article`
     }
   }
 
+  li::marker {
+    color: var(--soft-blue-800);
+  }
+
   li > p {
     margin: 0;
+  }
+
+  h1,
+  h2 {
+    border-bottom: 1px solid var(--gray-400);
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.25em;
+  }
+  h4 {
+    font-size: 1em;
   }
 
   blockquote {
