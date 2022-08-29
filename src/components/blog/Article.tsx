@@ -4,6 +4,7 @@ import { Endpoints } from '@octokit/types';
 import { modQueryString, useConsole } from '../../functions';
 import { useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
+import styleForMarkdown from '../../lib/StyleForMarkdown';
 
 type listUserReposIssuesResponse =
   Endpoints['GET /repos/{owner}/{repo}/issues']['response']['data'];
@@ -30,68 +31,9 @@ const Body = styled.article`
   display: block;
   margin: 8px;
   padding: 8px;
-  text-align: justify;
   font-size: 15px;
 
-  a {
-    color: var(--soft-blue-600);
-    :hover {
-      text-decoration: underline;
-    }
-  }
-
-  p > code {
-    background-color: var(--gray-300);
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  pre {
-    display: flex;
-    width: 100%;
-    > code {
-      flex: auto;
-      background-color: var(--soft-blue-100);
-      padding: 16px;
-      margin: 8px 0;
-      border-radius: 4px;
-    }
-  }
-
-  li::marker {
-    color: var(--soft-blue-800);
-  }
-
-  li > p {
-    margin: 0;
-  }
-
-  h1,
-  h2 {
-    border-bottom: 1px solid var(--gray-400);
-  }
-  h1 {
-    font-size: 2em;
-  }
-  h2 {
-    font-size: 1.5em;
-  }
-  h3 {
-    font-size: 1.25em;
-  }
-  h4 {
-    font-size: 1em;
-  }
-
-  blockquote {
-    margin: 0;
-    border-left: 3px solid var(--gray-400);
-    > p {
-      margin-left: 16px;
-      color: var(--gray-700);
-      white-space: pre;
-    }
-  }
+  ${styleForMarkdown}
 `;
 
 const Article = ({ data, isLoading }: IArticleProps) => {
