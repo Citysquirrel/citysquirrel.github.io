@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Octokit, App } from 'octokit';
+import { FaRegCopy } from 'react-icons/fa';
+import styled from 'styled-components';
+import ReactDOM from 'react-dom';
 
 export function useFadeIn() {
   useEffect(() => {
@@ -220,6 +223,23 @@ export const useLabelAllCheckbox = (def: any = null) => {
       const label = document.createElement('label');
       label.setAttribute('for', `check${index}`);
       input.insertAdjacentElement('afterend', label);
+    });
+  }, [def]);
+};
+
+export const useCopyAllCodeblock = (def: any = null) => {
+  const Button = styled.button``;
+  useEffect(() => {
+    document.querySelectorAll('pre').forEach((pre) => {
+      const code = pre.childNodes[0];
+      const handleClick = (e: React.MouseEvent) => {
+        navigator.clipboard.writeText(code.textContent!);
+      };
+      const jsx = (
+        <Button onClick={handleClick}>
+          <FaRegCopy />
+        </Button>
+      );
     });
   }, [def]);
 };
