@@ -2,12 +2,13 @@ import { lazy, useEffect, useState } from 'react';
 import {
   getIssues,
   modifyDatetime,
+  modQueryString,
   useBodyColor,
   useConsole,
 } from '../functions';
 import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { Article, Issue, SideNav } from '../components/blog';
 
@@ -32,15 +33,17 @@ const Blog = () => {
   const [numbers, setNumbers] = useState<number[]>([]);
   const { number } = useParams();
 
+  // useConsole(search, 'QueryString');
+
   const article: listUserReposIssuesResponse | null | undefined = data?.filter(
     (issue) => issue.number === Number(number)
   );
+
   /**
    * @constant 글 작성자를 특정합니다. string[]
    */
   const AUTHOR = ['Citysquirrel'];
-  useConsole(data);
-  useConsole(numbers);
+
   useBodyColor('#f5f5f5');
 
   useEffect(() => {
@@ -59,8 +62,6 @@ const Blog = () => {
       .catch((err) => console.log('Network Error: ', err));
     // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {}, [numbers]);
 
   return (
     <Container>

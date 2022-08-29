@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IBlogProps } from '../../pages/Blog';
 
@@ -108,10 +109,10 @@ const SideNav = ({ data, isLoading }: IBlogProps) => {
         </a>
         {toArr.map(([label, count], index) => {
           return (
-            <a key={index} className="label-link" href="#">
+            <Link key={index} className="label-link" to={`/blog?tags=${label}`}>
               <div className="label-name">{label}</div>
               <div className="label-count">({count})</div>
-            </a>
+            </Link>
           );
         })}
       </List>

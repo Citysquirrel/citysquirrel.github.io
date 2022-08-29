@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Endpoints } from '@octokit/types';
-import { useConsole } from '../../functions';
+import { modQueryString, useConsole } from '../../functions';
 import { useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
 
@@ -98,12 +98,8 @@ const Article = ({ data, isLoading }: IArticleProps) => {
   const { number } = useParams();
   const realData = data?.[0];
   // body, created_at, labels, title
-  useConsole(data, 'article');
-  useConsole(
-    realData !== undefined
-      ? realData.body!.split('---').slice(1).join('---')
-      : ''
-  );
+  // useConsole(data, 'article');
+
   return (
     <Container>
       <Subject>

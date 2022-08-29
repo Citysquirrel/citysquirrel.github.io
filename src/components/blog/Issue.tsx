@@ -1,8 +1,13 @@
 import { lazy, useEffect, useState } from 'react';
-import { getIssues, modifyDatetime, useConsole } from '../../functions';
+import {
+  getIssues,
+  modifyDatetime,
+  modQueryString,
+  useConsole,
+} from '../../functions';
 import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { IBlogProps } from '../../pages/Blog';
 
@@ -102,7 +107,7 @@ const Single = styled.article`
 
 const Issue = ({ data, isLoading }: IBlogProps) => {
   // const [data, setData] = useState<listUserReposIssuesResponse | null>(null);
-
+  const { search } = useLocation();
   /**
    * @constant 글 작성자를 특정합니다. string[]
    */
@@ -131,51 +136,60 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
       {isLoading ? (
         <>Loading.................................</>
       ) : (
-        data?.map((issue) => {
-          const title = issue.title.split('[BLOG] ')[1];
-          const { labels, body } = issue;
+        data
+          ?.filter((issue) => {
+            const queryObj = modQueryString(search);
+            console.log(queryObj);
+            if (queryObj.tags === undefined) return true;
+            return issue.labels
+              .map((issue) => typeof issue !== 'string' && issue.name)
+              .includes(queryObj.tags);
+          })
+          .map((issue) => {
+            const title = issue.title.split('[BLOG] ')[1];
+            const { labels, body } = issue;
 
-          const tag = labels.map((label) =>
-            typeof label === 'string' ? label : label.name
-          );
-          const description = body?.split('---')[0].trim();
-          const { alias } = modifyDatetime(issue.created_at);
-          return (
-            <Single key={issue.id}>
-              <h2 className="blog-subject">
-                <Link to={`/blog/${issue.number}`}>{title}</Link>
-              </h2>
-              <div className="blog-info-wrapper">
-                <span className="blog-alias">{alias}</span>
-                &middot;
-                {tag.map((ele, idx) => {
-                  if (
-                    ele !== undefined &&
-                    ele !== 'Blog' &&
-                    ele[0].toUpperCase() === ele[0]
-                  )
-                    return (
-                      <span key={idx} className="blog-category">
-                        {ele}
-                      </span>
-                    );
-                  else return null;
-                })}
-                &middot;
-                <a
-                  className="blog-issue-link"
-                  href={issue.html_url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaGithub className="blog-issue-link-icon" />
-                  Github Issues
-                </a>
-              </div>
-              <div className="blog-description">{description}</div>
-            </Single>
-          );
-        })
+            const tag = labels.map((label) =>
+              typeof label === 'string' ? label : label.name
+            );
+            const description = body?.split('---')[0].trim();
+            const { alias } = modifyDatetime(issue.created_at);
+            return (
+              <Single key={issue.id}>
+                <h2 className="blog-subject">
+                  <Link to={`/blog/${issue.number}`}>{title}</Link>
+                </h2>
+                <div className="blog-info-wrapper">
+                  <span className="blog-alias">{alias}</span>
+                  &middot;
+                  {tag.map((ele, idx) => {
+                    if (
+                      ele !== undefined &&
+                      ele !== 'Blog' &&
+                      ele[0].toUpperCase() === ele[0]
+                    )
+                      return (
+                        <span key={idx} className="blog-category">
+                          {ele}
+                        </span>
+                      );
+                    else return null;
+                  })}
+                  &middot;
+                  <a
+                    className="blog-issue-link"
+                    href={issue.html_url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaGithub className="blog-issue-link-icon" />
+                    Github Issues
+                  </a>
+                </div>
+                <div className="blog-description">{description}</div>
+              </Single>
+            );
+          })
       )}
     </Container>
   );

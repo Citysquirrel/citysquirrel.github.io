@@ -99,8 +99,6 @@ export const Header = () => {
   const [scrollLocaY, setScrollLocaY] = useState(window.scrollY);
   const [page, setPage] = useState(window.location.pathname);
 
-  useConsole(page);
-
   const pageHeight = document.body.scrollHeight - window.innerHeight;
 
   const handleCurrentPage =

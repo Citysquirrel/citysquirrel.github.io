@@ -179,3 +179,26 @@ export function useConsole(state: any, name = 'console') {
   }, [state]);
   return state;
 }
+
+interface IQueryObject {
+  [key: string]: string;
+}
+
+/**
+ * 쿼리스트링을 받아 키-값 객체 형태로 변환합니다.
+ * @param str `QueryString`
+ * @returns `key-value Object`
+ */
+export function modQueryString(str: string) {
+  const array = str
+    .slice(1)
+    .split('&')
+    .map((query) => query.split('='));
+
+  const object = array.reduce<IQueryObject>((t, [k, v], i) => {
+    t[k] = v;
+    return t;
+  }, {});
+
+  return object;
+}
