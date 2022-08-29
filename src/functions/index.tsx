@@ -176,6 +176,7 @@ export const modifyDatetime = (datetime: string) => {
 export function useConsole(state: any, name = 'console') {
   useEffect(() => {
     console.log(`${name}: `, state);
+    // eslint-disable-next-line
   }, [state]);
   return state;
 }
@@ -202,3 +203,20 @@ export function modQueryString(str: string) {
 
   return object;
 }
+
+/**
+ * 실행한 컴포넌트가 존재하는 스크린에서, 모든 체크박스를 찾아 라벨을 추가해줍니다.
+ * @param def 의존성 배열
+ */
+export const useLabelAllCheckbox = (def: any = null) => {
+  useEffect(() => {
+    const inputs = document.querySelectorAll('input');
+
+    inputs.forEach((input, index) => {
+      input.setAttribute('id', `check${index}`);
+      const label = document.createElement('label');
+      label.setAttribute('for', `check${index}`);
+      input.insertAdjacentElement('afterend', label);
+    });
+  }, [def]);
+};

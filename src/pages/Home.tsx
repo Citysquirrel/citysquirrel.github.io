@@ -1,7 +1,11 @@
 import Markdown from 'markdown-to-jsx';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useBodyColor, useScreenBorder } from '../functions';
+import {
+  useBodyColor,
+  useLabelAllCheckbox,
+  useScreenBorder,
+} from '../functions';
 import styleForMarkdown from '../lib/StyleForMarkdown';
 import about from '../markdown/About.md';
 
@@ -27,6 +31,7 @@ export default function Home() {
     },
     '#b3e6a8'
   );
+  useLabelAllCheckbox(body);
   useEffect(() => {
     fetch(about)
       .then((res) => res.text())

@@ -58,27 +58,29 @@ function App() {
         <ThemeProvider theme={light_theme}>
           <Router basename="/">
             <ScrollToTop>
-              <div id="top" className="entire-border"></div>
-              <div id="right" className="entire-border"></div>
-              <div id="bottom" className="entire-border"></div>
-              <div id="left" className="entire-border"></div>
-              <div className="App">
-                <Header />
+              <>
+                <div id="top" className="entire-border"></div>
+                <div id="right" className="entire-border"></div>
+                <div id="bottom" className="entire-border"></div>
+                <div id="left" className="entire-border"></div>
+                <div className="App">
+                  <Header />
 
-                <Container id="container">
-                  <Routes>
-                    <Route path="/*" element={<Home />} />
-                    <Route path="/blog/" element={<Blog />} />
-                    <Route path="/blog/:number" element={<Blog />} />
+                  <Container id="container">
+                    <Routes>
+                      <Route path="/*" element={<Home />} />
+                      <Route path="/blog/" element={<Blog />} />
+                      <Route path="/blog/:number" element={<Blog />} />
 
-                    {/* <Route path="/examples/*" element={<Examples />} /> */}
-                    {/* <Route path="/pictures/*" element={<Pictures />} /> */}
-                    {/* <Route path="/study/*" element={<Study />} /> */}
-                    {/* <Route path="/*" element={<Wrong />} /> */}
-                  </Routes>
-                  <Footer />
-                </Container>
-              </div>
+                      {/* <Route path="/examples/*" element={<Examples />} /> */}
+                      {/* <Route path="/pictures/*" element={<Pictures />} /> */}
+                      {/* <Route path="/study/*" element={<Study />} /> */}
+                      {/* <Route path="/*" element={<Wrong />} /> */}
+                    </Routes>
+                    <Footer />
+                  </Container>
+                </div>
+              </>
             </ScrollToTop>
           </Router>
         </ThemeProvider>

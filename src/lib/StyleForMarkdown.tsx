@@ -8,10 +8,12 @@ export const styleForMarkdown = `
     }
   }
 
-  p > code {
-    background-color: var(--gray-300);
-    padding: 2px 6px;
-    border-radius: 4px;
+  p {
+    > code {
+      background-color: var(--gray-300);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
   }
 
   pre {
@@ -35,29 +37,32 @@ export const styleForMarkdown = `
   }
 
   input[type="checkbox"] {
-    width: 1em;
-    height: 1em;
-    border-radius: 50px;
-    margin: 2px;
+    display: none;
   }
 
   input[type="checkbox"] + label {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 1em;
     height: 1em;
+    margin-right: 4px;
     border: 1px solid var(--gray-800);
-    position: relative;
+    border-radius: 4px;
+    transform: translateY(2px);
+    cursor: pointer;
+    :hover {
+        box-shadow: 0 0 2px 1px var(--gray-500);
+    }
   }
 
-  input[id="check1"]:checked + label::after {
-    content: "V";
-    font-size: 1em;
-    width: 1em;
-    height: 1em;
-    text-align: center;
+  input[type="checkbox"]:checked + label::after {
     position: absolute;
-    left: 0;
-    top: 0;
+    content: "";
+    background-color: var(--soft-blue-500);
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 3px;
   }
 
   h1,
