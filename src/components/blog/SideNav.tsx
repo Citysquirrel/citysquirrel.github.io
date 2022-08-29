@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { IBlogProps } from '../../pages/Blog';
 
 const Container = styled.aside`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   float: left;
   align-items: center;
-
   padding-top: 60px;
   width: 200px;
 `;

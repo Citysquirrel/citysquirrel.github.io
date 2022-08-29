@@ -4,14 +4,17 @@ import { Footer, Header } from './layouts';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { Blog, Home } from './pages';
-import { Issue } from './components/blog';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: 2px solid transparent;
   min-height: calc(100vh);
   transition: all 1s;
+  > main {
+    max-width: 1200px;
+  }
 `;
 
 const Pages = styled.div`
@@ -63,6 +66,7 @@ function App() {
                 <Routes>
                   <Route path="/*" element={<Home />} />
                   <Route path="/blog/*" element={<Blog />} />
+                  <Route path="/blog/:number" element={<Blog />} />
 
                   {/* <Route path="/examples/*" element={<Examples />} /> */}
                   {/* <Route path="/pictures/*" element={<Pictures />} /> */}

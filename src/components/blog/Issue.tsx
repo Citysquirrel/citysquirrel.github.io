@@ -12,6 +12,7 @@ type listUserReposIssuesResponse =
 const Container = styled.section`
   float: right;
   width: calc(100% - 200px);
+  padding-bottom: 60px;
 `;
 
 const Single = styled.article`
@@ -22,7 +23,7 @@ const Single = styled.article`
   gap: 4px;
   border-bottom: 2px solid var(--gray-300);
   :hover {
-    background-color: var(--gray-100);
+    background-color: var(--gray-200);
     transition: all 0.3s;
   }
   .blog-info-wrapper {
@@ -33,7 +34,6 @@ const Single = styled.article`
   }
   .blog-subject {
     display: flex;
-    font-size: 1.75rem;
     > a {
       flex: auto;
       text-align: left;
@@ -49,7 +49,7 @@ const Single = styled.article`
     display: inline-block;
     font-size: 0.875rem;
     margin: 0 4px;
-    color: var(--gray-400);
+    color: var(--gray-500);
   }
   .blog-category {
     font-size: 0.875rem;
@@ -140,9 +140,9 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
           const { alias } = modifyDatetime(issue.created_at);
           return (
             <Single key={issue.id}>
-              <h1 className="blog-subject">
+              <h2 className="blog-subject">
                 <Link to={`/blog/${issue.number}`}>{title}</Link>
-              </h1>
+              </h2>
               <div className="blog-info-wrapper">
                 <span className="blog-alias">{alias}</span>
                 &middot;

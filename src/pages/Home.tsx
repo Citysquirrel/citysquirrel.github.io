@@ -11,11 +11,11 @@ export default function Home() {
   useBodyColor('#fdfdfd');
   useScreenBorder(
     {
-      top: '60px',
-      right: '60px',
-      bottom: '60px',
-      left: '60px',
-      container: '60px',
+      top: '4px',
+      right: '4px',
+      bottom: '4px',
+      left: '4px',
+      container: '4px',
     },
     '#b3e6a8'
   );

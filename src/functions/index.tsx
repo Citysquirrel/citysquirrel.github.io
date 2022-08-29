@@ -173,9 +173,9 @@ export const modifyDatetime = (datetime: string) => {
  * @param state 임의의 변수
  * @returns 변수의 이전 상태
  */
-export function useConsole(state: any) {
+export function useConsole(state: any, name = 'console') {
   useEffect(() => {
-    console.log(state);
+    console.log(`${name}: `, state);
   }, [state]);
   return state;
 }

@@ -1,5 +1,4 @@
-import Article from './Article';
 import Blog from './Blog';
 import Home from './Home';
 
-export { Home, Blog, Article };
+export { Home, Blog };
