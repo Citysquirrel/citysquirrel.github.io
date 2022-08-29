@@ -104,7 +104,10 @@ export function useBodyColor(color: String) {
  * Octokit 클라이언트 셋업입니다. 이곳에 Personal Token이 env파일을 통해 입력됩니다.
  */
 export const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth:
+    process.env.REACT_APP_LOCAL_ENV === 'local'
+      ? process.env.REACT_APP_PERSONAL_TOKEN
+      : process.env.GITHUB_TOKEN,
 });
 
 /**
