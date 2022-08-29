@@ -32,7 +32,7 @@ const Blog = () => {
   const [numbers, setNumbers] = useState<number[]>([]);
   const { number } = useParams();
 
-  const article: listUserReposIssuesResponse = data!.filter(
+  const article: listUserReposIssuesResponse | null | undefined = data?.filter(
     (issue) => issue.number === Number(number)
   );
   /**

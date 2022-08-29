@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import { useConsole } from '../functions';
 
 const Container = styled.header<{ isTop: boolean }>`
   position: fixed;
@@ -93,6 +94,8 @@ export const Header = () => {
   const [isTop, setIsTop] = useState(true);
   const [scrollLocaY, setScrollLocaY] = useState(window.scrollY);
   const [page, setPage] = useState(window.location.pathname);
+
+  useConsole(page);
 
   const pageHeight = document.body.scrollHeight - window.innerHeight;
 

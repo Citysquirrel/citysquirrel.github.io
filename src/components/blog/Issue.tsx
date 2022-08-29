@@ -12,7 +12,7 @@ type listUserReposIssuesResponse =
 const Container = styled.section`
   float: right;
   width: calc(100% - 200px);
-  padding-bottom: 60px;
+  margin-bottom: 60px;
 `;
 
 const Single = styled.article`
@@ -34,6 +34,7 @@ const Single = styled.article`
   }
   .blog-subject {
     display: flex;
+    margin: 0;
     > a {
       flex: auto;
       text-align: left;
@@ -92,6 +93,7 @@ const Single = styled.article`
     text-align: start;
     font-size: 1rem;
     line-height: 1.5rem;
+    margin-bottom: 8px;
     height: 3rem;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -152,15 +152,15 @@ export const modifyDatetime = (datetime: string) => {
   const aYearAgo = new Date(nowYear - 1, nowMonth, nowDay, nowHour, nowMin);
   const difference = now.getTime() - received.getTime();
   let alias;
-  if (aMinuteAgo < received) {
+  if (aMinuteAgo <= received) {
     alias = '방금 전';
-  } else if (aHourAgo < received) {
+  } else if (aHourAgo <= received) {
     alias = `${Math.ceil(difference / 1000 / 60)}분 전`;
-  } else if (aDayAgo < received) {
+  } else if (aDayAgo <= received) {
     alias = `${Math.ceil(difference / 1000 / 60 / 60)}시간 전`;
-  } else if (aMonthAgo < received) {
+  } else if (aMonthAgo <= received) {
     alias = `${Math.ceil(difference / 1000 / 60 / 60 / 24)}일 전`;
-  } else if (aYearAgo < received) {
+  } else if (aYearAgo <= received) {
     alias = `${Math.ceil(difference / 1000 / 60 / 60 / 24 / 30)}개월 전`;
   } else {
     alias = `${Math.ceil(difference / 1000 / 60 / 60 / 24 / 30 / 12)}년 전`;
