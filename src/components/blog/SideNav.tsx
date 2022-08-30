@@ -54,6 +54,9 @@ const List = styled.section`
     font-size: 0.9375em;
     &.total {
       margin-bottom: 4px;
+      > .label-name {
+        color: var(--soft-blue-800);
+      }
     }
     > div {
       flex: auto;

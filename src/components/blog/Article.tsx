@@ -18,6 +18,8 @@ const Container = styled.section`
   float: right;
   width: calc(100% - 200px);
   margin-bottom: 60px;
+  animation: 1s fadeInDown ease-out;
+  animation-fill-mode: both;
 `;
 
 const Subject = styled.header`
