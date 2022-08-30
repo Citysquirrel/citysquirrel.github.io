@@ -1,12 +1,6 @@
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Endpoints } from '@octokit/types';
-import {
-  modQueryString,
-  useConsole,
-  useLabelAllCheckbox,
-} from '../../functions';
-import { useEffect } from 'react';
+import { useLabelAllCheckbox } from '../../functions';
 import Markdown from 'markdown-to-jsx';
 import styleForMarkdown from '../../lib/StyleForMarkdown';
 
@@ -41,10 +35,7 @@ const Body = styled.article`
 `;
 
 const Article = ({ data, isLoading }: IArticleProps) => {
-  const { number } = useParams();
   const realData = data?.[0];
-  // body, created_at, labels, title
-  // useConsole(data, 'article');
 
   useLabelAllCheckbox(data);
 

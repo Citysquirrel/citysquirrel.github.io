@@ -1,18 +1,8 @@
-import { lazy, useEffect, useState } from 'react';
-import {
-  getIssues,
-  modifyDatetime,
-  modQueryString,
-  useConsole,
-} from '../../functions';
-import { Endpoints } from '@octokit/types';
+import { modifyDatetime, modQueryString } from '../../functions';
 import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { IBlogProps } from '../../pages/Blog';
-
-type listUserReposIssuesResponse =
-  Endpoints['GET /repos/{owner}/{repo}/issues']['response']['data'];
 
 const Container = styled.section`
   float: right;
@@ -106,14 +96,8 @@ const Single = styled.article`
 `;
 
 const Issue = ({ data, isLoading }: IBlogProps) => {
-  // const [data, setData] = useState<listUserReposIssuesResponse | null>(null);
   const { search } = useLocation();
   const navigate = useNavigate();
-  /**
-   * @constant 글 작성자를 특정합니다. string[]
-   */
-  const AUTHOR = ['Citysquirrel'];
-  useConsole(data);
 
   const handleTagClick = (key: string) => (e: any) => {
     navigate(`/blog?tags=${key}`);

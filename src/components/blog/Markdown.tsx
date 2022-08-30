@@ -1,25 +1,18 @@
-import { Fragment, useEffect, useState } from 'react';
-import Transistor from 'markdown-to-jsx';
-import { renderMarkdown, useBodyColor } from '../../functions';
+import { useEffect, useState } from 'react';
+import { renderMarkdown } from '../../functions';
 import styled from 'styled-components';
-
-const Blank = styled(Fragment)`
-  text-align: left;
-`;
 
 const Container = styled.article`
   display: inline-block;
 `;
 
+//! 아마 사용되지 않을 예정 XSS 위험.
 const Markdown = ({ body = '' }: { body: string }) => {
   const [data, setData] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
   const response = renderMarkdown(body);
   useEffect(() => {
-    setIsLoading(true);
     response.then((res) => {
       setData(res.data);
-      setIsLoading(false);
     });
   }, [response]);
   return (

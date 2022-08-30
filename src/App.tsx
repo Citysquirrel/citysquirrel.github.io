@@ -19,12 +19,6 @@ const Container = styled.div`
   }
 `;
 
-const Pages = styled.div`
-  max-width: 968px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 const light_theme = {
   bg: '#edf4fc',
   bg_menu: '#e1ecfb',

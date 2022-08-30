@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Octokit, App } from 'octokit';
+import { useEffect } from 'react';
+import { Octokit } from 'octokit';
 import { FaRegCopy } from 'react-icons/fa';
 import styled from 'styled-components';
-import ReactDOM from 'react-dom';
 
 export function useFadeIn() {
   useEffect(() => {
@@ -73,6 +72,7 @@ export function useScreenBorder(
         footer.style.backgroundColor = '#c4e0fa';
       }
     };
+    // eslint-disable-next-line
   }, []);
 }
 
@@ -241,5 +241,6 @@ export const useCopyAllCodeblock = (def: any = null) => {
         </Button>
       );
     });
+    // eslint-disable-next-line
   }, [def]);
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaGithub, FaMailBulk, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaGithub, FaMailBulk } from 'react-icons/fa';
 
 const Background = styled.span`
   position: fixed;

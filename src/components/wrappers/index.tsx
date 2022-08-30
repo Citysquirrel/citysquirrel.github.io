@@ -1,5 +1,4 @@
-import { ReactChild, useEffect } from 'react';
-import { childrenToReact } from 'react-markdown/lib/ast-to-react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 
 export const ScrollToTop = (props: { children: JSX.Element }) => {

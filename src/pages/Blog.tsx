@@ -1,15 +1,8 @@
-import { lazy, useEffect, useState } from 'react';
-import {
-  getIssues,
-  modifyDatetime,
-  modQueryString,
-  useBodyColor,
-  useConsole,
-} from '../functions';
+import { useEffect, useState } from 'react';
+import { getIssues, useBodyColor } from '../functions';
 import { Endpoints } from '@octokit/types';
 import styled from 'styled-components';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { FaGithub } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
 import { Article, Issue, SideNav } from '../components/blog';
 
 type listUserReposIssuesResponse =
@@ -30,6 +23,7 @@ const Container = styled.main`
 const Blog = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<listUserReposIssuesResponse | null>(null);
+  //! 아마 사용되지 않을 상태값. 이후 삭제요망
   const [numbers, setNumbers] = useState<number[]>([]);
   const { number } = useParams();
 
