@@ -8,9 +8,9 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { Blog, Home } from './pages';
-import { ScrollToTop } from './components/wrappers';
+import { MasterProvider, ScrollToTop } from './components/wrappers';
 
 const Container = styled.div`
   display: flex;
@@ -24,16 +24,6 @@ const Container = styled.div`
     width: 80vw;
   }
 `;
-
-const light_theme = {
-  bg: '#edf4fc',
-  bg_menu: '#e1ecfb',
-  bg_menu_tp: 'rgba(255,236,251,0.61)',
-  main: '#5d9cec',
-  main_dark: '#355986',
-  main_tint: '#9dc3f3',
-  main_tint_more: '#c7dcf8',
-};
 
 interface IRouterContext {
   number: string | undefined;
@@ -55,37 +45,31 @@ function App() {
   }, []);
 
   return (
-    // <RouterContext.Provider value={routerContext}>
-    <ThemeProvider theme={light_theme}>
-      <Router basename="/">
-        <ScrollToTop>
-          <>
-            <div id="top" className="entire-border"></div>
-            <div id="right" className="entire-border"></div>
-            <div id="bottom" className="entire-border"></div>
-            <div id="left" className="entire-border"></div>
-            <div className="App">
-              <Header />
+    <MasterProvider>
+      <>
+        <div id="top" className="entire-border"></div>
+        <div id="right" className="entire-border"></div>
+        <div id="bottom" className="entire-border"></div>
+        <div id="left" className="entire-border"></div>
+        <div className="App">
+          <Header />
 
-              <Container id="container">
-                <Routes>
-                  <Route path="/*" element={<Home />} />
-                  <Route path="/blog/" element={<Blog />} />
-                  <Route path="/blog/:number" element={<Blog />} />
+          <Container id="container">
+            <Routes>
+              <Route path="/*" element={<Home />} />
+              <Route path="/blog/" element={<Blog />} />
+              <Route path="/blog/:number" element={<Blog />} />
 
-                  {/* <Route path="/examples/*" element={<Examples />} /> */}
-                  {/* <Route path="/pictures/*" element={<Pictures />} /> */}
-                  {/* <Route path="/study/*" element={<Study />} /> */}
-                  {/* <Route path="/*" element={<Wrong />} /> */}
-                </Routes>
-                <Footer />
-              </Container>
-            </div>
-          </>
-        </ScrollToTop>
-      </Router>
-    </ThemeProvider>
-    // </RouterContext.Provider>
+              {/* <Route path="/examples/*" element={<Examples />} /> */}
+              {/* <Route path="/pictures/*" element={<Pictures />} /> */}
+              {/* <Route path="/study/*" element={<Study />} /> */}
+              {/* <Route path="/*" element={<Wrong />} /> */}
+            </Routes>
+            <Footer />
+          </Container>
+        </div>
+      </>
+    </MasterProvider>
   );
 }
 
