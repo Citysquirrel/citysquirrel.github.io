@@ -42,7 +42,7 @@ const Container = styled.header<{ isTop: boolean }>`
 const Logo = styled.div`
   flex: auto;
   text-align: start;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   padding-left: 48px;
   > a {
@@ -58,7 +58,7 @@ const Logo = styled.div`
 const Wrapper = styled.nav`
   display: flex;
   width: fit-content;
-  margin: 0 12px;
+  margin: 0 48px;
   background-color: transparent;
   > a {
     flex: 1 0 auto;

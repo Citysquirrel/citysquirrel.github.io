@@ -9,3 +9,7 @@ export const ScrollToTop = (props: { children: JSX.Element }) => {
 
   return <>{props.children}</>;
 };
+
+export const MasterProvider = (props: { children: JSX.Element }) => {
+  return <>{props.children}</>;
+};

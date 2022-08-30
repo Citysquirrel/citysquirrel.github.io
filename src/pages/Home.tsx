@@ -12,6 +12,7 @@ import note from '../markdown/Note.md';
 
 const Container = styled.main`
   margin-top: 60px;
+  margin-bottom: 60px;
   font-size: 18px;
   animation: 1s 0.5s fadeIn;
   animation-fill-mode: both;
