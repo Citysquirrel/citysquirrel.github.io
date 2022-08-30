@@ -25,13 +25,20 @@ const Container = styled.section`
 const Subject = styled.header`
   flex: auto;
   border-bottom: 2px solid var(--gray-500);
+  > p {
+    font-size: 52px;
+    font-weight: 600;
+    margin: 0.75em 0 0.75em;
+  }
 `;
 
 const Body = styled.article`
   display: block;
-  margin: 8px;
-  padding: 8px;
+  padding: 16px;
+  margin: 8px 0 8px;
   font-size: 15px;
+  border: 1px solid var(--soft-blue-200);
+  border-radius: 4px;
 
   ${styleForMarkdown}
 `;
@@ -44,9 +51,9 @@ const Article = ({ data, isLoading }: IArticleProps) => {
   return (
     <Container>
       <Subject>
-        <h1>
+        <p>
           {realData !== undefined ? realData.title.split('[BLOG] ')[1] : ''}
-        </h1>
+        </p>
       </Subject>
       <Body>
         <Markdown>

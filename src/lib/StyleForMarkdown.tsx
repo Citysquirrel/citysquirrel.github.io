@@ -25,6 +25,16 @@ export const styleForMarkdown = `
       padding: 16px;
       margin: 8px 0;
       border-radius: 4px;
+      overflow-x: auto;
+      ::-webkit-scrollbar {
+        display: block;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        
+        background-color: var(--soft-blue-400);
+        border-radius: 4px;
+      }
     }
   }
 
@@ -69,6 +79,12 @@ export const styleForMarkdown = `
   h2 {
     border-bottom: 1px solid var(--gray-400);
   }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 24px 0 16px;
+  }
   h1 {
     font-size: 2em;
   }
@@ -84,12 +100,17 @@ export const styleForMarkdown = `
 
   blockquote {
     margin: 0;
-    border-left: 3px solid var(--gray-400);
+    padding: 2px;
+    border-left: 3px solid var(--soft-blue-400);
+    background-color: var(--soft-blue-50);
+    
     > p {
       margin-left: 16px;
       color: var(--gray-700);
-      white-space: pre;
-    }
-  }`;
+      white-space: pre-line;
+      
+  }
+
+}`;
 
 export default styleForMarkdown;

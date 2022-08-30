@@ -108,9 +108,8 @@ export function useBodyColor(color: String) {
  */
 export const octokit = new Octokit({
   auth:
-    process.env.REACT_APP_LOCAL_ENV === 'local'
-      ? process.env.REACT_APP_PERSONAL_TOKEN
-      : process.env.GITHUB_TOKEN,
+    // process.env.REACT_APP_PERSONAL_TOKEN
+    process.env.GITHUB_TOKEN,
 });
 
 /**

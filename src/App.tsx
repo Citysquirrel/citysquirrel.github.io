@@ -1,5 +1,12 @@
 import './App.css';
-import { createContext, useMemo, useState, Dispatch, useEffect } from 'react';
+import {
+  createContext,
+  useMemo,
+  useState,
+  Dispatch,
+  useEffect,
+  Component,
+} from 'react';
 import { Footer, Header } from './layouts';
 import {
   BrowserRouter as Router,
