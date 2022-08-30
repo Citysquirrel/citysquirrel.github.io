@@ -95,7 +95,10 @@ const SideNav = ({ data, isLoading }: IBlogProps) => {
       });
   });
   const toArr = Object.entries(LABELS);
-  // 왜만든거임?
+  /**
+   *! 사용되지 않지만 이후 참고용으로 남겨둠
+   */
+  // eslint-disable-next-line
   const total = toArr.reduce(
     ([_A, count], [_B, cur]) => ['', count + cur],
     ['', 0]

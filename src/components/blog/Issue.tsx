@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { IBlogProps } from '../../pages/Blog';
+import NoData from './NoData';
 
 const Container = styled.section`
   float: right;
@@ -103,15 +104,24 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
     navigate(`/blog?tags=${key}`);
   };
 
+  const filtered = data?.filter((issue) => {
+    const queryObj = modQueryString(search);
+    if (queryObj.tags === undefined) return true;
+    return issue.labels
+      .map((issue) => typeof issue !== 'string' && issue.name)
+      .includes(queryObj.tags);
+  });
+
   return (
     <Container>
       {isLoading ? (
         <>Loading.................................</>
+      ) : filtered?.length === 0 ? (
+        <NoData />
       ) : (
         data
           ?.filter((issue) => {
             const queryObj = modQueryString(search);
-            console.log(queryObj);
             if (queryObj.tags === undefined) return true;
             return issue.labels
               .map((issue) => typeof issue !== 'string' && issue.name)

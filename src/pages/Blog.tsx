@@ -27,8 +27,6 @@ const Blog = () => {
   const [numbers, setNumbers] = useState<number[]>([]);
   const { number } = useParams();
 
-  // useConsole(search, 'QueryString');
-
   const article: listUserReposIssuesResponse | null | undefined = data?.filter(
     (issue) => issue.number === Number(number)
   );
