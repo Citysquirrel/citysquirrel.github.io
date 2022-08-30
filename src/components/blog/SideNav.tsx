@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { modQueryString } from '../../functions';
 import { IBlogProps } from '../../pages/Blog';
 
 const Container = styled.aside`
@@ -30,7 +31,7 @@ const Subject = styled.header`
     right: 0;
     bottom: 0;
     left: 0;
-    width: 200px;
+    width: 216px;
     height: 20px;
     background: linear-gradient(
       -105deg,
@@ -49,7 +50,7 @@ const List = styled.section`
   > a {
     display: flex;
     align-items: stretch;
-    width: 120px;
+    width: 172px;
     color: var(--gray-800);
     font-size: 0.9375em;
     &.total {
@@ -83,7 +84,9 @@ const List = styled.section`
 `;
 
 const SideNav = ({ data, isLoading }: IBlogProps) => {
+  const { search } = useLocation();
   const LABELS: { [key: string]: number } = {};
+  const queryObj = modQueryString(search);
   data?.forEach((issue) => {
     const { labels } = issue;
     labels
@@ -130,3 +133,6 @@ const SideNav = ({ data, isLoading }: IBlogProps) => {
 };
 
 export default SideNav;
+function useLoacation(): { search: any } {
+  throw new Error('Function not implemented.');
+}

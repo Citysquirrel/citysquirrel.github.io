@@ -8,6 +8,7 @@ import {
 } from '../functions';
 import styleForMarkdown from '../lib/StyleForMarkdown';
 import about from '../markdown/About.md';
+import note from '../markdown/Note.md';
 
 const Container = styled.main`
   margin-top: 60px;
@@ -33,7 +34,7 @@ export default function Home() {
   );
   useLabelAllCheckbox(body);
   useEffect(() => {
-    fetch(about)
+    fetch(note)
       .then((res) => res.text())
       .then((text) => setBody(text));
   }, []);

@@ -44,17 +44,8 @@ export const RouterContext = createContext<IRouterContext>({
   number: undefined,
   search: undefined,
 });
-// export const TestDispatchContext = createContext<TestDispatch | null>(null);
 
 function App() {
-  // const [globalTest, setGlobalTest] = useState('전역상태 만들어보기');
-  const { search } = useLocation();
-  const { number } = useParams();
-  const routerContext = useMemo(() => {
-    return { number, search };
-  }, [number, search]);
-  // const dispatchMemo = useMemo(() => setGlobalTest, [setGlobalTest]);
-
   const colorTheme = localStorage.getItem('colorTheme');
 
   useEffect(() => {
@@ -64,39 +55,37 @@ function App() {
   }, []);
 
   return (
-    <RouterContext.Provider value={routerContext}>
-      {/* <TestDispatchContext.Provider value={dispatchMemo}> */}
-      <ThemeProvider theme={light_theme}>
-        <Router basename="/">
-          <ScrollToTop>
-            <>
-              <div id="top" className="entire-border"></div>
-              <div id="right" className="entire-border"></div>
-              <div id="bottom" className="entire-border"></div>
-              <div id="left" className="entire-border"></div>
-              <div className="App">
-                <Header />
+    // <RouterContext.Provider value={routerContext}>
+    <ThemeProvider theme={light_theme}>
+      <Router basename="/">
+        <ScrollToTop>
+          <>
+            <div id="top" className="entire-border"></div>
+            <div id="right" className="entire-border"></div>
+            <div id="bottom" className="entire-border"></div>
+            <div id="left" className="entire-border"></div>
+            <div className="App">
+              <Header />
 
-                <Container id="container">
-                  <Routes>
-                    <Route path="/*" element={<Home />} />
-                    <Route path="/blog/" element={<Blog />} />
-                    <Route path="/blog/:number" element={<Blog />} />
+              <Container id="container">
+                <Routes>
+                  <Route path="/*" element={<Home />} />
+                  <Route path="/blog/" element={<Blog />} />
+                  <Route path="/blog/:number" element={<Blog />} />
 
-                    {/* <Route path="/examples/*" element={<Examples />} /> */}
-                    {/* <Route path="/pictures/*" element={<Pictures />} /> */}
-                    {/* <Route path="/study/*" element={<Study />} /> */}
-                    {/* <Route path="/*" element={<Wrong />} /> */}
-                  </Routes>
-                  <Footer />
-                </Container>
-              </div>
-            </>
-          </ScrollToTop>
-        </Router>
-      </ThemeProvider>
-      {/* </TestDispatchContext.Provider> */}
-    </RouterContext.Provider>
+                  {/* <Route path="/examples/*" element={<Examples />} /> */}
+                  {/* <Route path="/pictures/*" element={<Pictures />} /> */}
+                  {/* <Route path="/study/*" element={<Study />} /> */}
+                  {/* <Route path="/*" element={<Wrong />} /> */}
+                </Routes>
+                <Footer />
+              </Container>
+            </div>
+          </>
+        </ScrollToTop>
+      </Router>
+    </ThemeProvider>
+    // </RouterContext.Provider>
   );
 }
 

@@ -195,8 +195,9 @@ interface IQueryObject {
  * @param str `QueryString`
  * @returns `key-value Object`
  */
-export function modQueryString(str: string) {
-  const array = str
+export function modQueryString(str: string | undefined) {
+  const decoded = typeof str === 'string' ? decodeURI(str) : '';
+  const array = decoded
     .slice(1)
     .split('&')
     .map((query) => query.split('='));

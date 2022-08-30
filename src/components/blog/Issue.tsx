@@ -1,4 +1,4 @@
-import { modifyDatetime, modQueryString } from '../../functions';
+import { modifyDatetime, modQueryString, useConsole } from '../../functions';
 import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
@@ -100,6 +100,7 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
   const { search } = useLocation();
   const navigate = useNavigate();
 
+  useConsole(search);
   const handleTagClick = (key: string) => (e: any) => {
     navigate(`/blog?tags=${key}`);
   };
