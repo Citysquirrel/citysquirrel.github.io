@@ -46,29 +46,27 @@ function App() {
 
   return (
     <MasterProvider>
-      <>
-        <div id="top" className="entire-border"></div>
-        <div id="right" className="entire-border"></div>
-        <div id="bottom" className="entire-border"></div>
-        <div id="left" className="entire-border"></div>
-        <div className="App">
-          <Header />
+      <div className="App">
+        <div id="top" className="screen-border"></div>
+        <div id="right" className="screen-border"></div>
+        <div id="bottom" className="screen-border"></div>
+        <div id="left" className="screen-border"></div>
+        <Header />
 
-          <Container id="container">
-            <Routes>
-              <Route path="/*" element={<Home />} />
-              <Route path="/blog/" element={<Blog />} />
-              <Route path="/blog/:number" element={<Blog />} />
+        <Container id="container">
+          <Routes>
+            <Route path="/*" element={<Home />} />
+            <Route path="/blog/" element={<Blog />} />
+            <Route path="/blog/:number" element={<Blog />} />
 
-              {/* <Route path="/examples/*" element={<Examples />} /> */}
-              {/* <Route path="/pictures/*" element={<Pictures />} /> */}
-              {/* <Route path="/study/*" element={<Study />} /> */}
-              {/* <Route path="/*" element={<Wrong />} /> */}
-            </Routes>
-            <Footer />
-          </Container>
-        </div>
-      </>
+            {/* <Route path="/examples/*" element={<Examples />} /> */}
+            {/* <Route path="/pictures/*" element={<Pictures />} /> */}
+            {/* <Route path="/study/*" element={<Study />} /> */}
+            {/* <Route path="/*" element={<Wrong />} /> */}
+          </Routes>
+          <Footer />
+        </Container>
+      </div>
     </MasterProvider>
   );
 }
