@@ -7,16 +7,18 @@ const Container = styled.aside`
   display: flex;
   flex-direction: column;
   float: left;
+  font-size: 16px;
   align-items: center;
   padding-top: 60px;
   width: 200px;
 `;
 
-const Subject = styled.summary`
+const Subject = styled.header`
   position: relative;
   width: calc(100% - 64px);
   /* text-align: center; */
-  font-size: 1.125rem;
+  font-size: 1.25em;
+  font-weight: 600;
   text-align: left;
   margin-bottom: 8px;
 
@@ -49,7 +51,7 @@ const List = styled.section`
     align-items: stretch;
     width: 120px;
     color: var(--gray-800);
-    font-size: 0.875rem;
+    font-size: 0.9375em;
     &.total {
       margin-bottom: 4px;
     }
