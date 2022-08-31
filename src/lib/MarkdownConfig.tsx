@@ -16,15 +16,23 @@ const CodeConfig = ({ className, children }: ICode) => {
     padding: '16px',
     margin: '8px 0',
     backgroundColor: 'var(--soft-blue-100)',
+    letterSpacing: '0.025em',
   };
   let language = 'text';
   if (className && className.startsWith('lang-')) {
     language = className.replace('lang-', '');
   }
   return (
-    <SyntaxHighlighter language={language} style={style} customStyle={myStyle}>
-      {children}
-    </SyntaxHighlighter>
+    <>
+      <div></div>
+      <SyntaxHighlighter
+        language={language}
+        style={style}
+        customStyle={myStyle}
+        wrapLines={true}
+        children={children}
+      />
+    </>
   );
 };
 
@@ -33,7 +41,7 @@ const PreConfig = ({ children, ...rest }: IPre) => {
     return CodeConfig(children['props']);
   }
   return (
-    <pre style={{ borderRadius: '2px' }} {...rest}>
+    <pre style={{ borderRadius: '4px' }} {...rest}>
       {children}
     </pre>
   );
