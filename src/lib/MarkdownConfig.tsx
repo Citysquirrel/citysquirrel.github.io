@@ -16,7 +16,6 @@ const CodeConfig = ({ className, children }: ICode) => {
     padding: '16px',
     margin: '8px 0',
     backgroundColor: 'var(--soft-blue-100)',
-    letterSpacing: '0.025em',
   };
   let language = 'text';
   if (className && className.startsWith('lang-')) {

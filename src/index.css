@@ -34,13 +34,9 @@
 }
 
 * {
-  /* margin: 0;
-  padding: 0; */
-  /* font-size: x-large; */
-
+  font-family: 'Spoqa Mulish', 'Malgun Gothic', 'arial';
   box-sizing: border-box;
   color: var(--gray-900);
-  font-family: 'Spoqa Han Sans Neo', 'arial';
   text-decoration: none;
 }
 
@@ -48,15 +44,14 @@ span {
   background-color: transparent;
 }
 
+code :nth-child(n) {
+  word-spacing: 0.25em;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Spoqa Han Sans Neo',
-    'Courier New', monospace;
 }
 
 button {
