@@ -3,6 +3,7 @@ import { Endpoints } from '@octokit/types';
 import { useLabelAllCheckbox } from '../../functions';
 import Markdown from 'markdown-to-jsx';
 import styleForMarkdown from '../../lib/StyleForMarkdown';
+import PreConfig from '../../lib/MarkdownConfig';
 
 type listUserReposIssuesResponse =
   Endpoints['GET /repos/{owner}/{repo}/issues']['response']['data'];
@@ -56,7 +57,13 @@ const Article = ({ data, isLoading }: IArticleProps) => {
         </p>
       </Subject>
       <Body>
-        <Markdown>
+        <Markdown
+          options={{
+            overrides: {
+              pre: PreConfig,
+            },
+          }}
+        >
           {realData !== undefined
             ? realData.body!.split('---').slice(1).join('---')
             : ''}

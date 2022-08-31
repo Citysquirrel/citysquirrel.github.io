@@ -1,3 +1,5 @@
-export const NotificationCenter = () => {
+const NotificationCenter = () => {
   return <></>;
 };
+
+export default NotificationCenter;

@@ -3,6 +3,11 @@ import { useLocation } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+/**
+ * 하위 컴포넌트 전역에 마운트 시 스크롤을 최상위로 올려주는 래퍼입니다.
+ * @param props JSX Element children
+ * @returns JSX Element children
+ */
 export const ScrollToTop = (props: { children: JSX.Element }) => {
   const location = useLocation();
   useEffect(() => {

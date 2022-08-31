@@ -1,23 +1,10 @@
 import './App.css';
-import {
-  createContext,
-  useMemo,
-  useState,
-  Dispatch,
-  useEffect,
-  Component,
-} from 'react';
-import { Footer, Header } from './layouts';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { createContext, Dispatch, useEffect } from 'react';
+import { Footer, Header, ScreenElements } from './layouts';
+import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Blog, Home } from './pages';
-import { MasterProvider, ScrollToTop } from './components/wrappers';
+import { MasterProvider } from './components/wrappers';
 
 const Container = styled.div`
   display: flex;
@@ -54,10 +41,7 @@ function App() {
   return (
     <MasterProvider>
       <div className="App">
-        <div id="top" className="screen-border"></div>
-        <div id="right" className="screen-border"></div>
-        <div id="bottom" className="screen-border"></div>
-        <div id="left" className="screen-border"></div>
+        <ScreenElements />
         <Header />
 
         <Container id="container">

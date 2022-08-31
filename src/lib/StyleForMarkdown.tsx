@@ -21,11 +21,8 @@ export const styleForMarkdown = `
     width: 100%;
     > code {
       flex: auto;
-      background-color: var(--soft-blue-100);
-      padding: 16px;
-      margin: 8px 0;
-      border-radius: 4px;
       overflow-x: auto;
+      padding: 4px;
       ::-webkit-scrollbar {
         display: block;
         height: 8px;
@@ -106,9 +103,12 @@ export const styleForMarkdown = `
     
     > p {
       margin-left: 16px;
-      color: var(--gray-700);
       white-space: pre-line;
-      
+    }
+
+    * {
+      color: var(--gray-700);
+    }
   }
 
 }`;
