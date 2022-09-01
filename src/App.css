@@ -1,3 +1,39 @@
 .App {
   text-align: center;
 }
+
+.screen-border {
+  position: fixed;
+  display: block;
+  margin: 0;
+  padding: 0;
+  margin-block: 0;
+  content: '';
+  background-color: var(--soft-blue-100);
+  transition: all 1s ease-in-out;
+  z-index: 2;
+}
+#top {
+  width: 100vw;
+  height: 2px;
+  top: 0;
+  left: 0;
+}
+#right {
+  width: 2px;
+  height: 100vh;
+  top: 0;
+  right: 0;
+}
+#bottom {
+  width: 100vw;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+}
+#left {
+  width: 2px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}

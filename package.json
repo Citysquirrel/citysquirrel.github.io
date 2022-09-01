@@ -1,27 +1,32 @@
 {
-  "name": "posting",
+  "name": "citysquirrel",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.40",
-    "@types/react-dom": "^17.0.13",
-    "aws-sdk": "^2.1095.0",
-    "babel-plugin-styled-components": "^2.0.6",
-    "concurrently": "^7.0.0",
-    "highlight.js": "^11.5.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-markdown": "^8.0.2",
-    "react-router-dom": "^6.2.2",
-    "react-scripts": "5.0.0",
-    "styled-components": "^5.3.3",
-    "typescript": "^4.6.2",
+    "@octokit/types": "^7.1.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.3.0",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.2",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "aws-sdk": "^2.1185.0",
+    "axios": "^0.27.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "concurrently": "^7.3.0",
+    "highlight.js": "^11.6.0",
+    "markdown-to-jsx": "^7.1.7",
+    "octokit": "^2.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-markdown": "^8.0.3",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.7.4",
     "util": "^0.12.4",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
@@ -37,9 +42,8 @@
     "dp": "gh-pages -d build",
     "lint": "eslint '**/*.{ts,tsx}' --ext .ts,.tsx --fix",
     "lint-staged": "lint-staged",
-    "bs": "release-please bootstrap --repo-url=citysquirrel/citysquirrel.github.io --token=$(cat ./.env) --target-branch=master --config-file=release-please-config.json" ,
-    "rl": "release-please release-pr --repo-url=citysquirrel/citysquirrel.github.io --token=$(cat ./.env)",
-    "ec": "cat ./.env"
+    "ttf": "token-transformer data/tokens.json data/output.json",
+    "make": "node ./data/transformer.js"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -65,11 +69,14 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.24",
+    "@types/react-syntax-highlighter": "^15.5.5",
+    "@types/styled-components": "^5.1.25",
     "@types/uuid": "^8.3.4",
-    "gh-pages": "^3.2.3",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.3.7"
+    "eslint-plugin-css": "^0.6.0",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "token-transformer": "^0.0.24"
   },
   "resolutions": {
     "styled-components": "^5"
