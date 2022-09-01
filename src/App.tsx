@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   border: 2px solid transparent;
-  min-height: calc(100vh);
+  min-height: calc(100vh - 64px);
   transition: all 1s;
   > main {
     max-width: 1200px;
@@ -50,11 +50,6 @@ function App() {
               <Route path="/*" element={<Home />} />
               <Route path="/blog/" element={<Blog />} />
               <Route path="/blog/:number" element={<Blog />} />
-
-              {/* <Route path="/examples/*" element={<Examples />} /> */}
-              {/* <Route path="/pictures/*" element={<Pictures />} /> */}
-              {/* <Route path="/study/*" element={<Study />} /> */}
-              {/* <Route path="/*" element={<Wrong />} /> */}
             </Routes>
           </Suspense>
           <Footer />
