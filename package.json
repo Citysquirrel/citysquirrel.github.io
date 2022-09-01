@@ -12,6 +12,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "aws-sdk": "^2.1185.0",
+    "axios": "^0.27.2",
     "babel-plugin-styled-components": "^2.0.7",
     "concurrently": "^7.3.0",
     "highlight.js": "^11.6.0",
