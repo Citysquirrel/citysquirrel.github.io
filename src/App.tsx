@@ -31,7 +31,6 @@ export const RouterContext = createContext<IRouterContext>({
 
 function App() {
   const colorTheme = localStorage.getItem('colorTheme');
-
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', colorTheme || 'light');
 

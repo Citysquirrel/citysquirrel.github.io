@@ -3,6 +3,7 @@ import { Octokit } from 'octokit';
 import { FaRegCopy } from 'react-icons/fa';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export function useFadeIn() {
   useEffect(() => {
@@ -107,10 +108,11 @@ export function useBodyColor(color: String) {
 /**
  * Octokit 클라이언트 셋업입니다. 이곳에 Personal Token이 env파일을 통해 입력됩니다.
  */
-export const octokit = new Octokit({
+export const octokitForBlog = new Octokit({
   auth:
     // process.env.REACT_APP_PERSONAL_TOKEN
-    process.env.GITHUB_TOKEN,
+    // process.env.GITHUB_TOKEN,
+    '',
 });
 
 /**
@@ -118,20 +120,33 @@ export const octokit = new Octokit({
  * @returns issues 탭 정보를 담은 Promise 객체
  */
 export function getIssues() {
-  return octokit.request('GET /repos/{owner}/{repo}/issues', {
+  return octokitForBlog.request('GET /repos/{owner}/{repo}/issues', {
     owner: 'Citysquirrel',
     repo: 'citysquirrel.github.io',
   });
 }
 
+/**
+ * 깃허브 OAuth 인증을 수행합니다(Redirect).
+ * {@link https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps}
+ */
 export function execGithubLogin() {
   window.location.assign(
     'https://github.com/login/oauth/authorize?client_id=dbbd22f1eae2c8421188'
   );
 }
 
+/**
+ * 액세스 토큰을 사용해 Github 유저 인증을 실행합니다.
+ * {@link https://docs.github.com/en/rest/users/users#get-the-authenticated-user}
+ */
 export function getUserInfo() {
-  fetch('https://api.github.com/user');
+  const octokit = new Octokit({
+    auth: 'YOUR-TOKEN',
+  });
+  octokit.request('GET /user', {});
+  //Authorization: Bearer OAUTH-TOKEN
+  // axios.get("https://api.github.com/user",{headers: {authorization:`Bearer ${token}` }})
 }
 
 /**
@@ -140,7 +155,7 @@ export function getUserInfo() {
  * @returns HTML 형식의 문자열을 담은 Promise
  */
 export async function renderMarkdown(text: string) {
-  return await octokit.request('POST /markdown', { text });
+  return await octokitForBlog.request('POST /markdown', { text });
 }
 
 /**
