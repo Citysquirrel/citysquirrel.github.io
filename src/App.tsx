@@ -43,7 +43,6 @@ function App() {
       <div className="App">
         <ScreenElements />
         <Header />
-
         <Container id="container">
           <Routes>
             <Route path="/*" element={<Home />} />

@@ -26,7 +26,6 @@ const Blog = () => {
   //! 아마 사용되지 않을 상태값. 이후 삭제요망
   const [numbers, setNumbers] = useState<number[]>([]);
   const { number } = useParams();
-
   const article: listUserReposIssuesResponse | null | undefined = data?.filter(
     (issue) => issue.number === Number(number)
   );

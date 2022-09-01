@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Octokit } from 'octokit';
 import { FaRegCopy } from 'react-icons/fa';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 export function useFadeIn() {
   useEffect(() => {
@@ -121,6 +122,16 @@ export function getIssues() {
     owner: 'Citysquirrel',
     repo: 'citysquirrel.github.io',
   });
+}
+
+export function execGithubLogin() {
+  window.location.assign(
+    'https://github.com/login/oauth/authorize?client_id=dbbd22f1eae2c8421188'
+  );
+}
+
+export function getUserInfo() {
+  fetch('https://api.github.com/user');
 }
 
 /**
