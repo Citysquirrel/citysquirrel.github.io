@@ -20,7 +20,7 @@ const Container = styled.main`
 `;
 
 const url =
-  'https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/dev/src/markdown/About.md';
+  'https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/master/README.md';
 
 export default function Home() {
   const [body, setBody] = useState('');
@@ -37,7 +37,7 @@ export default function Home() {
   );
   useLabelAllCheckbox(body);
   useEffect(() => {
-    fetch(note)
+    fetch(url)
       .then((res) => res.text())
       .then((text) => setBody(text));
   }, []);

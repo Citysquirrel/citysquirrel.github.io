@@ -81,5 +81,6 @@
   "resolutions": {
     "styled-components": "^5"
   },
+  "license": "MIT",
   "homepage": "https://citysquirrel.github.io/"
 }
