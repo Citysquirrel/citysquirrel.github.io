@@ -7,7 +7,6 @@ import {
   useScreenBorder,
 } from '../functions';
 import styleForMarkdown from '../lib/StyleForMarkdown';
-import about from '../markdown/About.md';
 import note from '../markdown/Note.md';
 
 const Container = styled.main`

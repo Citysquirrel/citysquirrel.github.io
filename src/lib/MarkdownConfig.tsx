@@ -23,6 +23,7 @@ const CodeConfig = ({ className, children }: ICode) => {
   }
   return (
     <>
+      {/* 복사 기능을 위한 보조 요소 추가 */}
       <div></div>
       <SyntaxHighlighter
         language={language}

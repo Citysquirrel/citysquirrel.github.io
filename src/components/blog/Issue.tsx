@@ -73,7 +73,6 @@ const Single = styled.article`
     padding: 2px 4px;
     border: 1px solid var(--gray-400);
     border-radius: 4px;
-    user-select: none;
     .blog-issue-link-icon {
       margin-right: 4px;
     }
