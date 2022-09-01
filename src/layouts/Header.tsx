@@ -14,6 +14,8 @@ const Container = styled.header<{ isTop: boolean }>`
   /* background-color: var(--bg-menu); */
   background-color: ${(props) => (props.isTop ? 'transparent' : '#a1cdf799')};
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
+  animation: 1s fadeIn;
+  animation-fill-mode: both;
   z-index: 1004;
   transition: all 0.3s;
   > progress {

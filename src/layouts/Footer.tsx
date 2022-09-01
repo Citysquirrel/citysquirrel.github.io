@@ -22,6 +22,8 @@ const Container = styled.footer`
   font-size: 1rem;
   padding: 8px 0;
   background-color: transparent;
+  animation: 1s 0.5s fadeIn;
+  animation-fill-mode: both;
   transition: 1s ease-in-out;
   user-select: none;
   z-index: 5;
