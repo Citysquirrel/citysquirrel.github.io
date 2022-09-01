@@ -106,7 +106,7 @@ export function useBodyColor(color: String) {
 }
 
 /**
- * Octokit 클라이언트 셋업입니다. 이곳에 Personal Token이 env파일을 통해 입력됩니다.
+ * Octokit 클라이언트 셋업입니다. Public 권한으로 실행되는 octokit입니다.
  */
 export const octokitForBlog = new Octokit({
   auth:
