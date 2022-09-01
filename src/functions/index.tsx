@@ -97,6 +97,7 @@ export function useStopBodyScroll() {
  */
 export function useBodyColor(color: String) {
   useEffect(() => {
+    document.body.style.transition = 'background-color 0.5s';
     document.body.style.backgroundColor = `${color}`;
     return () => {
       document.body.style.backgroundColor = '#fff';

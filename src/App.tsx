@@ -1,10 +1,12 @@
 import './App.css';
-import { createContext, Dispatch, useEffect } from 'react';
+import { createContext, Dispatch, useEffect, lazy, Suspense } from 'react';
 import { Footer, Header, ScreenElements } from './layouts';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { Blog, Home } from './pages';
 import { MasterProvider } from './components/wrappers';
+import Loading from './pages/Loading';
+const Home = lazy(() => import('./pages/Home'));
+const Blog = lazy(() => import('./pages/Blog'));
 
 const Container = styled.div`
   display: flex;
@@ -43,16 +45,18 @@ function App() {
         <ScreenElements />
         <Header />
         <Container id="container">
-          <Routes>
-            <Route path="/*" element={<Home />} />
-            <Route path="/blog/" element={<Blog />} />
-            <Route path="/blog/:number" element={<Blog />} />
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route path="/*" element={<Home />} />
+              <Route path="/blog/" element={<Blog />} />
+              <Route path="/blog/:number" element={<Blog />} />
 
-            {/* <Route path="/examples/*" element={<Examples />} /> */}
-            {/* <Route path="/pictures/*" element={<Pictures />} /> */}
-            {/* <Route path="/study/*" element={<Study />} /> */}
-            {/* <Route path="/*" element={<Wrong />} /> */}
-          </Routes>
+              {/* <Route path="/examples/*" element={<Examples />} /> */}
+              {/* <Route path="/pictures/*" element={<Pictures />} /> */}
+              {/* <Route path="/study/*" element={<Study />} /> */}
+              {/* <Route path="/*" element={<Wrong />} /> */}
+            </Routes>
+          </Suspense>
           <Footer />
         </Container>
       </div>
