@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import { useConsole } from '../functions';
 
 const Container = styled.header<{ isTop: boolean }>`
   position: fixed;
@@ -12,7 +13,7 @@ const Container = styled.header<{ isTop: boolean }>`
   align-items: center;
   height: 60px;
   /* background-color: var(--bg-menu); */
-  background-color: ${(props) => (props.isTop ? 'transparent' : '#a1cdf799')};
+  background-color: ${(props) => (props.isTop ? 'transparent' : '#e6f3fd99')};
   ${(props) => (props.isTop ? '' : 'backdrop-filter: blur(4px)')};
   animation: 1s fadeIn;
   animation-fill-mode: both;
@@ -98,7 +99,8 @@ const Wrapper = styled.nav`
 export const Header = () => {
   const [isTop, setIsTop] = useState(true);
   const [scrollLocaY, setScrollLocaY] = useState(window.scrollY);
-  const [page, setPage] = useState(window.location.pathname);
+  const { pathname } = useLocation();
+  const [page, setPage] = useState(pathname);
 
   const pageHeight = document.body.scrollHeight - window.innerHeight;
 
@@ -111,6 +113,10 @@ export const Header = () => {
     ['/', 'About'],
     ['/blog', 'Blog'],
   ];
+
+  useEffect(() => {
+    setPage(pathname);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
