@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { modQueryString } from '../../functions';
 import { IBlogProps } from '../../pages/Blog';
+import FloatMenu from './FloatMenu';
 
 const Container = styled.aside`
   position: fixed;
@@ -129,11 +130,9 @@ const SideNav = ({ data, isLoading }: IBlogProps) => {
           );
         })}
       </List>
+      {/* <FloatMenu /> */}
     </Container>
   );
 };
 
 export default SideNav;
-function useLoacation(): { search: any } {
-  throw new Error('Function not implemented.');
-}

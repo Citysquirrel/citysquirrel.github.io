@@ -53,10 +53,6 @@ const Body = styled.article`
   ${styleForMarkdown}
 `;
 
-const FloatMenu = styled.aside`
-  position: absolute;
-`;
-
 const Article = ({ data, isLoading }: IArticleProps) => {
   const realData = data?.[0];
   const { kr } = modifyDatetime(realData?.created_at);
