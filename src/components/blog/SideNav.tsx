@@ -11,6 +11,7 @@ const Container = styled.aside`
   font-size: 16px;
   align-items: center;
   padding-top: 60px;
+  padding: 60px 12px 0 12px;
   width: 200px;
 `;
 

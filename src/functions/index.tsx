@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { Octokit } from 'octokit';
 import { FaRegCopy } from 'react-icons/fa';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 export function useFadeIn() {
   useEffect(() => {
@@ -17,10 +15,17 @@ export function useFadeIn() {
  * @returns `boolean` (ex: `true`)
  */
 export function isLightColorTone(color: string) {
-  const first = parseInt(color[1], 16);
-  // 0 1 2 3 4 5 6 7 => dark
-  // 8 9 A B C D E F => light
-  return first > 8;
+  let code = '';
+  if (color[0] === '#') code = color.slice(1);
+  else code = color.slice();
+  const firstLetter = parseInt(color[1], 16);
+  const red = code.slice(1, 2);
+  const green = code.slice(3, 4);
+  const blue = code.slice(5, 6);
+  //! R, G, B에 따라서 나눌 필요가 있음. 현재는 임시방편
+  // 0 1 2 3 4 5 6 7 => dark tone
+  // 8 9 A B C D E F => light tone
+  return firstLetter > 8;
 }
 
 /**
@@ -190,8 +195,9 @@ export async function renderMarkdown(text: string) {
  * @param datetime `string` datetime 형식의 문자열
  * @returns `{ kr: 한글형태의 로컬시간, alias: 작성시점으로부터의 시간차 }`
  */
-export const modifyDatetime = (datetime: string) => {
+export const modifyDatetime = (datetime: string | undefined) => {
   // datetime: UTC 시간
+  if (datetime === undefined) return { kr: undefined, alias: undefined };
   const received = new Date(datetime);
   const now = new Date();
   const nowYear = now.getFullYear();
