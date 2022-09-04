@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.900c43d3.css",
-    "main.js": "/static/js/main.eaf1fcca.js",
-    "static/js/297.ebbedd96.chunk.js": "/static/js/297.ebbedd96.chunk.js",
-    "static/js/819.0f1c9b35.chunk.js": "/static/js/819.0f1c9b35.chunk.js",
+    "main.js": "/static/js/main.1c98ab7f.js",
+    "static/js/257.1f3fb429.chunk.js": "/static/js/257.1f3fb429.chunk.js",
+    "static/js/76.afcf0b1e.chunk.js": "/static/js/76.afcf0b1e.chunk.js",
     "static/js/27.a0996e94.chunk.js": "/static/js/27.a0996e94.chunk.js",
     "static/js/584.57e57015.chunk.js": "/static/js/584.57e57015.chunk.js",
     "static/js/487.e41554ec.chunk.js": "/static/js/487.e41554ec.chunk.js",
@@ -17,11 +17,10 @@
     "static/media/Mulish-SemiBold.ttf": "/static/media/Mulish-SemiBold.7477176a62684871d5fd.ttf",
     "static/media/Mulish-Light.ttf": "/static/media/Mulish-Light.32d3ca7c26b8c1c80176.ttf",
     "static/media/Mulish-ExtraLight.ttf": "/static/media/Mulish-ExtraLight.59d02b9b29b5996fb922.ttf",
-    "static/media/Note.md": "/static/media/Note.7016e89841e3de1191d7.md",
     "index.html": "/index.html"
   },
   "entrypoints": [
     "static/css/main.900c43d3.css",
-    "static/js/main.eaf1fcca.js"
+    "static/js/main.1c98ab7f.js"
   ]
 }
