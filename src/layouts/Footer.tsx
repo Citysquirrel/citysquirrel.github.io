@@ -91,7 +91,7 @@ export const Footer = () => {
           </a>
         </div>
         <div className="footer-names">
-          &copyright; 2022. 곽명우 &middot; 도시다람쥐 &middot; Citysquirrel
+          &copy; 2022. 도시다람쥐 &middot; Citysquirrel All rights reserved.
         </div>
       </Container>
     </Background>

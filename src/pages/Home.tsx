@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Markdown from 'markdown-to-jsx';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -37,7 +38,7 @@ export default function Home() {
   );
   useLabelAllCheckbox(body);
   useEffect(() => {
-    fetch(url)
+    fetch(url, {}) // CORB blocked with MIME type text/plain!
       .then((res) => res.text())
       .then((text) => setBody(text));
   }, []);
