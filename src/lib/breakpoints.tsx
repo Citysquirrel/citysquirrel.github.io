@@ -1,0 +1,9 @@
+export const MOBILES = 320;
+export const MOBILEM = 375;
+export const MOBILEL = 425;
+export const SM = 640;
+export const TABLET = 768;
+export const LAPTOP = 1024;
+export const BODY_CONTAINER = 1200;
+export const XL = 1280;
+export const LAPTOPL = 1440;

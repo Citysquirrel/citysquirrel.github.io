@@ -67,6 +67,7 @@ const Container = styled.footer`
   > .footer-names {
     font-size: 0.75rem;
     color: var(--gray-600);
+    transition: 1s ease-in-out;
   }
 `;
 
@@ -90,7 +91,9 @@ export const Footer = () => {
             Github
           </a>
         </div>
-        <div className="footer-names">created by 도시다람쥐</div>
+        <div id="footer-copyright" className="footer-names">
+          &copy; 2022. 도시다람쥐 &middot; Citysquirrel All rights reserved.
+        </div>
       </Container>
     </Background>
   );

@@ -4,11 +4,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { IBlogProps } from '../../pages/Blog';
 import NoData from './NoData';
+import { Middot } from '../details';
 
 const Container = styled.section`
   float: right;
   width: calc(100% - 200px);
+  margin-top: 60px;
   margin-bottom: 60px;
+  padding: 12px;
 `;
 
 const Single = styled.article`
@@ -26,7 +29,6 @@ const Single = styled.article`
     display: flex;
     vertical-align: middle;
     align-items: center;
-    gap: 4px;
   }
   .blog-subject {
     display: flex;
@@ -143,7 +145,7 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
                 </h2>
                 <div className="blog-info-wrapper">
                   <span className="blog-alias">{alias}</span>
-                  &middot;
+                  <Middot />
                   {tag.map((ele, idx) => {
                     if (
                       ele !== undefined &&
@@ -161,7 +163,7 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
                       );
                     else return null;
                   })}
-                  &middot;
+                  <Middot />
                   <a
                     className="blog-issue-link"
                     href={issue.html_url}

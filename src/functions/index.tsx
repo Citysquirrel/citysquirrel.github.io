@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { Octokit } from 'octokit';
 import { FaRegCopy } from 'react-icons/fa';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 export function useFadeIn() {
   useEffect(() => {
@@ -11,6 +9,30 @@ export function useFadeIn() {
   }, []);
 }
 
+/**
+ * 받은 색상이 밝은색이면 true를 반환합니다.
+ * @param color 16진수 색상코드 (ex: `#c4e0fa`)
+ * @returns `boolean` (ex: `true`)
+ */
+export function isLightColorTone(color: string) {
+  let code = '';
+  if (color[0] === '#') code = color.slice(1);
+  else code = color.slice();
+  const firstLetter = parseInt(color[1], 16);
+  const red = code.slice(1, 2);
+  const green = code.slice(3, 4);
+  const blue = code.slice(5, 6);
+  //! R, G, B에 따라서 나눌 필요가 있음. 현재는 임시방편
+  // 0 1 2 3 4 5 6 7 => dark tone
+  // 8 9 A B C D E F => light tone
+  return firstLetter > 8;
+}
+
+/**
+ * 전체 화면 테두리를 주어진 두께와 배경색으로 변경합니다. 적용된 컴포넌트가 Unmount될 때 기본값(`2px`, `soft-blue-100`)으로 되돌립니다.
+ * @param options 각 Element 별 크기 속성을 담은 옵션
+ * @param color 변경될 배경색
+ */
 export function useScreenBorder(
   options: {
     top: string;
@@ -28,6 +50,7 @@ export function useScreenBorder(
     const left = document.getElementById('left');
     const container = document.getElementById('container');
     const footer = document.getElementById('footer');
+    const footerCopyright = document.getElementById('footer-copyright');
     if (top !== null) {
       top.style.height = options.top;
       top.style.backgroundColor = color;
@@ -49,6 +72,11 @@ export function useScreenBorder(
     }
     if (footer !== null) {
       footer.style.backgroundColor = color;
+    }
+    if (footerCopyright !== null) {
+      const isLight = isLightColorTone(color);
+      const colorValue = isLight ? '#424242' : '#eee';
+      footerCopyright.style.color = colorValue;
     }
     return () => {
       if (top !== null) {
@@ -72,6 +100,9 @@ export function useScreenBorder(
       }
       if (footer !== null) {
         footer.style.backgroundColor = '#c4e0fa';
+      }
+      if (footerCopyright !== null) {
+        footerCopyright.style.color = '#424242';
       }
     };
     // eslint-disable-next-line
@@ -164,8 +195,9 @@ export async function renderMarkdown(text: string) {
  * @param datetime `string` datetime 형식의 문자열
  * @returns `{ kr: 한글형태의 로컬시간, alias: 작성시점으로부터의 시간차 }`
  */
-export const modifyDatetime = (datetime: string) => {
+export const modifyDatetime = (datetime: string | undefined) => {
   // datetime: UTC 시간
+  if (datetime === undefined) return { kr: undefined, alias: undefined };
   const received = new Date(datetime);
   const now = new Date();
   const nowYear = now.getFullYear();

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Markdown from 'markdown-to-jsx';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -20,7 +21,7 @@ const Container = styled.main`
 `;
 
 const url =
-  'https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/dev/src/markdown/About.md';
+  'https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/master/README.md';
 
 export default function Home() {
   const [body, setBody] = useState('');
@@ -33,11 +34,11 @@ export default function Home() {
       left: '4px',
       container: '4px',
     },
-    '#b3e6a8'
+    '#6caaef'
   );
   useLabelAllCheckbox(body);
   useEffect(() => {
-    fetch(note)
+    fetch(url, {}) // CORB blocked with MIME type text/plain!
       .then((res) => res.text())
       .then((text) => setBody(text));
   }, []);
