@@ -11,6 +11,23 @@ export function useFadeIn() {
   }, []);
 }
 
+/**
+ * 받은 색상이 밝은색이면 true를 반환합니다.
+ * @param color 16진수 색상코드 (ex: `#c4e0fa`)
+ * @returns `boolean` (ex: `true`)
+ */
+export function isLightColorTone(color: string) {
+  const first = parseInt(color[1], 16);
+  // 0 1 2 3 4 5 6 7 => dark
+  // 8 9 A B C D E F => light
+  return first > 8;
+}
+
+/**
+ * 전체 화면 테두리를 주어진 두께와 배경색으로 변경합니다. 적용된 컴포넌트가 Unmount될 때 기본값(`2px`, `soft-blue-100`)으로 되돌립니다.
+ * @param options 각 Element 별 크기 속성을 담은 옵션
+ * @param color 변경될 배경색
+ */
 export function useScreenBorder(
   options: {
     top: string;
@@ -28,6 +45,7 @@ export function useScreenBorder(
     const left = document.getElementById('left');
     const container = document.getElementById('container');
     const footer = document.getElementById('footer');
+    const footerCopyright = document.getElementById('footer-copyright');
     if (top !== null) {
       top.style.height = options.top;
       top.style.backgroundColor = color;
@@ -49,6 +67,11 @@ export function useScreenBorder(
     }
     if (footer !== null) {
       footer.style.backgroundColor = color;
+    }
+    if (footerCopyright !== null) {
+      const isLight = isLightColorTone(color);
+      const colorValue = isLight ? '#424242' : '#eee';
+      footerCopyright.style.color = colorValue;
     }
     return () => {
       if (top !== null) {
@@ -72,6 +95,9 @@ export function useScreenBorder(
       }
       if (footer !== null) {
         footer.style.backgroundColor = '#c4e0fa';
+      }
+      if (footerCopyright !== null) {
+        footerCopyright.style.color = '#424242';
       }
     };
     // eslint-disable-next-line

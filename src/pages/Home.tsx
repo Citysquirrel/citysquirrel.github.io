@@ -34,7 +34,7 @@ export default function Home() {
       left: '4px',
       container: '4px',
     },
-    '#b3e6a8'
+    '#6caaef'
   );
   useLabelAllCheckbox(body);
   useEffect(() => {
