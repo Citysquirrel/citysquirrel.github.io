@@ -37,26 +37,10 @@ export function applyGrayscale(color: string, conversion: number = 0) {
 }
 
 /**
- * 받은 색상이 밝은색이면 true를 반환합니다.
- * @param color 16진수 색상코드 (ex: `#c4e0fa`)
- * @returns `boolean` (ex: `true`)
+ * 색상코드 받아서 해당 색상코드의 반전색에 해당하는 흑백색을 리턴합니다.
+ * @param color : 6자리 색상코드;
+ * @returns 규칙에 따라 검정색("#141414") 또는 백색("#fcfcfc")
  */
-export function isLightColorTone(color: string) {
-  let code = '';
-  if (color[0] === '#') code = color.slice(1);
-  else code = color.slice();
-  const firstLetter = parseInt(color[1], 16);
-  // rgb 각 색상들을 뽑아 10진수로 변환
-  const red = parseInt(code.slice(1, 2), 16);
-  const green = parseInt(code.slice(3, 4), 16);
-  const blue = parseInt(code.slice(5, 6), 16);
-
-  //! R, G, B에 따라서 나눌 필요가 있음. 현재는 임시방편
-  // 0 1 2 3 4 5 6 7 => dark tone
-  // 8 9 A B C D E F => light tone
-  return firstLetter > 8;
-}
-
 function fontColorByContrastRule(color: string) {
   const code = color[0] === '#' ? color.slice(1) : color.slice();
   const num = Number('0x' + code);
