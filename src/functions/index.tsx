@@ -13,8 +13,9 @@ export function useFadeIn() {
  * 색상을 받아 해당 색상을 gray톤으로 변환해 hexcode로 리턴합니다.
  * @param color 6자리 hex 색상코드
  * @param conversion `0: 평균값(default)`, `1: Luma ITU-R BT.601`, `2: Luma ITU-R BT.709`
+ * @returns 6자리 hex 색상코드
  */
-export function applyGrayscale(color: string, conversion: number = 0) {
+export function colorApplyGrayscale(color: string, conversion: number = 0) {
   // 색상코드에 #이 존재하는지 판별 후 16진수 숫자만 추출
   const code = color[0] === '#' ? color.slice(1) : color.slice();
 
@@ -37,17 +38,32 @@ export function applyGrayscale(color: string, conversion: number = 0) {
 }
 
 /**
+ * 색상을 받아 해당 색상을 반전시켜 hexcode로 리턴합니다.
+ * @param color 6자리 hex 색상코드
+ * @returns 6자리 hex 색상코드
+ */
+export function colorNegate(color: string) {
+  // 색상코드에 #이 존재하는지 판별 후 16진수 숫자만 추출
+  const code = color[0] === '#' ? color.slice(1) : color.slice();
+
+  const hex = Number('0x' + code); // 0xFFFFFF 형태의 16진수로변환
+  const negated = hex ^ 0xffffff; // 색상반전: XOR 기호로 비트 계산
+
+  return '#' + negated.toString(16).padStart(6, '0');
+}
+
+/**
  * 색상코드 받아서 해당 색상코드의 반전색에 해당하는 흑백색을 리턴합니다.
- * @param color : 6자리 색상코드;
+ * @param color 6자리 색상코드
  * @returns 규칙에 따라 검정색("#141414") 또는 백색("#fcfcfc")
  */
 function fontColorByContrastRule(color: string) {
   const code = color[0] === '#' ? color.slice(1) : color.slice();
-  const num = Number('0x' + code);
+  const hex = Number('0x' + code);
 
-  const red = (num >>> 16) & 255;
-  const green = (num >>> 8) & 255;
-  const blue = num & 255;
+  const red = (hex >>> 16) & 255;
+  const green = (hex >>> 8) & 255;
+  const blue = hex & 255;
   const yiq = (red * 299 + green * 587 + blue * 114) / 1000;
   return yiq >= 128 ? '#141414' : '#fcfcfc';
 }
