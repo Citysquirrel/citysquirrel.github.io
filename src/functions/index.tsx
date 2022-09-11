@@ -114,8 +114,9 @@ export function useScreenBorder(
       footer.style.backgroundColor = color;
     }
     if (footerCopyright !== null) {
-      const isLight = isLightColorTone(color);
-      const colorValue = isLight ? '#424242' : '#eee';
+      // const isLight = isLightColorTone(color);
+      // const colorValue = isLight ? '#424242' : '#eee';
+      const colorValue = fontColorByContrastRule(color);
       footerCopyright.style.color = colorValue;
     }
     return () => {
