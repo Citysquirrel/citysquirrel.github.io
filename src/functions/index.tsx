@@ -10,6 +10,33 @@ export function useFadeIn() {
 }
 
 /**
+ * 색상을 받아 해당 색상을 gray톤으로 변환해 hexcode로 리턴합니다.
+ * @param color 6자리 hex 색상코드
+ * @param conversion `0: 평균값(default)`, `1: Luma ITU-R BT.601`, `2: Luma ITU-R BT.709`
+ */
+export function applyGrayscale(color: string, conversion: number = 0) {
+  // 색상코드에 #이 존재하는지 판별 후 16진수 숫자만 추출
+  const code = color[0] === '#' ? color.slice(1) : color.slice();
+
+  // rgb 각 색상들을 뽑아 10진수로 변환
+  const red = parseInt(code.slice(0, 2), 16);
+  const green = parseInt(code.slice(2, 4), 16);
+  const blue = parseInt(code.slice(4, 6), 16);
+
+  // 각 grayscale 계산식
+  const avg = ((red + green + blue) / 3) >> 0;
+  const luma601 = (red * 0.299 + green * 0.587 + blue * 0.114) >> 0;
+  const luma709 = (red * 0.2126 + green * 0.7152 + blue * 0.0722) >> 0;
+
+  // 비트 계산 후 hexcode로 리턴
+  const formulas = [avg, luma601, luma709];
+  const conv = formulas[conversion];
+  const gray = (conv << 16) | (conv << 8) | conv;
+
+  return '#' + gray.toString(16).padStart(6, '0');
+}
+
+/**
  * 받은 색상이 밝은색이면 true를 반환합니다.
  * @param color 16진수 색상코드 (ex: `#c4e0fa`)
  * @returns `boolean` (ex: `true`)
@@ -19,13 +46,26 @@ export function isLightColorTone(color: string) {
   if (color[0] === '#') code = color.slice(1);
   else code = color.slice();
   const firstLetter = parseInt(color[1], 16);
-  const red = code.slice(1, 2);
-  const green = code.slice(3, 4);
-  const blue = code.slice(5, 6);
+  // rgb 각 색상들을 뽑아 10진수로 변환
+  const red = parseInt(code.slice(1, 2), 16);
+  const green = parseInt(code.slice(3, 4), 16);
+  const blue = parseInt(code.slice(5, 6), 16);
+
   //! R, G, B에 따라서 나눌 필요가 있음. 현재는 임시방편
   // 0 1 2 3 4 5 6 7 => dark tone
   // 8 9 A B C D E F => light tone
   return firstLetter > 8;
+}
+
+function fontColorByContrastRule(color: string) {
+  const code = color[0] === '#' ? color.slice(1) : color.slice();
+  const num = Number('0x' + code);
+
+  const red = (num >>> 16) & 255;
+  const green = (num >>> 8) & 255;
+  const blue = num & 255;
+  const yiq = (red * 299 + green * 587 + blue * 114) / 1000;
+  return yiq >= 128 ? '#141414' : '#fcfcfc';
 }
 
 /**
@@ -236,7 +276,9 @@ export const modifyDatetime = (datetime: string | undefined) => {
  * @param state 임의의 변수
  * @returns 변수의 이전 상태
  */
-export function useConsole(state: any, name = 'console') {
+export function useConsole(state: any, name: string | undefined = 'console') {
+  const text = `${state}`;
+  const methods = [console.log(state), console.count(state)];
   useEffect(() => {
     console.log(`${name}: `, state);
     // eslint-disable-next-line
