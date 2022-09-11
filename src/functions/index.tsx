@@ -91,6 +91,10 @@ export function useScreenBorder(
     const container = document.getElementById('container');
     const footer = document.getElementById('footer');
     const footerCopyright = document.getElementById('footer-copyright');
+    const footerEmail = document.getElementById('footer-email');
+    const footerGithub = document.getElementById('footer-github');
+    const contrastColor = fontColorByContrastRule(color);
+    const footerCopyColor = contrastColor === '#141414' ? '#424242' : '#dadada';
     if (top !== null) {
       top.style.height = options.top;
       top.style.backgroundColor = color;
@@ -114,10 +118,15 @@ export function useScreenBorder(
       footer.style.backgroundColor = color;
     }
     if (footerCopyright !== null) {
-      // const isLight = isLightColorTone(color);
-      // const colorValue = isLight ? '#424242' : '#eee';
-      const colorValue = fontColorByContrastRule(color);
-      footerCopyright.style.color = colorValue;
+      footerCopyright.style.color = footerCopyColor;
+    }
+    if (footerEmail !== null) {
+      footerEmail.style.transition = 'color 0.5s';
+      footerEmail.style.color = contrastColor;
+    }
+    if (footerGithub !== null) {
+      footerGithub.style.transition = 'color 0.5s';
+      footerGithub.style.color = contrastColor;
     }
     return () => {
       if (top !== null) {
@@ -144,6 +153,12 @@ export function useScreenBorder(
       }
       if (footerCopyright !== null) {
         footerCopyright.style.color = '#424242';
+      }
+      if (footerEmail !== null) {
+        footerEmail.style.color = '#141414';
+      }
+      if (footerGithub !== null) {
+        footerGithub.style.color = '#141414';
       }
     };
     // eslint-disable-next-line

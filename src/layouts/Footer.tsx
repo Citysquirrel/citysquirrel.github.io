@@ -78,11 +78,12 @@ export const Footer = () => {
         <div className="footer-links">
           <img src={`${process.env.PUBLIC_URL}/ramglogo.png`} alt="ramg_logo" />
 
-          <a href="mailto:tok1324@naver.com">
+          <a id="footer-email" href="mailto:tok1324@naver.com">
             <FaMailBulk />
             E-mail
           </a>
           <a
+            id="footer-github"
             href="https://github.com/citysquirrel"
             target="_blank"
             rel="noreferrer"
