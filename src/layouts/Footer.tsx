@@ -2,17 +2,16 @@ import styled from "styled-components";
 import { FaGithub, FaMailBulk } from "react-icons/fa";
 
 const Background = styled.span`
-	position: fixed;
+	/* position: sticky; */
 	width: 100%;
 	height: 48px;
-	left: 0;
-	bottom: 0;
+	/* left: 0; */
+	/* bottom: 0; */
 	background-color: var(--soft-blue-100);
-	z-index: 3;
+	/* z-index: 3; */
 `;
 
 const Container = styled.footer`
-	position: fixed;
 	display: flex;
 	flex-direction: column;
 	width: 100%;

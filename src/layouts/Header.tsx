@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useConsole } from "../functions";
 
 const Container = styled.header<{ isTop: boolean }>`
-	position: fixed;
+	position: sticky;
 	left: 0;
 	top: 0;
 	width: 100%;

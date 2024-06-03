@@ -13,7 +13,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border: 2px solid transparent;
+	/* border: 2px solid transparent; */
 	min-height: calc(100vh - 64px);
 	transition: all 0.45s;
 	> main {
@@ -43,7 +43,7 @@ function App() {
 	return (
 		<MasterProvider>
 			<div className="App">
-				<ScreenElements />
+				{/* <ScreenElements /> */}
 				<Header />
 				<Container id="container">
 					<Suspense fallback={<Loading />}>

@@ -12,6 +12,7 @@ const Container = styled.main`
 	font-size: 18px;
 	animation: 0.5s 0.45s fadeIn;
 	animation-fill-mode: both;
+	min-height: calc(100vh - 64px - 48px);
 
 	${styleForMarkdown}
 `;
