@@ -11,14 +11,14 @@ const Blog = lazy(() => import("./pages/Blog"));
 
 const Container = styled.div`
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	/* align-items: center; */
+	justify-content: center;
 	/* border: 2px solid transparent; */
 	min-height: calc(100vh - 64px);
 	transition: all 0.45s;
 	> main {
-		max-width: 1200px;
-		width: 80vw;
+		width: 100%;
 	}
 `;
 
@@ -55,8 +55,8 @@ function App() {
 							<Route path="/*" element={<NotFound />} />
 						</Routes>
 					</Suspense>
-					<Footer />
 				</Container>
+				<Footer />
 			</div>
 		</MasterProvider>
 	);
