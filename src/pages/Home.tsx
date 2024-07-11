@@ -17,7 +17,7 @@ const Container = styled.main`
 	${styleForMarkdown}
 `;
 
-const url = "https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/master/src/markdown/About.md";
+const url = "https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/main/src/markdown/About.md";
 
 export default function Home() {
 	const [body, setBody] = useState("");
