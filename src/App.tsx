@@ -49,9 +49,9 @@ function App() {
 					<Suspense fallback={<Loading />}>
 						<Routes>
 							<Route path="/" element={<Home />} />
-							{/* <Route path="/blog/" element={<Blog />} />
-              <Route path="/blog/:number" element={<Blog />} /> */}
-							<Route path="/workpieces" element={<Workpieces />} />
+							<Route path="/blog/" element={<Blog />} />
+							<Route path="/blog/:number" element={<Blog />} />
+							{/* <Route path="/workpieces" element={<Workpieces />} /> */}
 							<Route path="/*" element={<NotFound />} />
 						</Routes>
 					</Suspense>
