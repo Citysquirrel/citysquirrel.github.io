@@ -1,95 +1,97 @@
 :root {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 /* 기본 배경 및 글자, 메뉴 배경 및 글자, 서브메뉴(푸터 등) 배경 및 글자, 버튼 배경 및 글자/테두리, 기본 테두리(그림자), 블럭 테두리/배경/글자 
 좀 더 가변적인 변화를 원하는데 방법이 없을까? */
-:root[color-theme='light'] {
+:root[color-theme="light"] {
 }
 
-:root[color-theme='dark'] {
+:root[color-theme="dark"] {
 }
 
-:root[color-theme='blue'] {
+:root[color-theme="blue"] {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(-12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 * {
-  font-family: 'Spoqa Mulish', 'Malgun Gothic', 'arial';
-  box-sizing: border-box;
-  color: var(--gray-900);
-  text-decoration: none;
+	font-family: "Spoqa Mulish", "Malgun Gothic", "arial";
+	box-sizing: border-box;
+	color: var(--gray-900);
+	text-decoration: none;
 }
 
 span {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 code :nth-child(n) {
-  word-spacing: 0.25em;
+	word-spacing: 0.25em;
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: white;
+	margin: 0;
+	padding: 0;
 }
 
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 h1 {
-  font-size: 2.75rem;
+	font-size: 2.75rem;
 }
 
 h2 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h4 {
-  font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  margin-block: 0.5em;
+	margin-block: 0.5em;
 }
 
 hr {
-  border: none;
-  border-top: 1px solid var(--gray-500);
-  border-bottom: 2px solid var(--gray-400);
-  margin: 24px 0;
+	border: none;
+	border-top: 1px solid var(--gray-500);
+	border-bottom: 2px solid var(--gray-400);
+	margin: 24px 0;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 /* ::-webkit-scrollbar,
 ::-webkit-scrollbar-thumb {
@@ -112,10 +114,10 @@ hr {
 } */
 
 .scroll-disabled {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .stop-scrolling {
-  height: 100%;
-  overflow: hidden;
+	height: 100%;
+	overflow: hidden;
 }
