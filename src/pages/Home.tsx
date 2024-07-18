@@ -6,13 +6,14 @@ import { useBodyColor, useLabelAllCheckbox, useScreenBorder } from "../functions
 import styleForMarkdown from "../lib/StyleForMarkdown";
 import note from "../markdown/Note.md";
 
-const Container = styled.main`
+const Main = styled.main`
 	margin-top: 60px;
 	margin-bottom: 60px;
 	font-size: 18px;
 	animation: 0.5s 0.45s fadeIn;
 	animation-fill-mode: both;
 	min-height: calc(100vh - 64px - 48px);
+	max-width: 1280px;
 
 	${styleForMarkdown}
 `;
@@ -39,8 +40,8 @@ export default function Home() {
 			.then((text) => setBody(text));
 	}, []);
 	return (
-		<Container>
+		<Main>
 			<Markdown>{body}</Markdown>
-		</Container>
+		</Main>
 	);
 }
