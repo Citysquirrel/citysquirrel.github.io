@@ -63,10 +63,12 @@ const Workpieces = () => {
 		{
 			id: 1,
 			title: "코딩 학습 플랫폼",
+			children: [],
 		},
 		{
 			id: 2,
 			title: "스텔카운트",
+			children: [],
 		},
 	];
 

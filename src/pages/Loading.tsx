@@ -14,7 +14,7 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	> img {
+	> svg {
 		height: 128px;
 		position: fixed;
 		animation: rotate 1s ease infinite;

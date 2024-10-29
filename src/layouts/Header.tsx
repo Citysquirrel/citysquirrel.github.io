@@ -106,7 +106,7 @@ export const Header = () => {
 	const pageInfo = [
 		["/", "About"],
 		["/blog", "Blog"],
-		["/workpieces", "Workpieces"],
+		// ["/workpieces", "Workpieces"],
 	];
 
 	useEffect(() => {

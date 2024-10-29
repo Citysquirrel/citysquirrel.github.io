@@ -10,7 +10,7 @@ const Main = styled.main`
 	margin-top: 60px;
 	margin-bottom: 60px;
 	font-size: 18px;
-	animation: 0.5s 0.45s fadeIn;
+	animation: 0.2s 0.45s fadeIn;
 	animation-fill-mode: both;
 	min-height: calc(100vh - 64px - 48px);
 	max-width: 1280px;
