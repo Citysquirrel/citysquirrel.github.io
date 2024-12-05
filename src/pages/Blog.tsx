@@ -15,7 +15,7 @@ export interface IBlogProps {
 const Container = styled.main`
 	clear: both;
 	margin-top: 60px;
-	animation: 1s 0.5s fadeIn;
+	animation: 0.2s 0.5s fadeIn;
 	animation-fill-mode: both;
 `;
 

@@ -10,7 +10,7 @@
 	margin-block: 0;
 	content: "";
 	background-color: var(--soft-blue-100);
-	transition: all 0.45s ease-in-out;
+	transition: all 0.25s ease-in-out;
 	z-index: 2;
 }
 #top {

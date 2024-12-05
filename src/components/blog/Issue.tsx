@@ -9,9 +9,15 @@ import { Middot } from '../details';
 const Container = styled.section`
   float: right;
   width: calc(100% - 200px);
-  margin-top: 60px;
   margin-bottom: 60px;
   padding: 12px;
+`;
+
+const Title = styled.div`
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 36px;
 `;
 
 const Single = styled.article`
@@ -121,63 +127,66 @@ const Issue = ({ data, isLoading }: IBlogProps) => {
       ) : filtered?.length === 0 ? (
         <NoData />
       ) : (
-        data
-          ?.filter((issue) => {
-            const queryObj = modQueryString(search);
-            if (queryObj.tags === undefined) return true;
-            return issue.labels
-              .map((issue) => typeof issue !== 'string' && issue.name)
-              .includes(queryObj.tags);
-          })
-          .map((issue) => {
-            const title = issue.title.split('[BLOG] ')[1];
-            const { labels, body } = issue;
+        <>
+          {/* <Title>Blog</Title> */}
+          {data
+            ?.filter((issue) => {
+              const queryObj = modQueryString(search);
+              if (queryObj.tags === undefined) return true;
+              return issue.labels
+                .map((issue) => typeof issue !== 'string' && issue.name)
+                .includes(queryObj.tags);
+            })
+            .map((issue) => {
+              const title = issue.title.split('[BLOG] ')[1];
+              const { labels, body } = issue;
 
-            const tag = labels.map((label) =>
-              typeof label === 'string' ? label : label.name
-            );
-            const description = body?.split('---')[0].trim();
-            const { alias } = modifyDatetime(issue.created_at);
-            return (
-              <Single key={issue.id}>
-                <h2 className="blog-subject">
-                  <Link to={`/blog/${issue.number}`}>{title}</Link>
-                </h2>
-                <div className="blog-info-wrapper">
-                  <span className="blog-alias">{alias}</span>
-                  <Middot />
-                  {tag.map((ele, idx) => {
-                    if (
-                      ele !== undefined &&
-                      ele !== 'Blog' &&
-                      ele[0].toUpperCase() === ele[0]
-                    )
-                      return (
-                        <span
-                          key={idx}
-                          className="blog-category"
-                          onClick={handleTagClick(ele)}
-                        >
-                          {ele}
-                        </span>
-                      );
-                    else return null;
-                  })}
-                  <Middot />
-                  <a
-                    className="blog-issue-link"
-                    href={issue.html_url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <FaGithub className="blog-issue-link-icon" />
-                    Github Issues
-                  </a>
-                </div>
-                <div className="blog-description">{description}</div>
-              </Single>
-            );
-          })
+              const tag = labels.map((label) =>
+                typeof label === 'string' ? label : label.name
+              );
+              const description = body?.split('---')[0].trim();
+              const { alias } = modifyDatetime(issue.created_at);
+              return (
+                <Single key={issue.id}>
+                  <h2 className="blog-subject">
+                    <Link to={`/blog/${issue.number}`}>{title}</Link>
+                  </h2>
+                  <div className="blog-info-wrapper">
+                    <span className="blog-alias">{alias}</span>
+                    <Middot />
+                    {tag.map((ele, idx) => {
+                      if (
+                        ele !== undefined &&
+                        ele !== 'Blog' &&
+                        ele[0].toUpperCase() === ele[0]
+                      )
+                        return (
+                          <span
+                            key={idx}
+                            className="blog-category"
+                            onClick={handleTagClick(ele)}
+                          >
+                            {ele}
+                          </span>
+                        );
+                      else return null;
+                    })}
+                    <Middot />
+                    <a
+                      className="blog-issue-link"
+                      href={issue.html_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaGithub className="blog-issue-link-icon" />
+                      Github Issues
+                    </a>
+                  </div>
+                  <div className="blog-description">{description}</div>
+                </Single>
+              );
+            })}
+        </>
       )}
     </Container>
   );

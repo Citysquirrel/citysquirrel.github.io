@@ -29,10 +29,16 @@ const Container = styled.section`
 const Subject = styled.header`
   flex: auto;
   /* border-bottom: 2px solid var(--gray-500); */
+  border: 1px solid var(--gray-400);
+  border-radius: 4px;
+
   .article-subject {
     font-size: 52px;
     font-weight: 600;
-    margin: 0.75em 0 0.75em;
+    margin: 0.75em 0.5em 0.75em;
+    /* border-top: 2px solid var(--soft-blue-400); */
+    /* border-bottom: 2px solid var(--soft-blue-400); */
+    word-break: keep-all;
   }
   .article-info {
     text-align: right;
