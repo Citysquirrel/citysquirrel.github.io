@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Citysquirrel/citysquirrel.github.io/compare/v1.1.0...v1.1.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* just test ([730083f](https://github.com/Citysquirrel/citysquirrel.github.io/commit/730083f0534d4aca37a74d3acb13e987efa808d5))
+
 ## [1.1.0](https://github.com/Citysquirrel/citysquirrel.github.io/compare/v1.0.1...v1.1.0) (2024-07-11)
 
 
