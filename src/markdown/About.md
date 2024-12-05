@@ -6,5 +6,10 @@
 
 # 프로젝트
 
+- 개인활동: StelCount[(https://stelcount.fans/)](https://stelcount.fans/)
 - 코드유니언: 코딩 학습 플랫폼(종료)
-- 개인활동: StelCount[https://stelcount.fans/](https://stelcount.fans/)
+
+# 경력
+
+- 코드유니언: 개발팀 8개월
+- 코드스테이츠: 소프트웨어 엔지니어(인턴) 4개월
