@@ -9,6 +9,7 @@ export const styleForMarkdown = `
   }
 
   p {
+    line-height: 24px;
     > code {
       background-color: var(--gray-300);
       padding: 2px 6px;
@@ -39,8 +40,11 @@ export const styleForMarkdown = `
     color: var(--soft-blue-800);
   }
 
-  li > p {
-    margin: 0;
+  li {
+    line-height: 24px; 
+    > p {
+      margin: 0;
+    } 
   }
 
   input[type="checkbox"] {

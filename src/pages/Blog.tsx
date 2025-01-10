@@ -29,7 +29,7 @@ const Blog = () => {
 		(issue) => issue.number === Number(number)
 	);
 
-	console.log("article: ", article);
+	// console.log("article: ", article);
 
 	/**
 	 * @constant 글 작성자를 특정합니다. string[]

@@ -11,7 +11,7 @@ interface IPre {
 }
 
 const CodeConfig = ({ className, children }: ICode) => {
-	const myStyle = {
+	const myStyle: React.CSSProperties | undefined = {
 		borderRadius: "4px",
 		padding: "16px",
 		margin: "8px 0",
