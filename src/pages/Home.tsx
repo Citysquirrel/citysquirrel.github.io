@@ -1,6 +1,7 @@
 import axios from "axios";
 import Markdown from "markdown-to-jsx";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useBodyColor, useLabelAllCheckbox, useScreenBorder } from "../functions";
 import styleForMarkdown from "../lib/StyleForMarkdown";
@@ -21,27 +22,32 @@ const Main = styled.main`
 const url = "https://raw.githubusercontent.com/Citysquirrel/citysquirrel.github.io/main/src/markdown/About.md";
 
 export default function Home() {
-	const [body, setBody] = useState("");
-	useBodyColor("#fdfdfd");
-	useScreenBorder(
-		{
-			top: "4px",
-			right: "4px",
-			bottom: "4px",
-			left: "4px",
-			container: "4px",
-		},
-		"#6caaef"
-	);
-	useLabelAllCheckbox(body);
+	const navigate = useNavigate()
 	useEffect(() => {
-		fetch(url, {}) // CORB blocked with MIME type text/plain!
-			.then((res) => res.text())
-			.then((text) => setBody(text));
-	}, []);
-	return (
-		<Main>
-			<Markdown>{body}</Markdown>
-		</Main>
-	);
+		navigate('/blog')
+	})
+	return <></>
+	// const [body, setBody] = useState("");
+	// useBodyColor("#fdfdfd");
+	// useScreenBorder(
+	// 	{
+	// 		top: "4px",
+	// 		right: "4px",
+	// 		bottom: "4px",
+	// 		left: "4px",
+	// 		container: "4px",
+	// 	},
+	// 	"#6caaef"
+	// );
+	// useLabelAllCheckbox(body);
+	// useEffect(() => {
+	// 	fetch(url, {}) // CORB blocked with MIME type text/plain!
+	// 		.then((res) => res.text())
+	// 		.then((text) => setBody(text));
+	// }, []);
+	// return (
+	// 	<Main>
+	// 		<Markdown>{body}</Markdown>
+	// 	</Main>
+	// );
 }
