@@ -18,12 +18,15 @@ function renderChunks(deps: Record<string, string>) {
 	return chunks;
 }
 
+const outDir = "docs";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
 	if (mode === "production")
 		return {
 			plugins: [react()],
 			build: {
+				outDir,
 				rollupOptions: {
 					output: {
 						manualChunks: {
@@ -47,6 +50,7 @@ export default defineConfig(({ mode }) => {
 				https: true,
 			},
 			build: {
+				outDir,
 				rollupOptions: {
 					output: {
 						manualChunks: {
@@ -59,4 +63,3 @@ export default defineConfig(({ mode }) => {
 			},
 		};
 });
-
